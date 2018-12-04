@@ -17,11 +17,22 @@ public class Demo01Fib {
         小兔子长到第三个月后每个月又生一对兔子，假如兔子都不死，问每个月的兔子总数为多少？
          */
         Scanner sc = new Scanner(System.in);
-        System.out.println("请输入要查询的第几个月兔子数量");
-        int n = sc.nextInt();
-        int num = fib1(n);
-        // 使用占位符输出
-        System.out.println(MessageFormat.format("第{0}个月有兔子总数为{1}", n, num));
+        // 第n个月
+        int n = 1;
+        while (true) {
+            System.out.println("请输入要查询的第几个月兔子数量");
+            n = sc.nextInt();
+            if (n == 0) {
+                System.out.println("退出系统");
+                break;
+            }
+            // 第一种方法
+            // int num = fib1(n);
+            // 第二种方法，递归
+            int num = fib2(n);
+            // 使用占位符输出
+            System.out.println(MessageFormat.format("第{0}个月有兔子总数为{1}", n, num));
+        }
         sc.close();
     }
 
@@ -43,9 +54,18 @@ public class Demo01Fib {
         return fn;
     }
 
-
-
-
-
+    /**
+     * 斐波那契方法二
+     *
+     * @param n 第n个月
+     * @return
+     */
+    private static int fib2(int n) {
+        if (n == 1 || n == 2) {
+            return 2;
+        } else {
+            return fib2(n - 1) + fib1(n - 2);
+        }
+    }
 
 }
