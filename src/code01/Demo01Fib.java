@@ -55,7 +55,7 @@ public class Demo01Fib {
     }
 
     /**
-     * 斐波那契方法二
+     * 斐波那契方法二（递归）
      *
      * @param n 第n个月
      * @return
