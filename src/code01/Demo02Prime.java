@@ -15,6 +15,10 @@ public class Demo02Prime {
          */
         // showPrime1(101, 200);
         showPrime2(101, 200);
+
+        // 是否是素数
+        boolean prime = isPrime(13);
+        System.out.println(prime);
     }
 
     /**
@@ -46,6 +50,7 @@ public class Demo02Prime {
         }
         System.out.println("共有：" + count);
         System.out.println("共执行循环" + cycles);
+
     }
 
     /**
@@ -77,6 +82,26 @@ public class Demo02Prime {
         }
         System.out.println("共有素数：" + count);
         System.out.println("共执行循环：" + cycle);
+    }
+
+    /**
+     * 判断是否是素数
+     *
+     * @param num
+     * @return
+     */
+    private static boolean isPrime(int num) {
+        // 存储结果
+        boolean flag = true;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                flag = false;
+                break;
+            }
+        }
+
+        // 返回
+        return flag;
     }
 
 
