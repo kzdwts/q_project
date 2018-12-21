@@ -5,6 +5,13 @@ package code01;
  * Description: 素数
  * User: kangyong
  * Date: 2018/12/5 00:04
+ * 访问修饰符：
+ * 访问权限     类   包   子类  其他包
+ * public       √   √     √     √
+ * protected    √   √     √     ×
+ * 缺省         √   √     ×     ×
+ * private      √   ×     ×     ×
+ *
  */
 public class Demo02Prime {
 
@@ -90,7 +97,7 @@ public class Demo02Prime {
      * @param num
      * @return
      */
-    private static boolean isPrime(int num) {
+    protected static boolean isPrime(int num) {
         // 存储结果
         boolean flag = true;
         for (int i = 2; i <= Math.sqrt(num); i++) {
@@ -103,6 +110,5 @@ public class Demo02Prime {
         // 返回
         return flag;
     }
-
 
 }
