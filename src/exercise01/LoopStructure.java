@@ -65,4 +65,21 @@ public class LoopStructure {
             }
         }
     }
+
+    /**
+     * 乘法口诀表
+     */
+    @Test
+    public void testMultiplactionTable() {
+        // i控制外层
+        for(int i = 1; i <=9; i++) {
+            // j控制内层
+            for(int j = 1; j <= i; j++) {
+                System.out.print(j + "x" + i + "=" + j * i + "  ");
+            }
+            System.out.println();
+        }
+    }
+
+
 }
