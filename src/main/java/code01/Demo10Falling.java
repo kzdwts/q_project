@@ -14,5 +14,17 @@ public class Demo10Falling {
         再落下，求它在 第10次落地时，共经过多少米？第10次反弹多高？
          */
 
+        // 高度
+        double height = 100;
+        // 路程
+        double totalS = 0;
+
+        for (int i = 1; i <= 10; i++) {
+            totalS += height;
+            height = height / 2;
+        }
+
+        System.out.println("共经过 " + totalS + " m");
+        System.out.println("第10次反弹 " + height + "m");
     }
 }
