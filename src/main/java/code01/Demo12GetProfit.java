@@ -33,7 +33,21 @@ public class Demo12GetProfit {
         profit = sc.nextInt();
         sc.close();
 
-        // 计算提成
+        bouns = getBouns1(profit);
+
+
+        System.out.println("奖金总额为：" + bouns);
+
+    }
+
+    /**
+     * 计算提成方法一（累计）
+     *
+     * @param profit
+     * @return
+     */
+    private static double getBouns1(double profit) {
+        double bouns;// 计算提成
         if (profit <= 10) {
             bouns = profit * 0.10;
         } else if (profit < 20) {
@@ -47,8 +61,8 @@ public class Demo12GetProfit {
         } else {
             bouns = 10 * 0.10 + 10 * 0.075 + 20 * 0.050 + 20 * 0.030 + 40 * 0.015 + (profit - 100) * 0.010;
         }
-
-        System.out.println("奖金总额为：" + bouns);
-
+        return bouns;
     }
+
+
 }
