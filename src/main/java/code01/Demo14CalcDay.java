@@ -31,19 +31,35 @@ public class Demo14CalcDay {
         boolean isLeap = false;
 
         // 计算
+        num = calcDayOfNumInYear(year, month, day, num, isLeap);
+
+        // 输出
+        System.out.println(date + "是这一年的第" + num + "天");
+
+    }
+
+    /**
+     * 计算是一年的第几天
+     *
+     * @param year   年
+     * @param month  月
+     * @param day    日
+     * @param num    第num天
+     * @param isLeap 是否润年
+     * @return
+     */
+    private static int calcDayOfNumInYear(int year, int month, int day, int num, boolean isLeap) {
         // 是否润年（4年一润，百年不润，400年一润）
         if ((year % 4 == 0) && !(year % 100 == 0) && (year % 400 == 0)) {
             isLeap = true;
         }
 
+        // 计算
         for (int i = 1; i < month; i++) {
             num += getMonthFullDay(i, isLeap);
         }
         num += day;
-
-        // 输出
-        System.out.println(date + "是这一年的第" + num + "天");
-
+        return num;
     }
 
     /**
