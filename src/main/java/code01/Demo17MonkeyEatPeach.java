@@ -19,5 +19,16 @@ public class Demo17MonkeyEatPeach {
             到第10天早上想再吃时，见只剩下一个桃子了。
             求第一天共摘了多少。
          */
+
+        int totalNum = 0;
+        int lastNum = 1;
+
+        for (int i = 10; i >= 1; i--) {
+            System.out.println("第" + i + "天，剩" + lastNum + "个桃子");
+            totalNum += lastNum;
+            lastNum = (lastNum + 1) * 2;
+        }
+
+        System.out.println("共有桃子" + totalNum);
     }
 }
