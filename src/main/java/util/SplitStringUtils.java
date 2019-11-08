@@ -25,14 +25,14 @@ public class SplitStringUtils {
      * @return
      */
     public static String idCardHide(String idCard) {
-        return idCard.replaceAll("(\\d{4})\\d{10}(\\d{4})", "$1****$2");
+        return idCard.replaceAll("(\\d{4})\\d{10}(\\d{4}|(\\d{3}[Xx]))", "$1****$2");
     }
 
     public static void main(String[] args) {
         String phone = "17755242819";
         System.out.println(phoneHide(phone));
 
-        String idCard = "340121200010014569";
+        String idCard = "34012120001001456X";
         System.out.println(idCardHide(idCard));
     }
 
