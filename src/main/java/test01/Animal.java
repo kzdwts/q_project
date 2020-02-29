@@ -8,9 +8,14 @@ package test01;
  * @date: 2019/11/7 17:42
  * @version: v1.0
  */
-public interface Animal {
+public class Animal implements Cloneable {
 
-    void eat();
+    public Cat cat;
 
-    abstract void speak();
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }
+
+

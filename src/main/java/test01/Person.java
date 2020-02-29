@@ -23,4 +23,14 @@ public abstract class Person {
     public void speak() {
         System.out.println("Hello");
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", height=" + height +
+                ", len=" + len +
+                '}';
+    }
 }
