@@ -4,12 +4,10 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -26,8 +24,11 @@ import java.util.stream.Collectors;
 public class DateUtils {
 
     private static final DateTimeFormatter dayformatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-    public static final DateTimeFormatter dayfmtSeparator = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    public static final DateTimeFormatter monthformatter = DateTimeFormatter.ofPattern("yyyyMM");
+    private static final DateTimeFormatter dayfmtSeparator = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private static final DateTimeFormatter monthformatter = DateTimeFormatter.ofPattern("yyyyMM");
+    private static final DateTimeFormatter yearformatter = DateTimeFormatter.ofPattern("yyyy");
+
+    private String dbName = "food";
 
     public static long getDateTimePoor(Date endDate, Date nowDate) {
         return Math.abs(endDate.getTime() - nowDate.getTime());
@@ -54,14 +55,20 @@ public class DateUtils {
     @Test
     public void demoTest1() throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = sdf.parse("2020-02-01");
+        Date date = sdf.parse("2020-03-01");
         LocalDate localDate = dateToLocalDate(date);
-        System.out.println(date);
-        System.out.println(localDate);
 
         // 昨日所在的月份
-        String yesterdayInMonth = localDate.plusDays(-1).format(monthformatter);
-        System.out.println(yesterdayInMonth);
+//        String yesterdayInMonth = localDate.plusDays(-1).format(monthformatter);
+//        System.out.println(yesterdayInMonth);
+
+        // 昨天的上个月
+        String ystDayLastMonth = localDate.plusDays(-1).plusMonths(-1).format(monthformatter);
+        // 昨天的上个月最后一天
+        String ystDayLastMonthLastDay = localDate.plusDays(-1).plusMonths(-1).with(TemporalAdjusters.lastDayOfMonth()).format(dayformatter);
+
+        System.out.println(ystDayLastMonth);
+        System.out.println(ystDayLastMonthLastDay);
     }
 
     /**
@@ -75,9 +82,9 @@ public class DateUtils {
         LocalDate now = LocalDate.now();
 
         // 前天，不带分隔符
-        String theDayBeforeYesterDaySep = now.plusDays(-2).format(dayformatter);
+        String theDayBeforeYesterDayStr = now.plusDays(-2).format(dayformatter);
         // 前天，带分隔符
-        String theDayBeforeYesterDayStr = now.plusDays(-2).format(dayfmtSeparator);
+        String theDayBeforeYesterDaySep = now.plusDays(-2).format(dayfmtSeparator);
 
         // 昨日，不带分隔符
         String dayStr = now.plusDays(-1).format(dayformatter);
@@ -97,8 +104,32 @@ public class DateUtils {
         // 上月最后一天
         String lastMonthLastDay = now.plusMonths(-1).with(TemporalAdjusters.lastDayOfMonth()).format(dayformatter);
 
-        System.out.println(crtMonth);
-        System.out.println(lastMonthLastDay);
+        // 昨天的上个月
+        String ystDayLastMonth = now.plusDays(-1).plusMonths(-1).format(monthformatter);
+
+        int crtYearStr = now.getYear();
+
+        String lastYearStr = now.minusYears(1).format(yearformatter);
+
+        // 昨天的年月
+        String ystYearMonth = now.plusDays(-1).format(monthformatter);
+        // 昨天的月份
+        String ystMonthVal = now.plusDays(-1).getMonthValue() + "";
+        // 昨天是这个月的第几天
+        String ystDayOfMonthVal = now.plusDays(-1).getDayOfMonth() + "";
+
+        String ystLastYearMonth = now.plusDays(-1).minusMonths(1).format(monthformatter);
+
+        // 昨天的上一年最后一个月
+        String ystLastYearLastMonth = now.plusDays(-1).minusYears(1).with(TemporalAdjusters.lastDayOfYear()).format(monthformatter);
+
+        System.out.println(ystYearMonth);
+        System.out.println(ystMonthVal);
+        System.out.println(ystDayOfMonthVal);
+        System.out.println(ystLastYearLastMonth);
+
+        System.out.println(dbName);
+
 
     }
 
