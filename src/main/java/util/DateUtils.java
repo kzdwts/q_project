@@ -59,8 +59,8 @@ public class DateUtils {
         LocalDate localDate = dateToLocalDate(date);
 
         // 昨日所在的月份
-//        String yesterdayInMonth = localDate.plusDays(-1).format(monthformatter);
-//        System.out.println(yesterdayInMonth);
+        String yesterdayInMonth = localDate.plusDays(-1).format(monthformatter);
+        System.out.println(yesterdayInMonth);
 
         // 昨天的上个月
         String ystDayLastMonth = localDate.plusDays(-1).plusMonths(-1).format(monthformatter);
@@ -80,6 +80,9 @@ public class DateUtils {
     public void demoTest2() throws ParseException {
         // 时间参数
         LocalDate now = LocalDate.now();
+
+        String da = now.plusDays(30).format(dayfmtSeparator);
+        System.out.println(da);
 
         // 前天，不带分隔符
         String theDayBeforeYesterDayStr = now.plusDays(-2).format(dayformatter);
@@ -130,6 +133,14 @@ public class DateUtils {
 
         System.out.println(dbName);
 
+
+    }
+
+    @Test
+    public void getYestInMonth() {
+        LocalDate now = LocalDate.now();
+        String yestInMonth = now.plusDays(-1).format(monthformatter);
+        System.out.println(yestInMonth);
 
     }
 

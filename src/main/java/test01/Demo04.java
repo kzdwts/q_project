@@ -1,6 +1,14 @@
 package test01;
 
 import org.junit.Test;
+import org.springframework.util.ObjectUtils;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,6 +19,10 @@ import org.junit.Test;
  * @version: v1.0
  */
 public class Demo04 {
+
+    private static final DateTimeFormatter SERVER_FULL_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss");
+
+    private static final DateTimeFormatter SERVER_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd");
 
     @Test
     public void test01() {
@@ -27,6 +39,33 @@ public class Demo04 {
         System.out.println(System.currentTimeMillis());
         System.out.println(sb.toString());
         System.out.println(str);
+    }
+
+    @Test
+    public void test02() {
+        LocalDate date = LocalDate.now().minusDays(1);
+        LocalDate yesterday = date.minusDays(1);
+        String startTime = yesterday.format(SERVER_FORMATTER) + "T160000";
+        String endTime = date.format(SERVER_FORMATTER) + "T155959";
+        int pageSize = 2000;
+        int pageIndex = 1;
+        int totalPage = 1;
+
+        System.out.println(startTime);
+        System.out.println(endTime);
+
+    }
+
+    @Test
+    public void test03() {
+//        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:dd");
+//        String date = "2020-04-24 12:00:00.0";
+//        LocalDateTime date1 = LocalDateTime.parse(date, df);
+//        System.out.println(date1);
+        String text = "2020-04-24 12:00:00.0";
+        text = text.substring(0, text.lastIndexOf("."));
+        System.out.println(text);
+        LocalDateTime dateTime = LocalDateTime.parse(text, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 
 }
