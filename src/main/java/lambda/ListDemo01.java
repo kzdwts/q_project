@@ -3,7 +3,9 @@ package lambda;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -83,6 +85,19 @@ public class ListDemo01 {
         list1.forEach(System.out::println);
         System.out.println("=============华丽的分割线============");
         list2.forEach(System.out::println);
+    }
+
+    /**
+     * 测试map存基本类型
+     */
+    @Test
+    public void testMap() {
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        map.put(1, 100);
+        map.put(2, 200);
+        map.put(1, 555);
+        byte b = 1;
+        System.out.println("从键获取值：" + map.get(b));
     }
 
 }
