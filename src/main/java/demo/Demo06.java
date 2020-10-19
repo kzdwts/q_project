@@ -46,4 +46,10 @@ public class Demo06 {
         System.out.println(num == b);
     }
 
+    @Test
+    public void test04() {
+        System.out.println(0 / 1);
+        System.out.println(1 / 0);
+    }
+
 }
