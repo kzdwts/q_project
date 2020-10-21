@@ -1,5 +1,6 @@
 package lambda;
 
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -68,6 +69,11 @@ public class LambdaDemo01 {
         // 转为map
         Map<Integer, String> map = list.stream().collect(Collectors.toMap(Cart::getId, Cart::getBrand));
         map.forEach((k, v) -> System.out.println("id=" + k + " 品牌=" + v));
+
+        System.out.println("===================");
+        map.forEach((k, v) -> {
+                System.out.println(k + v);
+        });
     }
 
 
