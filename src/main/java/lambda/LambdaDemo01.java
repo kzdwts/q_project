@@ -1,12 +1,12 @@
 package lambda;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 /**
@@ -72,8 +72,15 @@ public class LambdaDemo01 {
 
         System.out.println("===================");
         map.forEach((k, v) -> {
-                System.out.println(k + v);
+            System.out.println(k + v);
         });
+
+        AtomicInteger num = new AtomicInteger();
+        map.forEach((k, v) -> {
+            num.addAndGet(k);
+        });
+
+        System.out.println("num= " + num.get());
     }
 
 
