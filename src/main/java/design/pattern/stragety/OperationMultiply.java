@@ -1,4 +1,4 @@
-package design.mode.stragety;
+package design.pattern.stragety;
 
 /**
  * Created with IntelliJ IDEA.
