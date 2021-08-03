@@ -1,69 +1,34 @@
-resultMap.put("ARHF83",	"2020/7/13 0:00");
-resultMap.put("ARHF53",	"2018/12/23 0:00");
-resultMap.put("ARHF85",	"2020/7/1 0:00");
-resultMap.put("ARHF56",	"2019/1/12 0:00");
-resultMap.put("ARHF55",	"2019/5/10 0:00");
-resultMap.put("ARHF70",	"2020/1/17 0:00");
-resultMap.put("ARHF74",	"2020/1/17 0:00");
-resultMap.put("ARHF32",	"2016/1/13 0:00");
-resultMap.put("ARHF97",	"2015/12/26 0:00");
-resultMap.put("ARHF25",	"2017/7/13 0:00");
-resultMap.put("ARHF50",	"2018/9/9 0:00");
-resultMap.put("ARHF40",	"2017/6/17 0:00");
-resultMap.put("ARHF01",	"2006/7/20 0:00");
-resultMap.put("ARHF41",	"2017/7/1 0:00");
-resultMap.put("ARHF64",	"2019/5/8 0:00");
-resultMap.put("ARHF42",	"2017/6/28 0:00");
-resultMap.put("ARHF48",	"2018/6/29 0:00");
-resultMap.put("ARHF79",	"2020/7/1 0:00");
-resultMap.put("ARHF87",	"2018/6/2 0:00");
-resultMap.put("ARHF43",	"2018/1/19 0:00");
-resultMap.put("ARHF37",	"2016/12/12 0:00");
-resultMap.put("ARHF28",	"2014/9/13 0:00");
-resultMap.put("ARHF30",	"2015/7/18 0:00");
-resultMap.put("ARHF45",	"2018/7/1 0:00");
-resultMap.put("ARHF46",	"2018/6/28 0:00");
-resultMap.put("ARHF82",	"2020/6/27 0:00");
-resultMap.put("ARHF26",	"2014/7/3 0:00");
-resultMap.put("ARHF62",	"2019/6/11 0:00");
-resultMap.put("ARHF22",	"2012/6/1 0:00");
-resultMap.put("ARHF47",	"2018/7/1 0:00");
-resultMap.put("ARHF16",	"2011/12/9 0:00");
-resultMap.put("ARHF33",	"2016/7/1 0:00");
-resultMap.put("ARHF80",	"2020/7/1 0:00");
-resultMap.put("ARHF19",	"2012/6/10 0:00");
-resultMap.put("ARHF49",	"2019/1/17 0:00");
-resultMap.put("ARHF54",	"2019/3/1 0:00");
-resultMap.put("ARHF14",	"2010/7/5 0:00");
-resultMap.put("ARHF08",	"2008/1/28 0:00");
-resultMap.put("ARHF65",	"2019/9/1 0:00");
-resultMap.put("ARHF75",	"2020/1/30 0:00");
-resultMap.put("ARHF96",	"2020/5/1 0:00");
-resultMap.put("ARHF34",	"2016/6/28 0:00");
-resultMap.put("ARHF18",	"2012/1/9 0:00");
-resultMap.put("ARHF52",	"2019/1/12 0:00");
-resultMap.put("ARHF78",	"2020/1/30 0:00");
-resultMap.put("ARHF66",	"2019/6/10 0:00");
-resultMap.put("ARHF91",	"2020/7/6 0:00");
-resultMap.put("ARHF76",	"2020/1/4 0:00");
-resultMap.put("ARHF84",	"2012/10/17 0:00");
-resultMap.put("ARHF24",	"2012/9/16 0:00");
-resultMap.put("ARHF71",	"2019/9/22 0:00");
-resultMap.put("ARHF77",	"2020/1/17 0:00");
-resultMap.put("ARHF69",	"2019/9/7 0:00");
-resultMap.put("ARHF68",	"2020/1/4 0:00");
-resultMap.put("ARHF67",	"2019/11/23 0:00");
-resultMap.put("ARHF59",	"2019/6/20 0:00");
-resultMap.put("ARHF51",	"2019/1/12 0:00");
-resultMap.put("ARHF36",	"2016/9/10 0:00");
-resultMap.put("ARHF44",	"2018/1/30 0:00");
-resultMap.put("ARHF38",	"2017/6/26 0:00");
-resultMap.put("ARHF31",	"2015/12/12 0:00");
-resultMap.put("ARHF23",	"2012/9/11 0:00");
-resultMap.put("ARHF39",	"2017/7/10 0:00");
-resultMap.put("ARHF57",	"2019/5/10 0:00");
-resultMap.put("ARHF63",	"2019/5/18 0:00");
-resultMap.put("ARHF86",	"2020/6/27 0:00");
-resultMap.put("ARHF35",	"2016/6/30 0:00");
-resultMap.put("ARHF27",	"2014/7/16 0:00");
-resultMap.put("ARHF29",	"2015/2/8 0:00");
+UPDATE report_area SET active_fyear_fq = 'FY2016Q3' WHERE id = 10 ;		-- 汇金
+UPDATE report_area SET active_fyear_fq = 'FY2018Q3' WHERE id = 11 ;		-- 汇鑫
+UPDATE report_area SET active_fyear_fq = 'FY2014Q1' WHERE id = 12 ;		-- 美屯
+UPDATE report_area SET active_fyear_fq = 'FY2014Q3' WHERE id = 13 ;		-- 丝绸
+UPDATE report_area SET active_fyear_fq = 'FY2020Q3' WHERE id = 14 ;		-- 保利拉菲西
+UPDATE report_area SET active_fyear_fq = 'FY2018Q3' WHERE id = 15 ;		-- 滨湖保利拉菲
+UPDATE report_area SET active_fyear_fq = 'FY2020Q3' WHERE id = 17 ;		-- 佳源广场
+UPDATE report_area SET active_fyear_fq = 'FY2016Q2' WHERE id = 18 ;		-- 临滨苑
+UPDATE report_area SET active_fyear_fq = 'FY2020Q1' WHERE id = 19 ;		-- 日角大厦
+UPDATE report_area SET active_fyear_fq = 'FY2019Q3' WHERE id = 21 ;		-- 红星路
+UPDATE report_area SET active_fyear_fq = 'FY2020Q1' WHERE id = 22 ;		-- 环城南路
+UPDATE report_area SET active_fyear_fq = 'FY2017Q1' WHERE id = 23 ;		-- 栢景湾
+UPDATE report_area SET active_fyear_fq = 'FY2019Q3' WHERE id = 24 ;		-- 国文
+UPDATE report_area SET active_fyear_fq = 'FY2015Q2' WHERE id = 25 ;		-- 蓝筹
+UPDATE report_area SET active_fyear_fq = 'FY2020Q1' WHERE id = 26 ;		-- 橡树湾
+UPDATE report_area SET active_fyear_fq = 'FY2014Q1' WHERE id = 27 ;		-- 贵潜
+UPDATE report_area SET active_fyear_fq = 'FY2019Q1' WHERE id = 28 ;		-- 汉嘉
+UPDATE report_area SET active_fyear_fq = 'FY2018Q1' WHERE id = 29 ;		-- 拓基
+UPDATE report_area SET active_fyear_fq = 'FY2020Q2' WHERE id = 30 ;		-- 学府星座
+UPDATE report_area SET active_fyear_fq = 'FY2018Q1' WHERE id = 31 ;		-- 学府银座
+UPDATE report_area SET active_fyear_fq = 'FY2019Q1' WHERE id = 33 ;		-- 凤台路
+UPDATE report_area SET active_fyear_fq = 'FY2014Q1' WHERE id = 34 ;		-- 和平路
+UPDATE report_area SET active_fyear_fq = 'FY2020Q3' WHERE id = 35 ;		-- 花冲影城
+UPDATE report_area SET active_fyear_fq = 'FY2020Q3' WHERE id = 36 ;		-- 隆岗
+UPDATE report_area SET active_fyear_fq = 'FY2017Q1' WHERE id = 37 ;		-- 温莎
+UPDATE report_area SET active_fyear_fq = 'FY2020Q3' WHERE id = 38 ;		-- 龙图路
+UPDATE report_area SET active_fyear_fq = 'FY2019Q2' WHERE id = 39 ;		-- 御龙湾
+UPDATE report_area SET active_fyear_fq = 'FY2017Q2' WHERE id = 40 ;		-- 政务置地
+UPDATE report_area SET active_fyear_fq = 'FY2015Q1' WHERE id = 43 ;		-- 桐城路
+UPDATE report_area SET active_fyear_fq = 'FY2014Q1' WHERE id = 44 ;		-- 百花大厦
+UPDATE report_area SET active_fyear_fq = 'FY2021Q1' WHERE id = 45 ;		-- 紫荆广场
+UPDATE report_area SET active_fyear_fq = 'FY2014Q1' WHERE id = 46 ;		-- 百花井
+UPDATE report_area SET active_fyear_fq = 'FY2021Q1' WHERE id = 50 ;		-- 滨湖品阁
+UPDATE report_area SET active_fyear_fq = 'FY2021Q1' WHERE id = 51 ;		-- 沃野

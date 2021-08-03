@@ -67,20 +67,20 @@ public class LambdaDemo01 {
         list.add(new Cart(6, "大众宝来", 6000f, "white"));
 
         // 转为map
-        Map<Integer, String> map = list.stream().collect(Collectors.toMap(Cart::getId, Cart::getBrand));
-        map.forEach((k, v) -> System.out.println("id=" + k + " 品牌=" + v));
-
-        System.out.println("===================");
-        map.forEach((k, v) -> {
-            System.out.println(k + v);
-        });
-
-        AtomicInteger num = new AtomicInteger();
-        map.forEach((k, v) -> {
-            num.addAndGet(k);
-        });
-
-        System.out.println("num= " + num.get());
+//        Map<Integer, String> map = list.stream().collect(Collectors.toMap(Cart::getId, Cart::getBrand));
+//        map.forEach((k, v) -> System.out.println("id=" + k + " 品牌=" + v));
+//
+//        System.out.println("===================");
+//        map.forEach((k, v) -> {
+//            System.out.println(k + v);
+//        });
+//
+//        AtomicInteger num = new AtomicInteger();
+//        map.forEach((k, v) -> {
+//            num.addAndGet(k);
+//        });
+//
+//        System.out.println("num= " + num.get());
     }
 
 

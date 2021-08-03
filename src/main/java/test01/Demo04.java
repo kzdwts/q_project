@@ -9,6 +9,8 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -66,6 +68,15 @@ public class Demo04 {
         text = text.substring(0, text.lastIndexOf("."));
         System.out.println(text);
         LocalDateTime dateTime = LocalDateTime.parse(text, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+    }
+
+    @Test
+    public void test04() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", "李子木");
+        map.put("age", 21);
+
+        map.forEach((k,v) -> System.out.println(k + ": " + v));
     }
 
 }

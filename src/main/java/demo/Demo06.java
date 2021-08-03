@@ -3,10 +3,12 @@ package demo;
 import org.junit.Test;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created with IntelliJ IDEA.
@@ -91,20 +93,20 @@ public class Demo06 {
 //        areaDataMap.forEach((k,v) -> System.out.println("k=" + k + ",  v=" + v));
 //        System.out.println("areaDataMap.size()=" + areaDataMap.size());
 
-        List<Area> resultList = new ArrayList<>();
-        for (Area area : areaList) {
-            if (areaDataMap.containsKey(area.getAreaCode())) {
-                area.setActiveTime(areaDataMap.get(area.getAreaCode()));
-                resultList.add(area);
-            }
-        }
+//        List<Area> resultList = new ArrayList<>();
+//        for (Area area : areaList) {
+//            if (areaDataMap.containsKey(area.getAreaCode())) {
+//                area.setActiveTime(areaDataMap.get(area.getAreaCode()));
+//                resultList.add(area);
+//            }
+//        }
 
 //        resultList.forEach(System.out::println);
 //        System.out.println("resultList.size()=" + resultList.size());
 
-        for (Area area : resultList) {
-            System.out.println("UPDATE report_area SET active_time='"+area.getActiveTime()+"' WHERE id=" + area.getId() + ";   标识：" + area.getAreaNameDetail());
-        }
+//        for (Area area : resultList) {
+//            System.out.println("UPDATE report_area SET active_time='" + area.getActiveTime() + "' WHERE id=" + area.getId() + ";   标识：" + area.getAreaNameDetail());
+//        }
 
     }
 
@@ -231,6 +233,260 @@ public class Demo06 {
         areaList.add(new Area(51, "CBC拓基", "ARHF86", "蜀山-CBC拓基广场校区"));
 
         return areaList;
+    }
+
+    @Test
+    public void test10() {
+        Map<String, Integer> classNumMap = new HashMap<>();
+        classNumMap.put("CBC拓基", 10);
+        classNumMap.put("百花大厦", 14);
+        classNumMap.put("栢景湾", 10);
+        classNumMap.put("保利东郡", 14);
+        classNumMap.put("滨湖保利拉菲", 21);
+        classNumMap.put("滨湖利港银河", 9);
+        classNumMap.put("滨湖品阁", 6);
+        classNumMap.put("凤台路", 4);
+        classNumMap.put("贵潜", 26);
+        classNumMap.put("国文", 6);
+        classNumMap.put("汉嘉", 6);
+        classNumMap.put("和平路", 30);
+        classNumMap.put("红星路", 5);
+        classNumMap.put("花冲影城", 8);
+        classNumMap.put("环城南路", 7);
+        classNumMap.put("汇鑫", 15);
+        classNumMap.put("佳源广场", 19);
+        classNumMap.put("蓝筹", 9);
+        classNumMap.put("临滨苑", 11);
+        classNumMap.put("龙图路", 12);
+        classNumMap.put("隆岗", 7);
+        classNumMap.put("美屯", 6);
+        classNumMap.put("日角大厦", 10);
+        classNumMap.put("丝绸", 1);
+        classNumMap.put("拓基", 13);
+        classNumMap.put("温莎", 4);
+        classNumMap.put("橡树湾", 15);
+        classNumMap.put("学府星座", 6);
+        classNumMap.put("学府银座", 4);
+        classNumMap.put("御龙湾", 7);
+        classNumMap.put("政务置地", 8);
+        classNumMap.put("紫荆广场", 6);
+
+        // 遍历map，教室数量
+//        classNumMap.forEach((k, v) -> System.out.println(k + "===" + v));
+
+
+        // 生产数据
+        List<Area> areaList = new ArrayList<>();
+        areaList.add(new Area(10, "汇金"));
+        areaList.add(new Area(11, "汇鑫"));
+        areaList.add(new Area(12, "美屯"));
+        areaList.add(new Area(12, "美屯"));
+        areaList.add(new Area(12, "美屯"));
+        areaList.add(new Area(13, "丝绸"));
+        areaList.add(new Area(14, "保利拉菲西"));
+        areaList.add(new Area(15, "滨湖保利拉菲"));
+        areaList.add(new Area(16, "滨湖利港银河"));
+        areaList.add(new Area(17, "佳源广场"));
+        areaList.add(new Area(18, "临滨苑"));
+        areaList.add(new Area(18, "临滨苑"));
+        areaList.add(new Area(19, "日角大厦"));
+        areaList.add(new Area(21, "红星路"));
+        areaList.add(new Area(22, "环城南路"));
+        areaList.add(new Area(23, "栢景湾"));
+        areaList.add(new Area(24, "国文"));
+        areaList.add(new Area(25, "蓝筹"));
+        areaList.add(new Area(26, "橡树湾"));
+        areaList.add(new Area(27, "贵潜"));
+        areaList.add(new Area(28, "汉嘉"));
+        areaList.add(new Area(29, "拓基"));
+        areaList.add(new Area(30, "学府星座"));
+        areaList.add(new Area(31, "学府银座"));
+        areaList.add(new Area(32, "保利东郡"));
+        areaList.add(new Area(33, "凤台路"));
+        areaList.add(new Area(34, "和平路"));
+        areaList.add(new Area(35, "花冲影城"));
+        areaList.add(new Area(36, "隆岗"));
+        areaList.add(new Area(37, "温莎"));
+        areaList.add(new Area(38, "龙图路"));
+        areaList.add(new Area(39, "御龙湾"));
+        areaList.add(new Area(40, "政务置地"));
+        areaList.add(new Area(41, "保利东郡"));
+        areaList.add(new Area(43, "桐城路"));
+        areaList.add(new Area(44, "百花大厦"));
+        areaList.add(new Area(45, "紫荆广场"));
+        areaList.add(new Area(46, "百花井"));
+        areaList.add(new Area(46, "百花井"));
+        areaList.add(new Area(50, "滨湖品阁"));
+        areaList.add(new Area(50, "滨湖品阁"));
+        areaList.add(new Area(51, "CBC拓基"));
+        System.out.println(areaList.size());
+
+        // list去重
+//        ArrayList<Area> newAreaList = areaList.stream().collect(Collectors.collectingAndThen(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(Area::getId))), ArrayList::new));
+
+//        System.out.println(newAreaList.size());
+//        for (Area area :
+//                newAreaList) {
+//            System.out.println(area.getId() + "\t" + area.getAreaName());
+//        }
+
+        // 遍历list
+//        areaList.forEach(System.out::println);
+//        for (Area area : newAreaList) {
+//            if (classNumMap.containsKey(area.getAreaName())) {
+//                System.out.println("UPDATE report_area SET classroom_nums = "+classNumMap.get(area.getAreaName())+" WHERE id = " + area.getId() + ";");
+//            }
+//        }
+
+    }
+
+    @Test
+    public void test11() {
+        Integer a = 127;
+        Integer b = 127;
+        System.out.println(a == b);
+    }
+
+    @Test
+    public void test12() {
+        String phone = "17755242819";
+        System.out.println(phone.substring(0, 3) + "***" + phone.substring(7));
+    }
+
+    @Test
+    public void test13() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String oldDateStr = "2022-10-25 23:55:00";
+        Date oldData = sdf.parse(oldDateStr);
+        Date date = sdf.parse(oldDateStr);
+        System.out.println(date);
+        int i = date.compareTo(oldData);
+        System.out.println(i);
+    }
+
+    /**
+     * 20210128
+     */
+    @Test
+    public void test14() {
+        Map<String, String> yearMap = new HashMap<>();
+
+        yearMap.put("滨湖保利拉菲", "FY2018Q3");
+        yearMap.put("保利拉菲西", "FY2020Q3");
+        yearMap.put("利港银河", "FY2019Q1");
+        yearMap.put("日角大厦", "FY2020Q1");
+        yearMap.put("汇鑫", "FY2018Q3");
+        yearMap.put("佳源广场", "FY2020Q3");
+        yearMap.put("滨湖品阁", "FY2021Q1");
+        yearMap.put("环城南路", "FY2020Q1");
+        yearMap.put("栢景湾", "FY2017Q1");
+        yearMap.put("国文", "FY2019Q3");
+        yearMap.put("红星路", "FY2019Q3");
+        yearMap.put("橡树湾", "FY2020Q1");
+        yearMap.put("政务置地", "FY2017Q2");
+        yearMap.put("拓基", "FY2018Q1");
+        yearMap.put("学府星座", "FY2020Q2");
+        yearMap.put("学府银座", "FY2018Q1");
+        yearMap.put("御龙湾", "FY2019Q2");
+        yearMap.put("汉嘉", "FY2019Q1");
+        yearMap.put("龙图路", "FY2020Q3");
+        yearMap.put("紫荆广场", "FY2021Q1");
+        yearMap.put("CBC拓基", "FY2021Q1");
+        yearMap.put("保利东郡南", "FY2019Q3");
+        yearMap.put("兴漕新居", "FY2020Q2");
+        yearMap.put("温莎", "FY2017Q1");
+        yearMap.put("隆岗", "FY2020Q3");
+        yearMap.put("凤台路", "FY2019Q1");
+        yearMap.put("花冲影城", "FY2020Q3");
+        yearMap.put("美屯", "FY2014Q1");
+        yearMap.put("富广", "FY2014Q1");
+        yearMap.put("临滨苑", "FY2016Q2");
+        yearMap.put("丝绸", "FY2014Q3");
+        yearMap.put("汇金", "FY2016Q3");
+        yearMap.put("桐城路", "FY2015Q1");
+        yearMap.put("蓝筹", "FY2015Q2");
+        yearMap.put("百花井", "FY2014Q1");
+        yearMap.put("百花大厦", "FY2014Q1");
+        yearMap.put("贵潜", "FY2014Q1");
+        yearMap.put("和平路", "FY2014Q1");
+        yearMap.put("肥西水晶城", "FY2020Q1");
+        yearMap.put("线上", "FY2021Q1");
+        yearMap.put("环球金融", "FY2022Q1");
+        yearMap.put("沃野", "FY2021Q1");
+
+        System.out.println("数据条数：" + yearMap.size());
+
+        List<Area> areaList = new ArrayList<>();
+
+        areaList.add(new Area(10, "汇金"));
+        areaList.add(new Area(11, "汇鑫"));
+        areaList.add(new Area(12, "美屯"));
+        areaList.add(new Area(13, "丝绸"));
+        areaList.add(new Area(14, "保利拉菲西"));
+        areaList.add(new Area(15, "滨湖保利拉菲"));
+        areaList.add(new Area(16, "滨湖利港银河"));
+        areaList.add(new Area(17, "佳源广场"));
+        areaList.add(new Area(18, "临滨苑"));
+        areaList.add(new Area(19, "日角大厦"));
+        areaList.add(new Area(21, "红星路"));
+        areaList.add(new Area(22, "环城南路"));
+        areaList.add(new Area(23, "栢景湾"));
+        areaList.add(new Area(24, "国文"));
+        areaList.add(new Area(25, "蓝筹"));
+        areaList.add(new Area(26, "橡树湾"));
+        areaList.add(new Area(27, "贵潜"));
+        areaList.add(new Area(28, "汉嘉"));
+        areaList.add(new Area(29, "拓基"));
+        areaList.add(new Area(30, "学府星座"));
+        areaList.add(new Area(31, "学府银座"));
+        areaList.add(new Area(32, "保利东郡"));
+        areaList.add(new Area(33, "凤台路"));
+        areaList.add(new Area(34, "和平路"));
+        areaList.add(new Area(35, "花冲影城"));
+        areaList.add(new Area(36, "隆岗"));
+        areaList.add(new Area(37, "温莎"));
+        areaList.add(new Area(38, "龙图路"));
+        areaList.add(new Area(39, "御龙湾"));
+        areaList.add(new Area(40, "政务置地"));
+        areaList.add(new Area(41, "保利东郡"));
+        areaList.add(new Area(43, "桐城路"));
+        areaList.add(new Area(44, "百花大厦"));
+        areaList.add(new Area(45, "紫荆广场"));
+        areaList.add(new Area(46, "百花井"));
+        areaList.add(new Area(50, "滨湖品阁"));
+        areaList.add(new Area(51, "沃野"));
+        areaList.add(new Area(52, "云课堂"));
+
+        System.out.println("库里数据条数：" + areaList.size());
+
+        // 遍历库里数据
+        for (Area area : areaList) {
+            if (yearMap.containsKey(area.getAreaName())) {
+                area.setActiveYearQuarter(yearMap.get(area.getAreaName()));
+                // UPDATE report_area SET active_fyear_fq = NULL WHERE id = 10 AND deptcode = 'DPHF1000';
+//                System.out.println(area.getId() + "\t\t" + area.getActiveYearQuarter() + "\t\t" + area.getAreaName());
+                System.out.println("UPDATE report_area SET active_fyear_fq = '" + area.getActiveYearQuarter() + "' WHERE id = " + area.getId() + " AND deptcode = 'DPHF1000';\t\t" + area.getAreaName());
+            }
+        }
+
+    }
+
+    @Test
+    public void getDate() {
+        Date dd = new Date();
+        System.out.println(dd);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        TimeZone timeZone = sdf.getTimeZone();
+        System.out.println(timeZone);
+        System.out.println(sdf.format(dd));
+    }
+
+    @Test
+    public void testGetEmail() {
+        String email = "kangyong_wts@sina.com";
+        email = email.split("@")[0];
+        System.out.println(email);
     }
 
 }
