@@ -159,4 +159,18 @@ public class Demo01CommonMistake {
          */
     }
 
+    /**
+     * ArrayList和LinkedList选择
+     */
+    @Test
+    public void testShooseList() {
+        /*
+        如果有大量的增加删除操作，并且没有很多随机访问操作，应该首选LinkedList，性能更佳
+         */
+
+        List<String> list1 = new ArrayList<>();
+
+        List<String> list2 = new LinkedList<>();
+    }
+
 }
