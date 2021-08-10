@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -67,6 +68,49 @@ public class Demo01CommonMistake {
             }
         }
 
+    }
+
+    /**
+     * 在一个循环中删除一个列表中的元素
+     */
+    @Test
+    public void testRemoveOneFromList() {
+        /*
+        错误示范1
+         */
+        List<String> list1 = new ArrayList<>(Arrays.asList("a", "b", "c", "d"));
+        System.out.println(list1);
+        for (int i = 0; i < list1.size(); i++) {
+            System.out.println("第 " + (i + 1) + "次循环");
+            list1.remove(i);
+            System.out.println("list.size() = " + list1.size());
+        }
+        System.out.println(list1);
+        System.out.println("=============================");
+
+        /*
+        错误示范2,会抛出异常 ConcurrentModificationException
+         */
+        List<String> list2 = new ArrayList<>(Arrays.asList("a", "b", "c", "d"));
+//        for (String s : list2) {
+//            if ("a".equals(s)) {
+//                list2.remove(s);
+//            }
+//        }
+//        System.out.println(list2);
+
+        /*
+        正确示范 注意.next()要在.remove()之前调用
+         */
+        List<String> list3 = new ArrayList<>(Arrays.asList("a", "b", "c", "d"));
+        Iterator<String> it = list3.iterator();
+        while (it.hasNext()) {
+            String s = it.next();
+            if ("a".equals(s)) {
+                it.remove();
+            }
+        }
+        System.out.println(list3);
     }
 
 }
