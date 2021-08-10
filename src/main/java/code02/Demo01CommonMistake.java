@@ -2,10 +2,7 @@ package code02;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -111,6 +108,22 @@ public class Demo01CommonMistake {
             }
         }
         System.out.println(list3);
+    }
+
+    /**
+     * HashMap和HashTable
+     */
+    @Test
+    public void testHashMapAndTable() {
+        /*
+        HashMap与HashTable最重要的区别，HashTable是同步的
+         */
+        HashMap<String, Object> hashMap = new HashMap<>();
+
+        /*
+        所以这种写法并不常见
+         */
+        Hashtable<String, Object> hashtable = new Hashtable<>();
     }
 
 }
