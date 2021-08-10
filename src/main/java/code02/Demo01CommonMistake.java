@@ -145,4 +145,18 @@ public class Demo01CommonMistake {
         list.add(obj);
     }
 
+    /**
+     * 访问修饰符
+     */
+    @Test
+    public void testShowLevel() {
+        /*
+        修饰符
+        public
+        protected
+        缺省（default）
+        private
+         */
+    }
+
 }
