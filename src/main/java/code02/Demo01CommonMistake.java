@@ -1,6 +1,7 @@
 package code02;
 
 import org.junit.Test;
+import org.springframework.util.ObjectUtils;
 
 import java.util.*;
 
@@ -124,6 +125,24 @@ public class Demo01CommonMistake {
         所以这种写法并不常见
          */
         Hashtable<String, Object> hashtable = new Hashtable<>();
+    }
+
+    /**
+     * 在集合中使用原始类型
+     */
+    @Test
+    public void testUseOriginalTypeInCollection() {
+        List<String> list = new ArrayList<>();
+        /*
+        使用原生类型集合是危险的，因为原生类型集合跳过了泛型集合检查，并且不是安全的
+         */
+        add(list, 10);
+        String s = list.get(0);
+        System.out.println(s);
+    }
+
+    public static void add(List list, Object obj) {
+        list.add(obj);
     }
 
 }
