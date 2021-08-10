@@ -471,6 +471,19 @@ public class Demo06 {
 
     }
 
+
+    @Test
+    public void test15() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String oldDateStr = "2021-08-03 23:55:00";
+        Date oldData = sdf.parse(oldDateStr);
+        Date date = new Date();
+        System.out.println(date);
+        System.out.println(oldData);
+        int i = date.compareTo(oldData);
+        System.out.println(i);
+    }
+
     @Test
     public void getDate() {
         Date dd = new Date();
@@ -487,6 +500,16 @@ public class Demo06 {
         String email = "kangyong_wts@sina.com";
         email = email.split("@")[0];
         System.out.println(email);
+    }
+
+    @Test
+    public void testGetDate() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date startDate = sdf.parse("2021-08-15 08:00:00.000");
+        System.out.println(startDate);
+
+        Date endDate = sdf.parse("2021-08-18 23:59:00.000");
+        System.out.println(endDate);
     }
 
 }
