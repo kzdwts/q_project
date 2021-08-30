@@ -3,7 +3,7 @@ package threaddemo;
 /**
  * Created with IntelliJ IDEA.
  *
- * @Description:
+ * @Description: 单例模式
  * @author: kangyong
  * @date: 2019/5/10 11:18
  * @version: v1.0
