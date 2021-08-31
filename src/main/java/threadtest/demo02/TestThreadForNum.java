@@ -1,4 +1,7 @@
-package threadtest;
+package threadtest.demo02;
+
+import threadtest.demo02.ThreadForNum1;
+import threadtest.demo02.ThreadForNum2;
 
 /**
  * Created with IntelliJ IDEA.

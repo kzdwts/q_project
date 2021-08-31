@@ -1,4 +1,4 @@
-package threadtest;
+package threadtest.demo01;
 
 /**
  * Created with IntelliJ IDEA.
