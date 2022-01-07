@@ -7,8 +7,8 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
-    <bean id="helloWorld" class="spring.aop.HelloWorldImpl" />
-    <bean id="logAdvice" class="spring.aop.LogAdvice" />
+    <bean id="helloWorld" class="top.kangyong.study01.spring.aop.HelloWorldImpl" />
+    <bean id="logAdvice" class="top.kangyong.study01.spring.aop.LogAdvice" />
 
     <aop:config>
         <aop:aspect ref="logAdvice">
