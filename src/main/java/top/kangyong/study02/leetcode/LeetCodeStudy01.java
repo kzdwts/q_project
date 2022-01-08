@@ -2,6 +2,9 @@ package top.kangyong.study02.leetcode;
 
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * leetcode 学习
  *
@@ -18,7 +21,7 @@ public class LeetCodeStudy01 {
      * 并返回它们的数组下标。
      */
     @Test
-    public void twoSum() {
+    public void twoSum1() {
         int[] nums = {11, 7, 11, 2};
         int target = 9;
 
@@ -31,5 +34,28 @@ public class LeetCodeStudy01 {
             }
         }
 
+    }
+
+    /**
+     * 给定一个整数数组 nums 和一个整数目标值 target，
+     * 请你在该数组中找出 和为目标值 target  的那 两个 整数，
+     * 并返回它们的数组下标。
+     */
+    @Test
+    public void twoSum2() {
+        int[] nums = {11, 7, 11, 2};
+        int target = 9;
+
+        // 循环一次
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            // 索引，值，目标
+            if (map.containsKey(nums[i])) {
+                System.out.println("坐标为：[" + map.get(nums[i]) + ", " + i + "]");
+                return;
+            }
+            // k → v ，值 → 索引
+            map.put(target - nums[i], i);
+        }
     }
 }
