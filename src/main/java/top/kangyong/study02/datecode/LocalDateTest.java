@@ -2,7 +2,10 @@ package top.kangyong.study02.datecode;
 
 import org.junit.Test;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.Month;
+import java.time.temporal.ChronoField;
 
 /**
  * java8全新的日期和时间API LocalDate
@@ -25,5 +28,30 @@ public class LocalDateTest {
         // 构造指定的年月日
         LocalDate localDate1 = LocalDate.of(2019, 9, 10);
         System.out.println(localDate1);
+    }
+
+    /**
+     * LocalDate方法
+     */
+    @Test
+    public void demo02() {
+        LocalDate localDate = LocalDate.now();
+        int year = localDate.getYear();
+        int year2 = localDate.get(ChronoField.YEAR);
+        Month month = localDate.getMonth();
+        int month2 = localDate.get(ChronoField.MONTH_OF_YEAR);
+        int dayOfMonth = localDate.getDayOfMonth();
+        int dayOfMonth2 = localDate.get(ChronoField.DAY_OF_MONTH);
+        DayOfWeek dayOfWeek = localDate.getDayOfWeek();
+        int dayOfWeek2 = localDate.get(ChronoField.DAY_OF_WEEK);
+
+        System.out.println(year);
+        System.out.println(year2);
+        System.out.println(month);
+        System.out.println(month2);
+        System.out.println(dayOfMonth);
+        System.out.println(dayOfMonth2);
+        System.out.println(dayOfWeek);
+        System.out.println(dayOfWeek2);
     }
 }
