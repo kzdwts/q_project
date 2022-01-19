@@ -1,10 +1,12 @@
 package top.kangyong.study02.datecode;
 
 import org.junit.Test;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 
 /**
@@ -53,5 +55,16 @@ public class LocalDateTest {
         System.out.println(dayOfMonth2);
         System.out.println(dayOfWeek);
         System.out.println(dayOfWeek2);
+    }
+
+    @Test
+    public void demo03() {
+        LocalDate localDate = LocalDate.now();
+        String s1 = localDate.format(DateTimeFormatter.BASIC_ISO_DATE);
+        String s2 = localDate.format(DateTimeFormatter.ISO_LOCAL_DATE);
+
+        System.out.println(localDate);
+        System.out.println(s1);
+        System.out.println(s2);
     }
 }

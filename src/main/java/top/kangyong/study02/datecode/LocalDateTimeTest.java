@@ -2,9 +2,8 @@ package top.kangyong.study02.datecode;
 
 import org.junit.Test;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.time.*;
+import java.util.Date;
 
 /**
  * java8全新的日期和时间API LocalDateTime
@@ -25,5 +24,16 @@ public class LocalDateTimeTest {
 
         LocalTime localTime = localDateTime.toLocalTime();
         System.out.println(localTime);
+    }
+
+    @Test
+    public void demo02() {
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(new Date().getTime()), ZoneId.systemDefault());
+        LocalDateTime startOfDay = localDateTime.with(LocalTime.MIN);
+        Date date = Date.from(startOfDay.atZone(ZoneId.systemDefault()).toInstant());
+
+        System.out.println(localDateTime);
+        System.out.println(startOfDay);
+        System.out.println(date);
     }
 }
