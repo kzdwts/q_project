@@ -33,5 +33,7 @@ public class ListTest {
 
         List<Integer> personIds = personList.stream().map(Person::getId).collect(Collectors.toList());
         personIds.forEach(System.out::println);
+
+        personList.forEach(bean -> System.out.println(bean.getName()));
     }
 }
