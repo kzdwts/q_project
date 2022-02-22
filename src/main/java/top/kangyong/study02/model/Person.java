@@ -1,7 +1,9 @@
 package top.kangyong.study02.model;
 
 import com.alibaba.fastjson.annotation.JSONType;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
@@ -14,6 +16,7 @@ import lombok.ToString;
 @Data
 @ToString
 @JSONType(orders = {"id", "name", "age", "gender", "weight"})
+@AllArgsConstructor
 public class Person {
 
 
@@ -42,5 +45,27 @@ public class Person {
      */
     private String name;
 
+    /**
+     * 国籍
+     */
+    private String nationality;
 
+    /**
+     * 无参构造
+     */
+    public Person() {
+    }
+
+    /**
+     * @param id     主键
+     * @param gender 性别：0女，1男，2未知
+     * @param age    年龄
+     * @param name   姓名
+     */
+    public Person(Integer id, Integer gender, Integer age, String name) {
+        this.id = id;
+        this.gender = gender;
+        this.age = age;
+        this.name = name;
+    }
 }
