@@ -68,4 +68,23 @@ public class Person {
         this.age = age;
         this.name = name;
     }
+
+    /**
+     * @param id          主键
+     * @param gender      性别：0女，1男，2未知
+     * @param age         年龄
+     * @param name        姓名
+     * @param nationality 国籍
+     * @return {@link null}
+     * @author Kang Yong
+     * @date 2022/2/23
+     */
+    public Person(Integer id, Integer gender, Integer age, String name, String nationality) {
+        this.id = id;
+        this.gender = gender;
+        this.age = age;
+        this.weight = weight;
+        this.name = name;
+        this.nationality = nationality;
+    }
 }

@@ -56,4 +56,29 @@ public class ListTest {
         List<Person> resultList = personList.stream().filter(bean -> bean.getAge() >= 18).collect(Collectors.toList());
         resultList.forEach(System.out::println);
     }
+
+    /**
+     * 集合去重 distinct用法
+     *
+     * @author Kang Yong
+     * @date 2022/2/23
+     */
+    @Test
+    public void test03() {
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 18, "王丽丽", "中国"));
+        personList.add(new Person(2, 1, 19, "储小姣", "美国"));
+        personList.add(new Person(5, 0, 16, "钱梦婷", "中国"));
+        personList.add(new Person(4, 1, 17, "徐慧文", "日本"));
+        personList.add(new Person(3, 0, 20, "张丹妮", "中国"));
+        personList.add(new Person(3, 0, 20, "张丹妮", "中国"));
+
+        // distinct放在前面是对整个Person进行去重
+        List<String> resultList = personList.stream().distinct().map(Person::getNationality).collect(Collectors.toList());
+//        resultList.forEach(System.out::println);
+
+        // distinct放在后边是对过滤后的nationality进行去重
+        List<String> resultList2 = personList.stream().map(Person::getNationality).distinct().collect(Collectors.toList());
+        resultList2.forEach(System.out::println);
+    }
 }
