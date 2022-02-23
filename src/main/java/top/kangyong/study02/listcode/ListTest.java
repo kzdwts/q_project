@@ -106,4 +106,29 @@ public class ListTest {
             System.out.println("集合中 没嘛有 年龄大于18的学生");
         }
     }
+
+    /**
+     * 基于allMatch()判断条件是否匹配所有元素
+     *
+     * @author Kang Yong
+     * @date 2022/2/23
+     */
+    @Test
+    public void test05() {
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 18, "王丽丽", "中国"));
+        personList.add(new Person(2, 1, 19, "储小姣", "美国"));
+        personList.add(new Person(5, 0, 16, "钱梦婷", "中国"));
+        personList.add(new Person(4, 1, 17, "徐慧文", "日本"));
+        personList.add(new Person(3, 0, 20, "张丹妮", "中国"));
+        personList.add(new Person(3, 0, 20, "张丹妮", "中国"));
+
+        // 至少有一个匹配，就返回true
+        boolean flag = personList.stream().allMatch(bean -> bean.getAge() > 18);
+        if (flag) {
+            System.out.println("集合*所有*学生的年龄都大于18");
+        } else {
+            System.out.println("集合有年龄都小于18的学生");
+        }
+    }
 }
