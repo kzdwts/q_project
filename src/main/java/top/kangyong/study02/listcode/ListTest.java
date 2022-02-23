@@ -159,11 +159,15 @@ public class ListTest {
         }
 
         // ﬁndAny用于获取流中随机的某一个元素，并且利用短路在找到结果时，立即结束
-        Optional<Person> personOptional = personList.stream().filter(bean -> bean.getGender().intValue() == 1).findAny();
-        if (personOptional.isPresent()) {
-            Person person = personOptional.get();
-            System.out.println("===找出一个");
-            System.out.println(person);
+        // 此处是串行，所以暂时没遇见随机获取，暂时取得都是第一个
+        System.out.println("===找出一个");
+        for (int i = 0; i < 1000; i++) {
+            Optional<Person> personOptional = personList.stream().filter(bean -> bean.getGender().intValue() == 1).findAny();
+            if (personOptional.isPresent()) {
+                Person person = personOptional.get();
+                System.out.println(person);
+            }
         }
+
     }
 }
