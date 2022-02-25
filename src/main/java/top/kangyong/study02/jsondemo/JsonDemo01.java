@@ -5,6 +5,11 @@ import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 import top.kangyong.study02.model.Car;
 import top.kangyong.study02.model.Person;
+import top.kangyong.study02.model.SmsSendDTO;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * json测试
@@ -76,6 +81,31 @@ public class JsonDemo01 {
         // 第二种方法，在属性上添加 @JSONField(ordinal = 1)
 //        {"brand":"大众","color":"白色","type":"MQB宝来","weight":2000.59,"pl":"1.5L","driveMode":"#92燃油"}
 //        {"brand":"大众","color":"白色","type":"MQB宝来","weight":2000.59,"pl":"1.5L","driveMode":"#92燃油"}
+    }
+
+    /**
+     * 测试自然顺序，第一层参数是按首字母排序的
+     */
+    @Test
+    public void natureJsonOrder() {
+        Map<String, String> params = new HashMap<>();
+        params.put("code", "888888");
+        params.put("param1", "黄丽丽");
+        params.put("param2", "马云");
+        params.put("brand", "大众");
+
+        SmsSendDTO dto = new SmsSendDTO();
+        dto.setMobilePhoneNum("18225608251");
+        dto.setTemplateUuid(UUID.randomUUID().toString());
+        dto.setParam(params);
+        dto.setName("九黎小康");
+
+        for (int i = 0; i < 1000; i++) {
+            String json = JSONObject.toJSONString(dto);
+            System.out.println(json);
+        }
+
+
     }
 
 }
