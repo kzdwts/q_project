@@ -194,4 +194,56 @@ public class ListTest {
             }
         }
     }
+
+    /**
+     * List<Object>提取数据
+     *
+     * @author Kang Yong
+     * @date 2022/3/4
+     */
+    @Test
+    public void test08() {
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 18, "王丽丽", "中国"));
+        personList.add(new Person(2, 1, 19, "储小姣", "美国"));
+        personList.add(new Person(5, 0, 19, "钱梦婷", "中国"));
+        personList.add(new Person(4, 1, 18, "徐慧文", "日本"));
+        personList.add(new Person(3, 0, 20, "张丹妮", "中国"));
+        personList.add(new Person(6, 0, 20, "陆之昂", "中国"));
+
+        Map<String, Integer> personMap = personList.stream().collect(Collectors.toMap(Person::getName, Person::getGender));
+        for (Map.Entry<String, Integer> entries : personMap.entrySet()) {
+            System.out.println(entries.getKey() + ": " + entries.getValue());
+        }
+    }
+
+    /**
+     * 提取List数据转为map，并将字段根据枚举转义
+     *
+     * @author Kang Yong
+     * @date 2022/3/4
+     */
+    @Test
+    public void test09() {
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 18, "王丽丽", "中国"));
+        personList.add(new Person(2, 1, 19, "储小姣", "美国"));
+        personList.add(new Person(5, 0, 19, "钱梦婷", "中国"));
+        personList.add(new Person(4, 1, 18, "徐慧文", "日本"));
+        personList.add(new Person(3, 0, 20, "张丹妮", "中国"));
+        personList.add(new Person(6, 0, 20, "陆之昂", "中国"));
+
+        Map<String, String> personMap = personList.stream().collect(Collectors.toMap(Person::getName, bean -> {
+            // 性别：0女，1男，2未知
+            if (bean.getGender().equals(1)) {
+                return "男孩";
+            } else if (bean.getGender().equals(0)) {
+                return "女孩";
+            }
+            return "未知";
+        }));
+        for (Map.Entry<String, String> entries : personMap.entrySet()) {
+            System.out.println(entries.getKey() + ": " + entries.getValue());
+        }
+    }
 }
