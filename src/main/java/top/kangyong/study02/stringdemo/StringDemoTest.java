@@ -23,4 +23,12 @@ public class StringDemoTest {
         String str = world.replace("喜欢", "讨厌");
         System.out.println(str);
     }
+
+    @Test
+    public void parseInt() {
+        String numStr = "05";
+        int num = Integer.parseInt(numStr);
+        System.out.println(numStr);
+        System.out.println(num);
+    }
 }
