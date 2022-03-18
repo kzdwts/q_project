@@ -33,4 +33,19 @@ public class DateCalcTest {
         System.out.println(sdf2.format(date));
     }
 
+    /**
+     * 时间加5min
+     *
+     * @author Kang Yong
+     * @date 2022/3/18
+     */
+    @Test
+    public void addTimeMin() {
+        Date afterDate = new Date(new Date().getTime() + 5 * 60 * 1000);
+        System.out.println(afterDate);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.out.println(sdf.format(afterDate));
+    }
+
 }
