@@ -1,5 +1,7 @@
 #  q_project
 
+> [The Java® Virtual Machine Specification](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)
+
 ## 一、Java基础、算法练习 
  * 1、Java编程题50道
  
