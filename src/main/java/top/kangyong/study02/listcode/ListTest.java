@@ -246,4 +246,28 @@ public class ListTest {
             System.out.println(entries.getKey() + ": " + entries.getValue());
         }
     }
+
+    /**
+     * 测试addAll
+     *
+     * @author Kang Yong
+     * @date 2022/3/22
+     */
+    @Test
+    public void test10() {
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 18, "王丽丽", "中国"));
+        personList.add(new Person(2, 1, 19, "储小姣", "美国"));
+        personList.add(new Person(5, 0, 19, "钱梦婷", "中国"));
+        personList.add(new Person(4, 1, 18, "徐慧文", "日本"));
+        personList.add(new Person(3, 0, 20, "张丹妮", "中国"));
+        personList.add(new Person(6, 0, 20, "陆之昂", "中国"));
+
+        List<Integer> numList = new ArrayList<>();
+        numList.add(100);
+        numList.addAll(personList.stream().map(Person::getId).distinct().collect(Collectors.toList()));
+        numList.add(200);
+
+        numList.forEach(System.out::println);
+    }
 }
