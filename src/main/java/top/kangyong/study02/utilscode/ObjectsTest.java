@@ -86,4 +86,24 @@ public class ObjectsTest {
         boolean aNull2 = Objects.nonNull(null);
         System.out.println(aNull2); // false
     }
+
+    /**
+     * 测试toString
+     *
+     * @author Kang Yong
+     * @date 2022/3/28
+     */
+    @Test
+    public void toStringTestDemo() {
+        String str1 = Objects.toString(new Person());
+        System.out.println(str1);
+
+        // 如果第一个参数不是 null ，则返回第一个参数调用 toString的结果， 否则toString返回第二个参数。
+        String str2 = Objects.toString(null, "wanglili");
+        System.out.println(str2);
+
+        // 如果是null就返回“null”字符串
+        String str3 = Objects.toString(null);
+        System.out.println(str3);
+    }
 }
