@@ -1,8 +1,10 @@
 package top.kangyong.study02.listcode;
 
+import org.apache.commons.lang3.ObjectUtils;
 import org.junit.Test;
 import top.kangyong.study02.model.Person;
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -270,4 +272,29 @@ public class ListTest {
 
         numList.forEach(System.out::println);
     }
+
+    @Test
+    public void test11() {
+        BigDecimal b1 = new BigDecimal(100.00);
+        BigDecimal b2 = new BigDecimal(-111.00);
+        BigDecimal b3 = new BigDecimal(0.03);
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 18, "王丽丽", b1));
+        personList.add(new Person(2, 1, 19, "储小姣", b2));
+        personList.add(new Person(5, 0, 19, "钱梦婷", b3));
+        personList.add(new Person(4, 1, 18, "徐慧文", b1));
+        personList.add(new Person(3, 0, 20, "张丹妮", b2));
+        personList.add(new Person(6, 0, 20, "陆之昂", b3));
+
+        List<Person> resultList = personList.stream().distinct().filter(item -> {
+            if (Objects.nonNull(item.getMoney()) && (item.getMoney().compareTo(BigDecimal.ZERO) > 0)) {
+                return true;
+            }
+            return false;
+        }).collect(Collectors.toList());
+
+        resultList.forEach(System.out::println);
+    }
+
+
 }

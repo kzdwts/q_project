@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.math.BigDecimal;
+
 /**
  * 人 实体类
  *
@@ -51,6 +53,11 @@ public class Person {
     private String nationality;
 
     /**
+     * 财富值
+     */
+    private BigDecimal money;
+
+    /**
      * 无参构造
      */
     public Person() {
@@ -67,6 +74,14 @@ public class Person {
         this.gender = gender;
         this.age = age;
         this.name = name;
+    }
+
+    public Person(Integer id, Integer gender, Integer age, String name, BigDecimal money) {
+        this.id = id;
+        this.gender = gender;
+        this.age = age;
+        this.name = name;
+        this.money = money;
     }
 
     /**
