@@ -25,6 +25,7 @@ public class ExecutorServiceDemo {
 
         // 断点，不然程序结束，看不到结果
         System.out.println("===END===");
+        System.out.println(Runtime.getRuntime().availableProcessors());
     }
 
     private void masync() {
