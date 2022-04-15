@@ -1,9 +1,13 @@
 package top.kangyong.study02.datecode;
 
+import cn.hutool.core.date.DateField;
+import cn.hutool.core.date.DateTime;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.Test;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -46,6 +50,44 @@ public class DateCalcTest {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println(sdf.format(afterDate));
+    }
+
+    /**
+     * 糊涂包的时间 操作
+     *
+     * @author Kang Yong
+     * @date 2022/4/15
+     */
+    @Test
+    public void offsetTest() {
+        Date date = new Date();
+        DateTime dateTime = DateTime.of(date.getTime()).offset(DateField.MONTH, 1);
+        System.out.println(dateTime);
+    }
+
+    /**
+     * 推一个月
+     *
+     * @author Kang Yong
+     * @date 2022/4/15
+     */
+    @Test
+    public void offsetTest02() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date start = sdf.parse("2022-01-01 12:00:00");
+        Date end = sdf.parse("2022-05-05 12:00:00");
+
+        Date startTime = start;
+        Date endTime = start;
+
+        do {
+            // 推一个月
+            endTime = DateTime.of(startTime.getTime()).offset(DateField.MONTH, 1);
+            System.out.println("startTime = " + startTime);
+            System.out.println("endTime   = " + endTime);
+
+            startTime = endTime;
+        } while (endTime.before(end));
     }
 
 }
