@@ -18,9 +18,12 @@ public class MathTest {
         BigDecimal b1 = new BigDecimal(100.00);
         BigDecimal b2 = new BigDecimal(-111.00);
         BigDecimal b3 = new BigDecimal(200.00);
+        BigDecimal b4 = new BigDecimal(0.00);
+
 
         System.out.println(b1.compareTo(BigDecimal.ZERO) > 0);;
         System.out.println(b2.compareTo(BigDecimal.ZERO) > 0);;
         System.out.println(b3.compareTo(BigDecimal.ZERO) > 0);;
+        System.out.println(b4.compareTo(BigDecimal.ZERO) <= 0);;
     }
 }
