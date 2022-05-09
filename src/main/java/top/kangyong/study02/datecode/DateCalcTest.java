@@ -2,6 +2,7 @@ package top.kangyong.study02.datecode;
 
 import cn.hutool.core.date.DateField;
 import cn.hutool.core.date.DateTime;
+import cn.hutool.core.date.DateUtil;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.Test;
 
@@ -88,6 +89,23 @@ public class DateCalcTest {
 
             startTime = endTime;
         } while (endTime.before(end));
+    }
+
+    /**
+     * 字符串转时间
+     *
+     * @author Kang Yong
+     * @date 2022/5/9
+     */
+    @Test
+    public void getDateByVal() throws ParseException {
+        String dateStr = "2999-01-01 00:00:00";
+//        Date date = DateUtils.parseDate(dateStr, "yyyy-MM-dd HH:mm:ss");
+//        System.out.println(date);
+
+        DateTime dateTime = DateUtil.parse(dateStr, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
+        Date date = dateTime.toJdkDate();
+        System.out.println(date);
     }
 
 }
