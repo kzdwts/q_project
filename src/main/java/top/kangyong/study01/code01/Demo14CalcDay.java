@@ -1,5 +1,7 @@
 package top.kangyong.study01.code01;
 
+import org.junit.Test;
+
 import java.util.Scanner;
 
 /**
@@ -98,6 +100,22 @@ public class Demo14CalcDay {
                 num = 30;
         }
         return num;
+    }
+
+    @Test
+    public void switchTest() {
+        int num = 1;
+        switch (num) {
+            case 0:
+                System.out.println("0");
+                break;
+            case 1:
+                System.out.println("1");
+                break;
+            case 2:
+                System.out.println("2");
+                break;
+        }
     }
 
 }
