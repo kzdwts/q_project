@@ -43,6 +43,14 @@ public class MathTest {
         // a > b → 结果是 1
         // a < b → 结果是 -1
         // a == b → 结果是0
+    }
 
+    @Test
+    public void integerEquals() {
+        Integer a = 1203671;
+        Integer b = 1203671;
+
+        System.out.println(a.equals(b));
+        System.out.println(a == b);
     }
 }
