@@ -6,6 +6,7 @@ import top.kangyong.study02.model.Person;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -294,6 +295,28 @@ public class ListTest {
         }).collect(Collectors.toList());
 
         resultList.forEach(System.out::println);
+    }
+
+    /**
+     * list转map
+     * 格式：id（key） → 对象（value）
+     *
+     * @author Kang Yong
+     * @date 2022/5/23
+     */
+    @Test
+    public void test12() {
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 18, "王丽丽"));
+        personList.add(new Person(2, 1, 19, "储小姣"));
+        personList.add(new Person(5, 0, 19, "钱梦婷"));
+        personList.add(new Person(4, 1, 18, "徐慧文"));
+        personList.add(new Person(3, 0, 20, "张丹妮"));
+        personList.add(new Person(6, 0, 20, "陆之昂"));
+
+        Map<Integer, Person> personMap = personList.stream().collect(Collectors.toMap(Person::getId, Function.identity()));
+
+        System.out.println(personMap.size());
     }
 
 
