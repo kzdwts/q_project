@@ -2,6 +2,7 @@ package top.kangyong.study02.listcode;
 
 import org.apache.commons.lang3.ObjectUtils;
 import org.junit.Test;
+import org.springframework.util.CollectionUtils;
 import top.kangyong.study02.model.Person;
 
 import java.math.BigDecimal;
@@ -317,6 +318,29 @@ public class ListTest {
         Map<Integer, Person> personMap = personList.stream().collect(Collectors.toMap(Person::getId, Function.identity()));
 
         System.out.println(personMap.size());
+    }
+
+    /**
+     * 创建list集合
+     *
+     * @author Kang Yong
+     * @date 2022/5/25
+     */
+    @Test
+    public void test13() {
+//        List<Integer> numList = Arrays.stream(new Integer[]{}).distinct().collect(Collectors.toList());
+//        List<Integer> numList = Arrays.stream(new Integer[]{
+//                1,
+//                null,
+//                null,
+//                2
+//        }).distinct().collect(Collectors.toList());
+
+        List<Integer> numList = new ArrayList<>();
+
+        System.out.println(CollectionUtils.isEmpty(numList));
+        System.out.println(numList.size());
+        numList.forEach(System.out::println);
     }
 
 
