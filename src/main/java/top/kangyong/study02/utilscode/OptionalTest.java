@@ -62,4 +62,20 @@ public class OptionalTest {
         System.out.println("empty.get():\t" + empty.get()); // 这种会报空指针
     }
 
+    /**
+     * 测试ofNullAble else
+     *
+     * @author Kang Yong
+     * @date 2022/6/8
+     */
+    @Test
+    public void testOfNullAble() {
+        Person person = Person.builder()
+                .id(100)
+                .name("咪咪噜")
+                .build();
+        Integer age = Optional.ofNullable(person.getAge()).orElse(22);
+        System.out.println(age);
+    }
+
 }

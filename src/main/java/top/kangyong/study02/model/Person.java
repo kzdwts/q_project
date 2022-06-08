@@ -1,10 +1,7 @@
 package top.kangyong.study02.model;
 
 import com.alibaba.fastjson.annotation.JSONType;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -19,6 +16,7 @@ import java.math.BigDecimal;
 @ToString
 @JSONType(orders = {"id", "name", "age", "gender", "weight"})
 @AllArgsConstructor
+@Builder
 public class Person {
 
 
@@ -57,9 +55,6 @@ public class Person {
      */
     private BigDecimal money;
 
-    /**
-     * 无参构造
-     */
     public Person() {
     }
 
