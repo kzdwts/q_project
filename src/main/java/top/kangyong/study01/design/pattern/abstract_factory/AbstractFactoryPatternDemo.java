@@ -9,6 +9,7 @@ import top.kangyong.study01.design.pattern.abstract_factory.shape.Shape;
  * 抽象工厂模式
  *
  * @author Kang Yong
+ * @link {https://www.runoob.com/design-pattern/abstract-factory-pattern.html}
  * @date 2022/6/9
  * @since 1.0.0
  */
