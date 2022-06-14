@@ -22,6 +22,6 @@ public class SingletonObject {
     }
 
     public void showMessage() {
-        System.out.println("===showMessage");
+        System.out.println("Hello World");
     }
 }
