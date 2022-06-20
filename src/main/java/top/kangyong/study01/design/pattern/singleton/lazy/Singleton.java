@@ -2,6 +2,7 @@ package top.kangyong.study01.design.pattern.singleton.lazy;
 
 /**
  * 懒汉式，线程不安全
+ * 是否多线程安全：否
  * <p>
  * 单例模式
  *
