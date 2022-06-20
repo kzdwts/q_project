@@ -2,6 +2,7 @@ package top.kangyong.study01.design.pattern.singleton.hungry;
 
 /**
  * 饿汉式
+ * 是否多线程安全：是
  * <p>
  * 单例模式
  *

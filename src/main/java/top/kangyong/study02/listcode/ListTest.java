@@ -343,5 +343,19 @@ public class ListTest {
         numList.forEach(System.out::println);
     }
 
+    @Test
+    public void test14() {
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 18, "王丽丽"));
+        personList.add(new Person(2, 1, 19, "储小姣"));
+        personList.add(new Person(5, 0, 19, "钱梦婷"));
+        personList.add(new Person(4, 1, 18, ""));
+        personList.add(new Person(3, 0, 20, "张丹妮"));
+        personList.add(new Person(6, 0, 20, null));
+
+        List<String> nameList = personList.stream().map(Person::getName).filter(Objects::nonNull).collect(Collectors.toList());
+        nameList.forEach(System.out::println);
+    }
+
 
 }

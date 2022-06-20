@@ -2,6 +2,7 @@ package top.kangyong.study01.design.pattern.singleton.register;
 
 /**
  * 登记式/静态内部类
+ * 是否多线程安全：是
  * <p>
  * 单例模式
  *
