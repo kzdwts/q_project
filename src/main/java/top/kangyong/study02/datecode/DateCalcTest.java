@@ -8,8 +8,12 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * 时间计算
@@ -106,6 +110,29 @@ public class DateCalcTest {
         DateTime dateTime = DateUtil.parse(dateStr, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
         Date date = dateTime.toJdkDate();
         System.out.println(date);
+    }
+
+    /**
+     * 可以用于缓存失效，加了随机时间，避免缓存雪崩事件
+     *
+     * @author Kang Yong
+     * @date 2022/6/23
+     */
+    @Test
+    public void test01() {
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+
+        LocalDate localDate = LocalDate.now();
+        System.out.println(localDate);
+
+        int delay = ThreadLocalRandom.current().nextInt(2, 10);
+        LocalDateTime localDateTime = LocalDate.now().plusDays(1).atTime(0, 0, delay);
+        System.out.println(localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+
+        // 取两个时间间隔的秒数
+        Duration between = Duration.between(LocalDateTime.now(), LocalDate.now().plusDays(1).atTime(0, 0, delay));
+        System.out.println(between.getSeconds());
     }
 
 }
