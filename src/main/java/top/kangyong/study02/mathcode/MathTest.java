@@ -3,6 +3,7 @@ package top.kangyong.study02.mathcode;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * 测试
@@ -54,5 +55,19 @@ public class MathTest {
         System.out.println(a == b);
         System.out.println(a > b);
         System.out.println(a.compareTo(b));
+    }
+
+    /**
+     * 测试 ThreadLocalRandom
+     *
+     * @author Kang Yong
+     * @date 2022/6/23
+     */
+    @Test
+    public void testRandom() {
+        for (int i = 0; i < 100; i++) {
+            int num = ThreadLocalRandom.current().nextInt(2, 10);
+            System.out.println(num);
+        }
     }
 }
