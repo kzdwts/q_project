@@ -1,6 +1,7 @@
 package top.kangyong.study02.listcode;
 
 import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.springframework.util.CollectionUtils;
 import top.kangyong.study02.model.Person;
@@ -355,6 +356,26 @@ public class ListTest {
 
         List<String> nameList = personList.stream().map(Person::getName).filter(Objects::nonNull).collect(Collectors.toList());
         nameList.forEach(System.out::println);
+    }
+
+    @Test
+    public void test15() {
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 18, "王丽丽"));
+        personList.add(new Person(2, 1, 19, "储小姣"));
+        personList.add(new Person(5, 0, 19, "钱梦婷"));
+        personList.add(new Person(4, 1, 18, ""));
+        personList.add(new Person(3, 0, 20, "张丹妮"));
+        personList.add(new Person(6, 0, 20, null));
+
+        List<String> nameList = personList.stream().map(Person::getName).filter(StringUtils::isNotBlank).collect(Collectors.toList());
+        nameList.forEach(System.out::println);
+
+
+        List<Integer> personIds = personList.stream().map(Person::getId).collect(Collectors.toList());
+        personIds.removeIf(bean -> bean.equals(1));
+        personIds.forEach(System.out::println);
+
     }
 
 
