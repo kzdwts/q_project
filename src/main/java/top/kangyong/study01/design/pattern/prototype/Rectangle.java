@@ -2,6 +2,8 @@ package top.kangyong.study01.design.pattern.prototype;
 
 
 /**
+ * 长方形
+ * <p>
  * 原型模式
  *
  * @author Kang Yong

@@ -1,6 +1,8 @@
 package top.kangyong.study01.design.pattern.prototype;
 
 /**
+ * 形状
+ * <p>
  * 原型模式
  *
  * @author Kang Yong
