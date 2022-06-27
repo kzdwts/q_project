@@ -1,7 +1,7 @@
 package top.kangyong.study01.design.pattern.builder;
 
 /**
- * 创建实现 Packing 接口的实体类
+ * 打包：纸盒（创建实现 Packing 接口的实体类）
  * <p>
  * 建造者模式
  *

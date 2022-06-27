@@ -1,7 +1,7 @@
 package top.kangyong.study01.design.pattern.builder;
 
 /**
- * 食物包装的实现
+ * 打包：瓶子（食物包装的实现）
  * <p>
  * 建造者模式
  *
