@@ -135,4 +135,13 @@ public class DateCalcTest {
         System.out.println(between.getSeconds());
     }
 
+    @Test
+    public void test02() {
+        LocalDateTime localDateTime = LocalDate.now().plusDays(-1).atStartOfDay();
+        System.out.println(localDateTime);
+
+        LocalDateTime now = LocalDate.now().atStartOfDay();
+        System.out.println(now);
+    }
+
 }
