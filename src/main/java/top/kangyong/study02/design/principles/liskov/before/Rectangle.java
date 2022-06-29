@@ -1,4 +1,4 @@
-package top.kangyong.study02.design.principles.liskov;
+package top.kangyong.study02.design.principles.liskov.before;
 
 /**
  * 长方形
@@ -14,19 +14,19 @@ public class Rectangle {
     /**
      * 长
      */
-    private Integer lenght;
+    private Integer length;
 
     /**
      * 宽
      */
     private Integer width;
 
-    public Integer getLenght() {
-        return lenght;
+    public Integer getLength() {
+        return length;
     }
 
-    public void setLenght(Integer lenght) {
-        this.lenght = lenght;
+    public void setLength(Integer length) {
+        this.length = length;
     }
 
     public Integer getWidth() {

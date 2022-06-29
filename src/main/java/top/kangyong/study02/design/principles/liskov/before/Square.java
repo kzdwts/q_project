@@ -1,4 +1,4 @@
-package top.kangyong.study02.design.principles.liskov;
+package top.kangyong.study02.design.principles.liskov.before;
 
 /**
  * 正方形
@@ -12,14 +12,14 @@ package top.kangyong.study02.design.principles.liskov;
 public class Square extends Rectangle {
 
     @Override
-    public void setLenght(Integer lenght) {
-        super.setLenght(lenght);
+    public void setLength(Integer lenght) {
+        super.setLength(lenght);
         super.setWidth(lenght);
     }
 
     @Override
     public void setWidth(Integer width) {
-        super.setLenght(width);
+        super.setLength(width);
         super.setWidth(width);
     }
 }

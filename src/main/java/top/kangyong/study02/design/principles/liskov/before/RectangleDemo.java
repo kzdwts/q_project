@@ -1,4 +1,4 @@
-package top.kangyong.study02.design.principles.liskov;
+package top.kangyong.study02.design.principles.liskov.before;
 
 /**
  * 测试类
@@ -14,7 +14,7 @@ public class RectangleDemo {
     public static void main(String[] args) {
         Rectangle r = new Rectangle();
         r.setWidth(10);
-        r.setLenght(20);
+        r.setLength(20);
         resize(r);
         printLengthAndWidth(r);
 
@@ -30,13 +30,13 @@ public class RectangleDemo {
 
     public static void resize(Rectangle rectangle) {
         // 如果宽没有长大，就+1
-        while (rectangle.getWidth() >= rectangle.getLenght()) {
+        while (rectangle.getWidth() >= rectangle.getLength()) {
             rectangle.setWidth(rectangle.getWidth() + 1);
         }
     }
 
     public static void printLengthAndWidth(Rectangle rectangle) {
-        System.out.println("length:" + rectangle.getLenght());
+        System.out.println("length:" + rectangle.getLength());
         System.out.println("width:" + rectangle.getWidth());
     }
 }
