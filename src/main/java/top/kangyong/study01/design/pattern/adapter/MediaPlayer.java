@@ -19,5 +19,5 @@ public interface MediaPlayer {
      * @author Kang Yong
      * @date 2022/6/28
      */
-    public void play(String audioType, String fileName);
+    void play(String audioType, String fileName);
 }
