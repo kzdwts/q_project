@@ -22,7 +22,7 @@ public class RectangleDemo {
 
         Square s = new Square();
         s.setWidth(10);
-        s.setLenght(20);
+        s.setLength(20);
         // 死循环了，由此证明，正方形不是长方形（这种设计不符合里氏替换原则）
         resize(s);
         printLengthAndWidth(s);
