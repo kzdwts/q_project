@@ -12,7 +12,7 @@ package top.kangyong.study01.design.pattern.adapter;
 public class VlcPlayer implements AdvancedMediaPlayer {
     @Override
     public void playVlc(String fileName) {
-
+        System.out.println("playing vlc file. Nanme:" + fileName);
     }
 
     @Override
