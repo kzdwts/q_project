@@ -9,6 +9,8 @@ package top.kangyong.study01.design.pattern.adapter;
  */
 public class MediaAdapter implements MediaPlayer {
 
+    private AdvancedMediaPlayer advancedMediaPlayer;
+
     /**
      * 播放
      *
@@ -19,6 +21,10 @@ public class MediaAdapter implements MediaPlayer {
      */
     @Override
     public void play(String audioType, String fileName) {
-
+        if (audioType.equalsIgnoreCase("vlc")) {
+            advancedMediaPlayer = new VlcPlayer();
+        } else if (audioType.equalsIgnoreCase("mp4")) {
+            advancedMediaPlayer = new Mp4Player();
+        }
     }
 }
