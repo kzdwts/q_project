@@ -8,4 +8,9 @@ package top.kangyong.study01.design.pattern.adapter;
  * @since 1.0.0
  */
 public class AdapterPatternDemo {
+
+    public static void main(String[] args) {
+        AudioPlayer audioPlayer = new AudioPlayer();
+
+    }
 }
