@@ -20,6 +20,8 @@ public class RectangleDemo {
 
         System.out.println("===华=丽=的=分=割=线===");
 
+        // 正方形不是长方形，不能调用长方形扩宽的方法
+
     }
 
     /**
