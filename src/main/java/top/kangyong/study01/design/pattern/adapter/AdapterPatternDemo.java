@@ -14,5 +14,9 @@ public class AdapterPatternDemo {
 
         audioPlayer.play("mp3", "beyond the horizon.mp3");
 
+        audioPlayer.play("mp4", "mp4.mp3");
+        audioPlayer.play("vlc", "vlc.vlc");
+        audioPlayer.play("avi", "mmm.avi");
+
     }
 }
