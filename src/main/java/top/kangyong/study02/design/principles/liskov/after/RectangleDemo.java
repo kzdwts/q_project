@@ -1,9 +1,9 @@
 package top.kangyong.study02.design.principles.liskov.after;
 
-import top.kangyong.study02.design.principles.liskov.before.Square;
-
 /**
  * 测试类
+ * <p>
+ * 里氏替换原则
  *
  * @author Kang Yong
  * @date 2022/6/29
@@ -12,7 +12,7 @@ import top.kangyong.study02.design.principles.liskov.before.Square;
 public class RectangleDemo {
 
     public static void main(String[] args) {
-       Rectangle r = new Rectangle();
+        Rectangle r = new Rectangle();
         r.setWidth(10);
         r.setLength(20);
         resize(r);

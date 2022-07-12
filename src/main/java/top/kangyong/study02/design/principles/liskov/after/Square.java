@@ -2,6 +2,8 @@ package top.kangyong.study02.design.principles.liskov.after;
 
 /**
  * 正方形 实现四边形的接口
+ * <p>
+ * 里氏替换原则
  *
  * @author Kang Yong
  * @date 2022/6/29
