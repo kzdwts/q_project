@@ -9,6 +9,7 @@ import org.junit.Test;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -142,6 +143,15 @@ public class DateCalcTest {
 
         LocalDateTime now = LocalDate.now().atStartOfDay();
         System.out.println(now);
+    }
+
+    @Test
+    public void test03() {
+        Date date = new Date();
+        System.out.println(new SimpleDateFormat("yyyy年MM月dd日 HH:mm").format(date));
+        Instant instant = date.toInstant().plusSeconds(10 * 60);
+        Date from = Date.from(instant);
+        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(from));
     }
 
 }
