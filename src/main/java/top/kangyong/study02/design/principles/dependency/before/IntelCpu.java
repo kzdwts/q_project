@@ -2,6 +2,8 @@ package top.kangyong.study02.design.principles.dependency.before;
 
 /**
  * intel cpu
+ * <p>
+ * 依赖倒置原则
  *
  * @author Kang Yong
  * @date 2022/7/16
