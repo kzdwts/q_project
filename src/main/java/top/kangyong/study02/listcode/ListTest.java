@@ -378,5 +378,65 @@ public class ListTest {
 
     }
 
+    @Test
+    public void test16() {
+
+        List<Map<String, Object>> list = new ArrayList<>();
+        Map<String, Object> m1 = new HashMap<>();
+        m1.put("name", "王丽丽");
+        m1.put("age", 18);
+        m1.put("weight", 65.8);
+        Map<String, Object> m2 = new HashMap<>();
+        m2.put("name", "徐慧文");
+        m2.put("age", 28);
+        m2.put("weight", 64.8);
+        list.add(m1);
+        list.add(m2);
+
+        for (Map<String, Object> map : list) {
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                System.out.println(entry.getKey() + ": " + entry.getValue());
+            }
+            System.out.println("===");
+        }
+
+        String tb = "schema.column";
+
+        List<String> keyList = new ArrayList<>();
+        List<Map<String, Object>> objList = new ArrayList<>();
+        for (Map<String, Object> objectMap : list) {
+            Map<String, Object> tmpMap = new HashMap<>();
+            for (Map.Entry<String, Object> entry : objectMap.entrySet()) {
+                String key = tb + "." + entry.getKey();
+                tmpMap.put(key, entry.getValue());
+                keyList.add(key);
+            }
+            objList.add(tmpMap);
+        }
+
+        System.out.println("=================");
+
+        for (Map<String, Object> map : objList) {
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                System.out.println(entry.getKey() + ": " + entry.getValue());
+            }
+            System.out.println("===");
+        }
+
+        System.out.println("所有的key===");
+        keyList.forEach(System.out::println);
+
+        Map<String, Object> resultMap = new HashMap<>();
+        for (String key : keyList) {
+            resultMap.put(key, objList);
+        }
+
+        for (Map.Entry<String, Object> entry : resultMap.entrySet()) {
+            System.out.println(entry.getKey() + "::::" );
+            System.out.println(entry.getValue());
+        }
+
+    }
+
 
 }
