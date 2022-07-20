@@ -2,6 +2,9 @@ package top.kangyong.study02.stringdemo;
 
 import org.junit.Test;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * String字符串操作
  *
@@ -47,5 +50,37 @@ public class StringDemoTest {
         String str = "你好，我是王丽丽；";
         str = str.substring(0, str.length() - 1);
         System.out.println(str);
+    }
+
+    @Test
+    public void testSplit() {
+//        String str = "sale_house.cus_customer_progress";
+//        String[] split = str.split("\\.");
+//        for (int c = 0; c < split.length; c++) {
+//            System.out.println(split[c]);
+//        }
+
+        String str = ".id";
+        String[] split = str.split("\\.");
+        for (int c = 0; c < split.length; c++) {
+            System.out.println(split[c]);
+        }
+    }
+
+    @Test
+    public void testRegex() {
+        /**
+         * 变量抽取pattern
+         */
+        Pattern VARIABLE_PATTERN = Pattern.compile ("(#\\w+)|(\\.?\\w+)"); // (#\w+\[?)|(\.?\w+)+|]
+//        String str = "#context[sale_house.cus_customer_detail.name]";
+        String str = "#body.id";
+
+        Matcher m = VARIABLE_PATTERN.matcher (str);
+
+        while (m.find()) {
+            String group = m.group();
+            System.out.println(group);
+        }
     }
 }
