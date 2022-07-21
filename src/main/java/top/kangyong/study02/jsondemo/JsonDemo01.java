@@ -123,6 +123,14 @@ public class JsonDemo01 {
         Object name = jsonObject.get("name");
         System.out.println(name);
         System.out.println(jsonObject.get("type"));
+
+        Map cartMap = JSON.parseObject(JSON.toJSONString(car), Map.class);
+        System.out.println(cartMap.size());
+        String brand = (String) cartMap.getOrDefault("brand", null);
+        System.out.println(brand);
+
+        String mobile = (String) cartMap.getOrDefault("mobile", null);
+        System.out.println(mobile);
     }
 
 }
