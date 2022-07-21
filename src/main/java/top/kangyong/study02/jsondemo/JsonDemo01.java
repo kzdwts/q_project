@@ -3,6 +3,7 @@ package top.kangyong.study02.jsondemo;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
+import sun.security.mscapi.CPublicKey;
 import top.kangyong.study02.model.Car;
 import top.kangyong.study02.model.Person;
 import top.kangyong.study02.model.SmsSendDTO;
@@ -105,7 +106,23 @@ public class JsonDemo01 {
             System.out.println(json);
         }
 
+    }
 
+    @Test
+    public void demoGetNullNode() {
+        Car car = new Car();
+        car.setType("MQB宝来");
+        car.setColor("白色");
+        car.setBrand("大众");
+        car.setWeight(2000.59f);
+        car.setPl("1.5L");
+        car.setDriveMode("#92燃油");
+
+        JSONObject jsonObject = JSON.parseObject(JSON.toJSONString(car));
+        System.out.println(jsonObject.size());
+        Object name = jsonObject.get("name");
+        System.out.println(name);
+        System.out.println(jsonObject.get("type"));
     }
 
 }
