@@ -2,6 +2,8 @@ package top.kangyong.study02.design.principles.segregation.before;
 
 /**
  * 安全门
+ * <p>
+ * 接口隔离原则
  *
  * @author Kang Yong
  * @date 2022/7/19

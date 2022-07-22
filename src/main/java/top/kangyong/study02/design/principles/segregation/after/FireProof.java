@@ -1,7 +1,7 @@
 package top.kangyong.study02.design.principles.segregation.after;
 
 /**
- * 防盗门接口
+ * 防火
  * <p>
  * 接口隔离原则
  *
@@ -9,14 +9,14 @@ package top.kangyong.study02.design.principles.segregation.after;
  * @date 2022/7/22
  * @since 1.0.0
  */
-public interface AntiTheft {
+public interface FireProof {
 
     /**
-     * 防盗
+     * 防火
      *
      * @author Kang Yong
      * @date 2022/7/19
      */
-    void antiTheft();
+    void fireProof();
 
 }
