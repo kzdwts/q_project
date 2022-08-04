@@ -10,7 +10,15 @@ package top.kangyong.study02.design.pattern.creatormode.singleton.demo1;
 public class Client {
 
     public static void main(String[] args) {
-        Singleton singleton = Singleton.getInstance();
+        Singleton instance = Singleton.getInstance();
+
+        Singleton instance2 = Singleton.getInstance();
+
+        System.out.println(instance == instance2);
+        System.out.println(instance.equals(instance2));
+
+        System.out.println(instance);
+        System.out.println(instance2);
         System.out.println("SUCCESS");
     }
 
