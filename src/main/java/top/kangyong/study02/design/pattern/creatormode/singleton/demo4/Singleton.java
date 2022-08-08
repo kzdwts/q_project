@@ -18,7 +18,8 @@ public class Singleton {
 
     }
 
-    private static Singleton instance;
+    // 成员变量，volatile保证成员可见性和有序性
+    private static volatile Singleton instance;
 
     public static Singleton getInstance() {
         // 第一次判断，如果不为null，不需要抢占锁，直接返回对象
