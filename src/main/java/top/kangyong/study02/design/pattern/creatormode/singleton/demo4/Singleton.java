@@ -1,7 +1,7 @@
 package top.kangyong.study02.design.pattern.creatormode.singleton.demo4;
 
 /**
- * 单例模式 懒汉式 双重检查锁
+ * 单例模式 懒汉式 双重检查锁（推荐使用）
  * <p>
  * 创建型模式
  *
