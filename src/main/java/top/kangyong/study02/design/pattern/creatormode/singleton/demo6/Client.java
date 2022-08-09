@@ -1,7 +1,7 @@
 package top.kangyong.study02.design.pattern.creatormode.singleton.demo6;
 
 /**
- * 单例模式 饿汉式 枚举实现方式
+ * 单例模式 饿汉式 枚举实现方式（不考虑浪费内存空间的情况下，首选枚举方式。但是肯定要考虑呀，，，）
  * <p>
  * 创建型模式
  *
