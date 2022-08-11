@@ -1,5 +1,7 @@
 package top.kangyong.study02.design.pattern.creatormode.singleton.demo7;
 
+import java.io.Serializable;
+
 /**
  * 单例模式 破坏单例模式
  * <p>
@@ -9,7 +11,7 @@ package top.kangyong.study02.design.pattern.creatormode.singleton.demo7;
  * @date 2022/8/10
  * @since 1.0.0
  */
-public class Singleton {
+public class Singleton implements Serializable {
 
     private Singleton() {
     }
