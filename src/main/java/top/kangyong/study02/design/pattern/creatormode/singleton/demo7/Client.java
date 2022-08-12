@@ -1,9 +1,6 @@
 package top.kangyong.study02.design.pattern.creatormode.singleton.demo7;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.OutputStreamWriter;
+import java.io.*;
 
 /**
  * 序列化破坏单例模式
@@ -16,11 +13,42 @@ import java.io.OutputStreamWriter;
  */
 public class Client {
 
-    public static void main(String[] args) throws IOException {
-        writeObject2File();
+    public static void main(String[] args) throws Exception {
+//        writeObject2File();
+
+        readObjectFromFile();
+        readObjectFromFile();
+
+//        top.kangyong.study02.design.pattern.creatormode.singleton.demo7.Singleton@735f7ae5
+//        top.kangyong.study02.design.pattern.creatormode.singleton.demo7.Singleton@180bc464
 
     }
 
+    /**
+     * 从文件读取数据（对象）
+     *
+     * @author Kang Yong
+     * @date 2022/8/12
+     */
+    public static void readObjectFromFile() throws Exception {
+        // 创建对象输入流对象
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("C:\\Users\\pc\\Desktop\\tmp01.txt"));
+        // 读取对象
+        Singleton instance = (Singleton) ois.readObject();
+
+        System.out.println(instance);
+
+        // 释放资源
+        ois.close();
+
+    }
+
+    /**
+     * 向文件中写数据（对象）
+     *
+     * @author Kang Yong
+     * @date 2022/8/12
+     */
     public static void writeObject2File() throws IOException {
         // 创建单例对象
         Singleton instance = Singleton.getInstance();
