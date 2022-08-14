@@ -32,7 +32,7 @@ public class Client {
      */
     public static void readObjectFromFile() throws Exception {
         // 创建对象输入流对象
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("C:\\Users\\pc\\Desktop\\tmp01.txt"));
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("C:\\Users\\kangy\\Desktop\\tmp01.txt"));
         // 读取对象
         Singleton instance = (Singleton) ois.readObject();
 
@@ -53,7 +53,7 @@ public class Client {
         // 创建单例对象
         Singleton instance = Singleton.getInstance();
         // 获取对象输出流对象
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("C:\\Users\\pc\\Desktop\\tmp01.txt"));
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("C:\\Users\\kangy\\Desktop\\tmp01.txt"));
         // 写对象
         oos.writeObject(instance);
 
