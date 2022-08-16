@@ -1,28 +1,32 @@
-package top.kangyong.study02.design.pattern.creatormode.singleton.demo7;
-
-import java.io.Serializable;
+package top.kangyong.study02.design.pattern.creatormode.singleton.demo8;
 
 /**
- * 单例模式 破坏单例模式
+ * 单例模式
  * <p>
  * 创建型模式
  *
  * @author Kang Yong
- * @date 2022/8/10
+ * @date 2022/8/13
  * @since 1.0.0
  */
-public class Singleton implements Serializable {
-
-    private Singleton() {
-    }
+public class Singleton {
 
     /**
-     * 静态内部类
+     * 私有构造
      */
+    private Singleton() {
+
+    }
+
     private static class SingletonHolder {
         private static final Singleton INSTANCE = new Singleton();
     }
 
+    /**
+     * 公共方法
+     *
+     * @return
+     */
     public static Singleton getInstance() {
         return SingletonHolder.INSTANCE;
     }
