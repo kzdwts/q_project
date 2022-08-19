@@ -42,7 +42,6 @@ public class Employee {
                 "name='" + name + '\'' +
                 ", dept='" + dept + '\'' +
                 ", salary=" + salary +
-                ", subordinates=" + subordinates +
                 '}';
     }
 }
