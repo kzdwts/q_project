@@ -11,11 +11,23 @@ package top.kangyong.study02.design.pattern.creatormode.singleton.demo8;
  */
 public class Singleton {
 
+    private static boolean flag = false;
+
     /**
      * 私有构造
      */
     private Singleton() {
 
+        synchronized (Singleton.class) {
+
+            // 如果flag是true，说明非第一次访问，直接抛出一个异常；如果是false，说明是第一次访问
+            if (flag) {
+                throw new RuntimeException("不能创建多个对象");
+            }
+
+            // 将flag的值设置为true
+            flag = true;
+        }
     }
 
     private static class SingletonHolder {
