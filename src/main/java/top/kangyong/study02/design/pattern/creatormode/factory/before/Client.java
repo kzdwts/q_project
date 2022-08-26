@@ -18,5 +18,8 @@ public class Client {
         // 点咖啡
         Coffee coffee = store.orderCoffee("Latte");
         System.out.println(coffee.getName());
+
+        Coffee americanCoffee = store.orderCoffee("American");
+        System.out.println(americanCoffee.getName());
     }
 }
