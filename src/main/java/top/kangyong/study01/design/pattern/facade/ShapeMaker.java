@@ -13,10 +13,10 @@ public class ShapeMaker {
     private Shape rectangle;
     private Shape square;
 
-    public ShapeMaker(Shape circle, Shape rectangle, Shape square) {
-        this.circle = circle;
-        this.rectangle = rectangle;
-        this.square = square;
+    public ShapeMaker() {
+        this.circle = new Circle();
+        this.rectangle = new Rectangle();
+        this.square = new Square();
     }
 
     public void drawCircle() {
