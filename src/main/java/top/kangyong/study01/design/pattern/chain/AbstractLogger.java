@@ -2,6 +2,8 @@ package top.kangyong.study01.design.pattern.chain;
 
 /**
  * 责任链模式
+ * <p>
+ * 行为型模式。
  *
  * @author Kang Yong
  * @date 2022/9/8
