@@ -11,9 +11,9 @@ package top.kangyong.study01.design.pattern.chain;
  */
 public abstract class AbstractLogger {
 
-    private static int INFO = 1;
-    private static int DEBUG = 2;
-    private static int EROR = 3;
+    public static int INFO = 1;
+    public static int DEBUG = 2;
+    public static int ERROR = 3;
 
     protected int level;
 
