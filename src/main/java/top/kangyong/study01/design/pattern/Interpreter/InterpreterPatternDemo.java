@@ -11,6 +11,20 @@ package top.kangyong.study01.design.pattern.Interpreter;
  */
 public class InterpreterPatternDemo {
 
+    /**
+     * 规则：robot和john是男性
+     *
+     * @return {@link Expression}
+     * @author Kang Yong
+     * @date 2022/9/18
+     */
+    public static Expression getMaleExpression() {
+        TerminalExpression robot = new TerminalExpression("robot");
+        TerminalExpression john = new TerminalExpression("john");
+
+        return new OrExpression(robot, john);
+    }
+
     public static void main(String[] args) {
 
     }
