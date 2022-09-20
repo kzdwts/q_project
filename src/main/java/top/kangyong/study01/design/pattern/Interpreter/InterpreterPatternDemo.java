@@ -20,7 +20,7 @@ public class InterpreterPatternDemo {
      */
     public static Expression getMaleExpression() {
         TerminalExpression robot = new TerminalExpression("robot");
-        TerminalExpression john = new TerminalExpression("john");
+        TerminalExpression john = new TerminalExpression("John");
 
         return new OrExpression(robot, john);
     }
@@ -33,12 +33,16 @@ public class InterpreterPatternDemo {
      * @date 2022/9/19
      */
     public static Expression getMarriedWomanExpression() {
-        TerminalExpression julie = new TerminalExpression("julie");
+        TerminalExpression julie = new TerminalExpression("Julie");
         TerminalExpression married = new TerminalExpression("married");
         return new AndExpression(julie, married);
     }
 
     public static void main(String[] args) {
+        Expression isMale = getMaleExpression();
+        Expression isMarriedWoman = getMarriedWomanExpression();
 
+        System.out.println("John is Male ? " + isMale.interpret("John"));
+        System.out.println("Julie is Married woman ? " + isMarriedWoman.interpret("Julie"));
     }
 }
