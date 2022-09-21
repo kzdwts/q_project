@@ -1,5 +1,6 @@
 package top.kangyong.study02.listcode;
 
+import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
@@ -432,10 +433,31 @@ public class ListTest {
         }
 
         for (Map.Entry<String, Object> entry : resultMap.entrySet()) {
-            System.out.println(entry.getKey() + "::::" );
+            System.out.println(entry.getKey() + "::::");
             System.out.println(entry.getValue());
         }
 
+    }
+
+    /**
+     * 将List<Person> 转为 Map<Integer, List<String>>
+     * 即将person集合转为 map:年龄 → List<姓名>
+     *
+     * @author Kang Yong
+     * @date 2022/9/21
+     */
+    @Test
+    public void test17() {
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 18, "王丽丽"));
+        personList.add(new Person(2, 1, 19, "储小姣"));
+        personList.add(new Person(5, 0, 19, "钱梦婷"));
+        personList.add(new Person(4, 1, 18, "徐慧文"));
+        personList.add(new Person(3, 0, 20, "张丹妮"));
+        personList.add(new Person(6, 0, 20, "陆之昂"));
+
+        Map<Integer, List<String>> ageNameMap = personList.stream().collect(Collectors.groupingBy(Person::getAge, Collectors.mapping(Person::getName, Collectors.toList())));
+        System.out.println(JSON.toJSONString(ageNameMap));
     }
 
 
