@@ -1,5 +1,7 @@
 package top.kangyong.study02.mapdemo;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -80,5 +82,51 @@ public class MapTest {
         for (Map.Entry<Integer, String> entry : entries) {
             System.out.println("key:" + entry.getKey() + " " + "Value:" + entry.getValue());
         }
+    }
+
+    /**
+     * Map<Integer, String> 转Map<String, String>
+     *
+     * @author Kang Yong
+     * @date 2022/9/22
+     */
+    @Test
+    public void testConvertDemo01() {
+        Map<String, String> map1 = new HashMap<>();
+        map1.put("1", "王丽丽");
+        map1.put("2", "钱梦婷");
+        map1.put("3", "陆智航");
+
+        String jsonString = JSON.toJSONString(map1);
+        System.out.println(jsonString);
+
+        Map<Integer, String> map2 = JSON.parseObject(jsonString, new TypeReference<Map<Integer, String>>() {
+        });
+        String jsonString2 = JSON.toJSONString(map2);
+        System.out.println(jsonString2);
+    }
+
+    /**
+     * Map<String, String> 转Map<StringInteger, String>
+     *
+     * @author Kang Yong
+     * @date 2022/9/22
+     */
+    @Test
+    public void testConvertDemo02() {
+        Map<Integer, String> map1 = new HashMap<>();
+        map1.put(1, "王丽丽");
+        map1.put(2, "钱梦婷");
+        map1.put(3, "陆智航");
+
+        String jsonString = JSON.toJSONString(map1);
+        System.out.println(jsonString);
+
+        // 实践证明String 转Integer可以，反过来不行
+
+        Map<String, String> map2 = JSON.parseObject(jsonString, new TypeReference<Map<String, String>>() {
+        });
+        String jsonString2 = JSON.toJSONString(map2);
+        System.out.println(jsonString2);
     }
 }
