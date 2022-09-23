@@ -58,6 +58,11 @@ public class Person {
     public Person() {
     }
 
+    public Person(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     /**
      * @param id     主键
      * @param gender 性别：0女，1男，2未知
