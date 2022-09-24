@@ -3,6 +3,10 @@ package top.kangyong.study02.mathcode;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -15,7 +19,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class MathTest {
 
     @Test
-    public void test01() {
+    public void bigDecimalTest01() {
         BigDecimal b1 = new BigDecimal(100.00);
         BigDecimal b2 = new BigDecimal(-111.00);
         BigDecimal b3 = new BigDecimal(200.00);
@@ -26,6 +30,24 @@ public class MathTest {
         System.out.println(b3.compareTo(BigDecimal.ZERO) > 0);
         System.out.println(b4.compareTo(BigDecimal.ZERO) <= 0);
 
+    }
+
+    @Test
+    public void bigDecimalTest02() {
+        BigDecimal b1 = new BigDecimal("106.12");
+        BigDecimal b2 = new BigDecimal("167.8");
+        BigDecimal b3 = new BigDecimal("106.12");
+        BigDecimal b4 = new BigDecimal("1.82");
+
+        List<BigDecimal> bList = new ArrayList<>(Arrays.asList(b1, b2, b3, b4));
+        BigDecimal max = Collections.max(bList);
+        BigDecimal min = Collections.min(bList);
+        System.out.println("max: " + max);
+        System.out.println("min: " + min);
+        System.out.println("===华丽的分割线===");
+
+        System.out.println(b1.equals(b2));
+        System.out.println(b1.equals(b3));
     }
 
     /**
