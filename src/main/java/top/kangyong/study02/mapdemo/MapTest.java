@@ -138,4 +138,26 @@ public class MapTest {
         List<Person> personList = map1.entrySet().stream().map(m -> (new Person(m.getKey(), m.getValue()))).collect(Collectors.toList());
         System.out.println(personList);
     }
+
+    /**
+     * Map get Null Key
+     *
+     * @author Kang Yong
+     * @date 2022/9/23
+     */
+    @Test
+    public void testMapGetNullKey() {
+        Map<Integer, String> map1 = new HashMap<>();
+        map1.put(1, "王丽丽");
+        map1.put(2, "钱梦婷");
+        map1.put(3, "陆智航");
+
+        String name = map1.getOrDefault(null, "ceshi");
+        System.out.println(name);
+
+        String wanglili = map1.getOrDefault(1, "wanglili");
+        System.out.println(wanglili);
+
+
+    }
 }
