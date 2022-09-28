@@ -92,4 +92,14 @@ public class MathTest {
             System.out.println(num);
         }
     }
+
+    @Test
+    public void testBigDecimalToInt() {
+        BigDecimal b1 = new BigDecimal(18.99);
+        System.out.println(b1);
+
+        int i1 = b1.intValue();
+        System.out.println(i1);
+    }
+
 }
