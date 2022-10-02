@@ -8,4 +8,9 @@ package top.kangyong.study01.design.pattern.iterator;
  * @since 1.0.0
  */
 public class IteratorPatternDemo {
+
+    public static void main(String[] args) {
+
+    }
+
 }
