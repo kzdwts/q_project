@@ -1,7 +1,7 @@
 package top.kangyong.study01.design.pattern.mediator;
 
 /**
- * TODO description.
+ * 中介者模式
  *
  * @author Kang Yong
  * @date 2022/10/4

@@ -1,5 +1,6 @@
 package top.kangyong.study01.design.pattern.mediator;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -14,6 +15,7 @@ import java.util.Date;
 public class ChatRoom {
 
     public static void showMessage(User user, String message) {
-        System.out.println(new Date().toString() + "[ " + user.getName() + "]: " + message);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
+        System.out.println(sdf.format(new Date()) + " [ " + user.getName() + " ]: " + message);
     }
 }
