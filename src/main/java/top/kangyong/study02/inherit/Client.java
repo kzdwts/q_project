@@ -22,11 +22,12 @@ public class Client {
         String jsonStr = JSON.toJSONString(cat);
         Animal animal = JSON.parseObject(jsonStr, Animal.class);
         System.out.println(animal);
-
+//        Animal(name=小猫咪, age=3)
 
         // 子类继承父类，这里使用多态，打印出的仍然是子类的所有数据
         Animal cat1 = cat;
         System.out.println(JSON.toJSONString(cat1));
+//        {"age":3,"color":"奶奶灰","name":"小猫咪","skill":"抓老鼠"}
 
     }
 
