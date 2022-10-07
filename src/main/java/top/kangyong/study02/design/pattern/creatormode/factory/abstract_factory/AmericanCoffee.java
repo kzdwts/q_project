@@ -1,7 +1,7 @@
 package top.kangyong.study02.design.pattern.creatormode.factory.abstract_factory;
 
 /**
- * 简单工厂模式 美式咖啡
+ * 抽象工厂模式 美式咖啡
  * <p>
  * 创建型模式
  *
