@@ -2,6 +2,8 @@ package top.kangyong.study01.design.pattern.memento;
 
 /**
  * 备忘录模式
+ * <p>
+ * 行为型模式
  *
  * @author Kang Yong
  * @date 2022/10/6
@@ -17,5 +19,13 @@ public class Originator {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public Memento saveStateToMemento(String state) {
+        return new Memento(state);
+    }
+
+    public void getStateFromMemento(Memento memento) {
+        state = memento.getState();
     }
 }
