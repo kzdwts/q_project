@@ -21,7 +21,7 @@ public class Originator {
         this.state = state;
     }
 
-    public Memento saveStateToMemento(String state) {
+    public Memento saveStateToMemento() {
         return new Memento(state);
     }
 
