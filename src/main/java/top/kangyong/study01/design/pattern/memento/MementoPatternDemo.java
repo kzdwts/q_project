@@ -2,8 +2,10 @@ package top.kangyong.study01.design.pattern.memento;
 
 /**
  * 备忘录模式 demo
+ * * <p>
+ * * 行为型模式
+ * * @author Kang Yong
  *
- * @author Kang Yong
  * @date 2022/10/9
  * @since 1.0.0
  */

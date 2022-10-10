@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * 备忘录模式
+ * <p>
+ * 行为型模式
  *
  * @author Kang Yong
  * @date 2022/10/9
