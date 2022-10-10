@@ -13,7 +13,10 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -153,5 +156,33 @@ public class DateCalcTest {
         Date from = Date.from(instant);
         System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(from));
     }
+
+    public static List<String> findEveryDay(Date beginTime, Date endTime) {
+        List<String> dateList = new ArrayList<>();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        dateList.add(sdf.format(beginTime));
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(beginTime);
+
+        while (endTime.after(calendar.getTime())) {
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+            dateList.add(sdf.format(calendar.getTime()));
+        }
+        return dateList;
+    }
+
+    @Test
+    public void testFindDateList() {
+        DateTime bDate = DateUtil.beginOfMonth(new Date());
+        DateTime eDate = DateUtil.endOfMonth(new Date());
+
+        System.out.println("bDate = " + bDate);
+        System.out.println("eDate = " + eDate);
+        List<String> everyDay = findEveryDay(bDate, eDate);
+        System.out.println("everyDay = " + everyDay);
+    }
+
 
 }
