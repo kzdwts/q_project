@@ -48,7 +48,15 @@ public class DateUtil {
         int month = calendar.get(Calendar.MONTH) + 1;
         int day = calendar.getActualMaximum(Calendar.DATE);
         for (int i = 1; i <= day; i++) {
-            String dateStr = String.valueOf(year) + "-" + month + "-" + i;
+            String monthStr = month + "";
+            if (month < 10) {
+                monthStr = "0" + month;
+            }
+            String dayStr = i + "";
+            if (i < 10) {
+                dayStr = "0" + i;
+            }
+            String dateStr = year + "-" + monthStr + "-" + dayStr;
             resultList.add(dateStr);
         }
         return resultList;
