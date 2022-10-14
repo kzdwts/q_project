@@ -1,7 +1,7 @@
 package top.kangyong.study01.design.pattern.observer;
 
 /**
- * TODO description.
+ * 观察者模式
  *
  * @author Kang Yong
  * @date 2022/10/14
@@ -9,9 +9,14 @@ package top.kangyong.study01.design.pattern.observer;
  */
 public class OctalObserver extends Observer {
 
+    public OctalObserver(Subject subject) {
+        this.subject = subject;
+        this.subject.attach(this);
+    }
+
     @Override
     public void update() {
-
+        System.out.println("Octal String: " + Integer.toBinaryString(subject.getState()));
     }
 
 }
