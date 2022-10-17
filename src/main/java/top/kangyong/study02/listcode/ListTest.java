@@ -473,5 +473,41 @@ public class ListTest {
         System.out.println(personList);
     }
 
+    /**
+     * 测试多次addAll
+     *
+     * @author Kang Yong
+     * @date 2022/10/17
+     */
+    @Test
+    public void testAddAll() {
+        List<Person> allGrilList = new ArrayList<>();
+        List<Person> p1List = new ArrayList<>();
+        p1List.add(new Person(5, 0, 19, "钱梦婷"));
+        allGrilList.addAll(p1List);
+
+        List<Person> p2List = new ArrayList<>();
+        p2List.add(new Person(5, 0, 19, "柯丽妮"));
+        p2List.add(new Person(5, 0, 19, "郭雯艳"));
+        p2List.add(new Person(5, 0, 19, "葛艳红"));
+        p2List.add(new Person(5, 0, 19, "洋洋月"));
+        p2List.add(new Person(3, 0, 20, "张丹妮"));
+        allGrilList.addAll(p2List);
+
+        List<Person> p3List = new ArrayList<>();
+        p3List.add(new Person(1, 0, 18, "王丽丽"));
+        p3List.add(new Person(2, 1, 19, "储小姣"));
+        allGrilList.addAll(p3List);
+
+        List<Person> p4List = new ArrayList<>();
+        p4List.add(new Person(4, 1, 18, "徐慧文"));
+        p4List.add(new Person(6, 0, 20, "陆之昂"));
+        allGrilList.addAll(p4List);
+
+        allGrilList.forEach(System.out::println);
+
+
+    }
+
 
 }
