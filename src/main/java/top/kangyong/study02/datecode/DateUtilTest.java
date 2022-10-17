@@ -27,6 +27,12 @@ public class DateUtilTest {
     }
 
     @Test
+    public void testgetDateHours() {
+        List<String> hourList = DateUtil.getDateHours(7, 19);
+        hourList.forEach(System.out::println);
+    }
+
+    @Test
     public void testGetLastMonthDate() {
         List<String> monthList = DateUtil.getLastMonthDate(4);
         monthList.forEach(System.out::println);

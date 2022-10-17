@@ -85,6 +85,24 @@ public class DateUtil {
     }
 
     /**
+     * 获取两个时间段之间的小时
+     *
+     * @param begin {@link Integer} 开始
+     * @param end   {@link Integer} 结束
+     * @return {@link List< String>}
+     * @author Kang Yong
+     * @date 2022/10/17
+     */
+    public static List<String> getDateHours(Integer begin, Integer end) {
+        List<String> hourList = new ArrayList<>();
+        for (int i = begin; i <= end; i++) {
+            String hour =  fillZero(i);
+            hourList.add(hour);
+        }
+        return hourList;
+    }
+
+    /**
      * 格式化 月/日
      *
      * @param i {@link Integer}
