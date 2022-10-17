@@ -96,7 +96,7 @@ public class DateUtil {
     public static List<String> getDateHours(Integer begin, Integer end) {
         List<String> hourList = new ArrayList<>();
         for (int i = begin; i <= end; i++) {
-            String hour =  fillZero(i);
+            String hour =  fillZero(i) + ":00";
             hourList.add(hour);
         }
         return hourList;
