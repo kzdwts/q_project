@@ -26,4 +26,10 @@ public class DateUtilTest {
         list.forEach(System.out::println);
     }
 
+    @Test
+    public void testGetLastMonthDate() {
+        List<String> monthList = DateUtil.getLastMonthDate(4);
+        monthList.forEach(System.out::println);
+    }
+
 }
