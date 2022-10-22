@@ -1,5 +1,7 @@
 package top.kangyong.study02.design.pattern.creatormode.prototype.test1;
 
+import java.io.Serializable;
+
 /**
  * 原型模式
  * <p>
@@ -9,7 +11,7 @@ package top.kangyong.study02.design.pattern.creatormode.prototype.test1;
  * @date 2022/10/17
  * @since 1.0.0
  */
-public class Citation implements Cloneable {
+public class Citation implements Cloneable, Serializable {
 
     /*
     private String name;
