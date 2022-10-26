@@ -505,8 +505,24 @@ public class ListTest {
         allGrilList.addAll(p4List);
 
         allGrilList.forEach(System.out::println);
+    }
 
+    /**
+     * 测试空列表 Collections.emptyList()
+     *
+     * @author Kang Yong
+     * @date 2022/10/26
+     */
+    @Test
+    public void testEmptyList() {
+        List<Person> personList = Collections.emptyList();
+        System.out.println("personList.size(): " + personList.size());
 
+        for (Person person : personList) {
+            System.out.println("item: " + person);
+        }
+        System.out.println("===over===");
+        System.out.println(CollectionUtils.isEmpty(personList));
     }
 
 
