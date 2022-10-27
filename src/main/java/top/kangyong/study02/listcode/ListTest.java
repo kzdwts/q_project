@@ -559,5 +559,21 @@ public class ListTest {
         System.out.println(nameList);
     }
 
+    @Test
+    public void testReAddSet() {
+        Set<String> nameList = new HashSet<>();
+        nameList.add("蚊子");
+        nameList.add("九黎小");
+        nameList.add("蚊子");
+
+        System.out.println(nameList.size());
+        System.out.println(nameList);
+
+        nameList = nameList.stream().distinct().collect(Collectors.toSet());
+        System.out.println(nameList.size());
+        System.out.println(nameList);
+
+    }
+
 
 }
