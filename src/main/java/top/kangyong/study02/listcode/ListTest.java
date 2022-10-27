@@ -525,5 +525,39 @@ public class ListTest {
         System.out.println(CollectionUtils.isEmpty(personList));
     }
 
+    @Test
+    public void testReAdd() {
+        List<Person> personList = new ArrayList<>();
+        Person p1 = new Person(5, 0, 19, "钱梦婷");
+        Person p2 = new Person(9, 0, 23, "蚊子");
+        Person p3 = new Person(9, 0, 23, "蚊子");
+
+        personList.add(p1);
+        personList.add(p2);
+        personList.add(p3);
+
+        System.out.println(personList.size());
+        System.out.println(personList);
+
+        List<Person> list2 = personList.stream().distinct().collect(Collectors.toList());
+        System.out.println(list2.size());
+        System.out.println(list2);
+    }
+
+    @Test
+    public void testReAdd2() {
+        List<String> nameList = new ArrayList<>();
+        nameList.add("蚊子");
+        nameList.add("蚊子");
+        nameList.add("小康");
+
+        System.out.println(nameList.size());
+        System.out.println(nameList);
+
+        nameList = nameList.stream().distinct().collect(Collectors.toList());
+        System.out.println(nameList.size());
+        System.out.println(nameList);
+    }
+
 
 }
