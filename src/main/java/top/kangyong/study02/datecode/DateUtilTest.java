@@ -2,6 +2,8 @@ package top.kangyong.study02.datecode;
 
 import org.junit.Test;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -36,6 +38,14 @@ public class DateUtilTest {
     public void testGetLastMonthDate() {
         List<String> monthList = DateUtil.getLastMonthDate(4);
         monthList.forEach(System.out::println);
+    }
+
+    @Test
+    public void testPlusMonth() {
+        LocalDateTime now = LocalDateTime.now();
+        Date date = DateUtil.plusMonth(now, 3);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.out.println(sdf.format(date));
     }
 
 }
