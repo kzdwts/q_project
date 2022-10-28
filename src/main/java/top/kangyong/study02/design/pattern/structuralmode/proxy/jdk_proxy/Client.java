@@ -17,5 +17,12 @@ public class Client {
         SellTickets sellTickets = proxyFactory.getProxyObject();
         // 3、调用类调用的方法
         sellTickets.sell();
+
+        System.out.println(proxyFactory.getClass());
+        System.out.println(sellTickets.getClass());
+
+        while (true) {
+
+        }
     }
 }
