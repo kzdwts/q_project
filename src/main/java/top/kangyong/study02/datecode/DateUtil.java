@@ -1,6 +1,11 @@
 package top.kangyong.study02.datecode;
 
+import sun.util.resources.LocaleData;
+
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.TemporalAccessor;
 import java.util.*;
 
 /**
@@ -96,7 +101,7 @@ public class DateUtil {
     public static List<String> getDateHours(Integer begin, Integer end) {
         List<String> hourList = new ArrayList<>();
         for (int i = begin; i <= end; i++) {
-            String hour =  fillZero(i) + ":00";
+            String hour = fillZero(i) + ":00";
             hourList.add(hour);
         }
         return hourList;
@@ -118,6 +123,21 @@ public class DateUtil {
             str = String.valueOf(i);
         }
         return str;
+    }
+
+    /**
+     * 当前日期加month个月
+     *
+     * @param beginDate {@link LocalDateTime}
+     * @param month     {@link int} 加几个月
+     * @return {@link Date}
+     * @author Kang Yong
+     * @date 2022/10/28
+     */
+    public static Date plusMonth(LocalDateTime beginDate, int month) {
+        LocalDateTime localDateTime = beginDate.plusMonths(month);
+        Date date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+        return date;
     }
 
 }
