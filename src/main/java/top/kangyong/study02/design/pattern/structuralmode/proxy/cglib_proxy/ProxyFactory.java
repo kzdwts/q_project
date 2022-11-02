@@ -3,6 +3,7 @@ package top.kangyong.study02.design.pattern.structuralmode.proxy.cglib_proxy;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
+import org.apache.poi.ss.formula.functions.T;
 
 import java.lang.reflect.Method;
 
@@ -16,6 +17,8 @@ import java.lang.reflect.Method;
  * @since 1.0.0
  */
 public class ProxyFactory implements MethodInterceptor {
+
+    private TrainStation station = new TrainStation();
 
     public TrainStation getProxyObject() {
         // 创建enhancer对象，相当于JDK代理中的Proxy类
@@ -33,7 +36,8 @@ public class ProxyFactory implements MethodInterceptor {
 
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-        System.out.println("方法执行了");
-        return null;
+        System.out.println("代售点收取一定的待售费用（CGLib）");
+        Object obj = method.invoke(station, objects);
+        return obj;
     }
 }
