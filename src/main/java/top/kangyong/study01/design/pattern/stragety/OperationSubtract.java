@@ -1,7 +1,9 @@
 package top.kangyong.study01.design.pattern.stragety;
 
 /**
- * Created with IntelliJ IDEA.
+ * 策略模式
+ * <p>
+ * 行为型模式
  *
  * @Description: 策略模式接口实现类 减法
  * @author: kangyong

@@ -27,6 +27,7 @@ public class StrategyPatternDemo {
 
         context = new Context(new OperationMultiply());
         System.out.println("10 * 5 = " + context.executeStrategy(10, 5));
+
     }
 
 }
