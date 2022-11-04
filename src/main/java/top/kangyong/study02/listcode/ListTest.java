@@ -575,5 +575,17 @@ public class ListTest {
 
     }
 
+    @Test
+    public void testJoin() {
+        List<String> nameList = new ArrayList<>();
+        nameList.add("王小丽,牛丽丽");
+        nameList.add("胡明丽");
+        nameList.add("康康,姆瑞尔");
+        nameList.add("间,迈克尔");
+
+        String joinStr = String.join(",", nameList);
+        System.out.println(joinStr);
+    }
+
 
 }

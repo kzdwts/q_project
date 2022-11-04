@@ -1,5 +1,6 @@
 package top.kangyong.study02.stringdemo;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 import java.util.regex.Matcher;
@@ -53,6 +54,17 @@ public class StringDemoTest {
     }
 
     @Test
+    public void testStringBuilder() {
+        StringBuilder sb = new StringBuilder();
+
+        String names = sb.toString();
+        System.out.println(StringUtils.isBlank(names));
+        System.out.println(names.length());
+        System.out.println(names);
+
+    }
+
+    @Test
     public void testSplit() {
 //        String str = "sale_house.cus_customer_progress";
 //        String[] split = str.split("\\.");
@@ -97,8 +109,6 @@ public class StringDemoTest {
 
         boolean m2 = Pattern.matches(pattern1, msg2);
         System.out.println(m2);
-
-
     }
 
 
