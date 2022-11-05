@@ -16,6 +16,12 @@ public class Client {
 
         String msg = computer.readSD(sdCard);
         System.out.println(msg);
+
+        System.out.println("====================");
+        // 适配器
+        String msg2 = computer.readSD(new SDAdapterTF());
+        System.out.println(msg2);
+
     }
 
 }
