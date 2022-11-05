@@ -587,5 +587,30 @@ public class ListTest {
         System.out.println(joinStr);
     }
 
+    /**
+     * 测试list sum方法
+     *
+     * @author Kang Yong
+     * @date 2022/11/5
+     */
+    @Test
+    public void testSum() {
+        List<Person> personList = new ArrayList<>();
+        Person p1 = new Person(5, 0, 19, "钱梦婷");
+        Person p2 = new Person(9, 0, 23, "蚊子");
+        Person p3 = new Person(9, 0, 23, "栗栗");
+//        Person p4 = new Person(9, 0, 1, "惠子");
+        personList.add(p1);
+        personList.add(p2);
+        personList.add(p3);
+//        personList.add(p4);
+
+        long count = personList.stream().map(Person::getAge).count();  // 3 count数量
+        System.out.println("count:" + count);
+
+        long sum = personList.stream().mapToLong(Person::getAge).sum(); // 65 sum累加
+        System.out.println("sum: " + sum);
+    }
+
 
 }
