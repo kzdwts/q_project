@@ -21,7 +21,9 @@ public class Client {
 
         System.out.println("====================");
         // 适配器
-
+        // 使用电脑读取tf卡中的数据
+        String s = computer.readSD(new SDAdapterTF(new TFCardImpl()));
+        System.out.println(s);
 
     }
 

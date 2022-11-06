@@ -11,6 +11,10 @@ public class SDAdapterTF   implements SDCard {
 
     private TFCard tfCard;
 
+    public SDAdapterTF(TFCard tfCard) {
+        this.tfCard = tfCard;
+    }
+
     @Override
     public String readSD() {
         System.out.println("adapter read tf card");
