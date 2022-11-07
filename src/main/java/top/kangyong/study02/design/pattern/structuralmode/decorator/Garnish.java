@@ -10,4 +10,24 @@ package top.kangyong.study02.design.pattern.structuralmode.decorator;
  * @since 1.0.0
  */
 public abstract class Garnish extends FastFood {
+
+    // 声明快餐类的对象
+    private FastFood fastFood;
+
+    public FastFood getFastFood() {
+        return fastFood;
+    }
+
+    public void setFastFood(FastFood fastFood) {
+        this.fastFood = fastFood;
+    }
+
+    public Garnish(FastFood fastFood, float price, String desc) {
+        super(price, desc);
+        this.fastFood = fastFood;
+    }
+
+    public Garnish(FastFood fastFood) {
+        this.fastFood = fastFood;
+    }
 }
