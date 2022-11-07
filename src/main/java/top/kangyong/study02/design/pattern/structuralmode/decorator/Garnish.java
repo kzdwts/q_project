@@ -27,7 +27,4 @@ public abstract class Garnish extends FastFood {
         this.fastFood = fastFood;
     }
 
-    public Garnish(FastFood fastFood) {
-        this.fastFood = fastFood;
-    }
 }
