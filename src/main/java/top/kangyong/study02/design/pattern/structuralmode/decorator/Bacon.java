@@ -17,7 +17,7 @@ public class Bacon extends Garnish {
 
     @Override
     public float cost() {
-        // 计算价格： 鸡蛋价格 + 主食价格
+        // 计算价格： 培根价格 + 主食价格
         return getPrice() + getFastFood().cost();
     }
 
