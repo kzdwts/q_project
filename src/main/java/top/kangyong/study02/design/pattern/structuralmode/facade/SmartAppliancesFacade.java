@@ -2,8 +2,11 @@ package top.kangyong.study02.design.pattern.structuralmode.facade;
 
 /**
  * 外观类，用户主要和该类对象进行交互
+ * 降低子系统和客户端之间的联动
  * <p>
  * 外观模式
+ * <p>
+ * 缺点：不符合开闭原则
  *
  * @author Kang Yong
  * @date 2022/11/12
