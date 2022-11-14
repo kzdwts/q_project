@@ -10,4 +10,6 @@ package top.kangyong.study01.design.pattern.visitor;
  * @since 1.0.0
  */
 public interface ComputerPart {
+
+    void accept(ComputerPartVisitor computerPartVisitor);
 }
