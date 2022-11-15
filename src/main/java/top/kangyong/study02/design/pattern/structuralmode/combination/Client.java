@@ -4,6 +4,10 @@ package top.kangyong.study02.design.pattern.structuralmode.combination;
  * test 打印菜单
  * <p>
  * 组合模式
+ * <p>
+ * 使用场景：凡是有树形结构的地方都可以使用组合模式
+ * <p>
+ * 分类：①透明组合 ②安全组合
  *
  * @author Kang Yong
  * @date 2022/11/13

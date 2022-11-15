@@ -3,7 +3,7 @@ package top.kangyong.study02.design.pattern.structuralmode.combination;
 /**
  * 菜单组件：属于抽象根节点
  * <p>
- * 组合模式
+ * 组合模式：透明组合
  *
  * @author Kang Yong
  * @date 2022/11/13
