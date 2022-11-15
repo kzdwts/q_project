@@ -167,4 +167,14 @@ public class Demo08 {
 
     }
 
+    @Test
+    public void testWhile() throws InterruptedException {
+        Integer i = 0;
+        while (true) {
+            i++;
+            System.out.println(i);
+            Thread.sleep(1);
+        }
+    }
+
 }
