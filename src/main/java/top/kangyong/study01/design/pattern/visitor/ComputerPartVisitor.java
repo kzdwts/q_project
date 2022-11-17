@@ -14,4 +14,6 @@ public interface ComputerPartVisitor {
     void visit(Monitor monitor);
 
     void visit(Mouse mouse);
+
+    void visit(Computer computer);
 }
