@@ -157,7 +157,19 @@ public class MapTest {
 
         String wanglili = map1.getOrDefault(1, "wanglili");
         System.out.println(wanglili);
+    }
 
+    /**
+     * 测试 Collections.EMPTY_MAP 是否报错
+     *
+     * @author Kang Yong
+     * @date 2022/11/21
+     */
+    @Test
+    public void testEmptyMap() {
+        Map<String, String> map = Collections.EMPTY_MAP;
 
+        String name = map.getOrDefault("123", "123456");
+        System.out.println(name);
     }
 }
