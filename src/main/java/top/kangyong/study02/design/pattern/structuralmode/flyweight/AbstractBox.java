@@ -19,4 +19,8 @@ public abstract class AbstractBox {
      * @date 2022/11/17
      */
     public abstract String getShape();
+
+    public void display(String color) {
+        System.out.println("形状：" + getShape() + "\t 颜色" + color);
+    }
 }
