@@ -612,5 +612,22 @@ public class ListTest {
         System.out.println("sum: " + sum);
     }
 
+    /**
+     * 集合合并
+     *
+     * @author Kang Yong
+     * @date 2022/11/24
+     */
+    @Test
+    public void mergeList() {
+        List<Integer> aList = Arrays.asList(1, 3, 5, 7, 9);
+        List<Integer> bList = Arrays.asList(2, 4, 6, 8, 10);
+        List<Integer> abAllList = new ArrayList<>();
+        abAllList.addAll(aList);
+        abAllList.addAll(bList);
+
+        System.out.println(abAllList);
+    }
+
 
 }
