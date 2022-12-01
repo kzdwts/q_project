@@ -1,6 +1,8 @@
 package top.kangyong.study02.design.pattern.behaviormode.strategy.one;
 
 /**
+ * 促销员（环境类）
+ * <p>
  * 策略模式
  *
  * @author Kang Yong
