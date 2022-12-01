@@ -629,5 +629,48 @@ public class ListTest {
         System.out.println(abAllList);
     }
 
+    /**
+     * List做队列
+     *
+     * @author Kang Yong
+     * @date 2022/11/29
+     */
+    @Test
+    public void ListAddAndRemove() {
+        List<String> list = initList();
+        System.out.println("初始化数据：" + list);
+
+        // 第一次获取
+        System.out.println("====第一次获取");
+        String str = getOne(list);
+        System.out.println(str);
+
+        System.out.println(list);
+
+        // 第二次获取
+        System.out.println("====第二次获取");
+        String str2 = getOne(list);
+        System.out.println(str2);
+
+        System.out.println(list);
+
+    }
+
+    private String getOne(List<String> list) {
+        String s = list.get(0);
+        list.remove(0);
+        list.add(s);
+        return s;
+    }
+
+    public static List<String> initList() {
+        List<String> abcList = new ArrayList<>();
+        abcList.add("A");
+        abcList.add("B");
+        abcList.add("C");
+        abcList.add("D");
+        return abcList;
+    }
+
 
 }
