@@ -84,11 +84,11 @@ public class StringDemoTest {
         /**
          * 变量抽取pattern
          */
-        Pattern VARIABLE_PATTERN = Pattern.compile ("(#\\w+)|(\\.?\\w+)"); // (#\w+\[?)|(\.?\w+)+|]
+        Pattern VARIABLE_PATTERN = Pattern.compile("(#\\w+)|(\\.?\\w+)"); // (#\w+\[?)|(\.?\w+)+|]
 //        String str = "#context[sale_house.cus_customer_detail.name]";
         String str = "#body.id";
 
-        Matcher m = VARIABLE_PATTERN.matcher (str);
+        Matcher m = VARIABLE_PATTERN.matcher(str);
 
         while (m.find()) {
             String group = m.group();
@@ -109,6 +109,14 @@ public class StringDemoTest {
 
         boolean m2 = Pattern.matches(pattern1, msg2);
         System.out.println(m2);
+    }
+
+    @Test
+    public void formatTest() {
+        String str = "%s,%s,did you know?";
+        String content = String.format(str, "wanglili", "love eat");
+        System.out.println("str: " + str);
+        System.out.println("content: " + content);
     }
 
 

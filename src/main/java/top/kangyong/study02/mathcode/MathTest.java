@@ -102,6 +102,12 @@ public class MathTest {
         System.out.println(i1);
     }
 
+    /**
+     * 功能: 测试Math取反
+     *
+     * @author Kang Yong
+     * @date 2022/12/8
+     */
     @Test
     public void testQufan() {
         int num1 = Math.negateExact(10);
