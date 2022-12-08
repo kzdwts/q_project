@@ -102,4 +102,15 @@ public class MathTest {
         System.out.println(i1);
     }
 
+    @Test
+    public void testQufan() {
+        int num1 = Math.negateExact(10);
+        System.out.println(num1);
+
+        int num2 = Math.negateExact(1111);
+        System.out.println(num2);
+
+        System.out.println(Math.negateExact(num2));
+    }
+
 }
