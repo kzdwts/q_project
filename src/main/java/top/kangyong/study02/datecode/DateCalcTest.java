@@ -2,6 +2,7 @@ package top.kangyong.study02.datecode;
 
 import cn.hutool.core.date.DateField;
 import cn.hutool.core.date.DateTime;
+import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.Test;
@@ -182,6 +183,25 @@ public class DateCalcTest {
         System.out.println("eDate = " + eDate);
         List<String> everyDay = findEveryDay(bDate, eDate);
         System.out.println("everyDay = " + everyDay);
+    }
+
+    @Test
+    public void testDateDiffDay() throws ParseException {
+        String dStr1 = "2022-12-11";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date d1 = sdf.parse(dStr1);
+        Date now = new Date();
+        long between = DateUtil.between(now, d1, DateUnit.DAY);
+        System.out.println(between);
+    }
+
+    @Test
+    public void testBetweenDay() throws ParseException {
+        String dStr1 = "2022-12-11";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date d1 = sdf.parse(dStr1);
+        long day = DateUtil.betweenDay(new Date(), d1, true);
+        System.out.println(day);
     }
 
 
