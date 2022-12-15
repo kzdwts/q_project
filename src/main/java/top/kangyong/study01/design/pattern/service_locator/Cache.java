@@ -31,6 +31,16 @@ public class Cache {
     }
 
     public void addService(Service newService) {
+        boolean exists = false;
 
+        for (Service service : serviceList) {
+            if (service.getName().equalsIgnoreCase(newService.getName())) {
+                exists = true;
+            }
+        }
+
+        if (!exists) {
+            serviceList.add(newService);
+        }
     }
 }
