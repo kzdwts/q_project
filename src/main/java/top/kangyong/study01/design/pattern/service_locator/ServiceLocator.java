@@ -17,7 +17,7 @@ public class ServiceLocator {
         cache = new Cache();
     }
 
-    public Service getService(String jndiName) {
+    public static Service getService(String jndiName) {
         Service service = cache.getService(jndiName);
         if (service != null) {
             return service;
