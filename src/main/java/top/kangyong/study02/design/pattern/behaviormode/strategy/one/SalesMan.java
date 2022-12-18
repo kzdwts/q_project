@@ -11,6 +11,9 @@ package top.kangyong.study02.design.pattern.behaviormode.strategy.one;
  */
 public class SalesMan {
 
+    /**
+     * 聚合策略类对象
+     */
     private Strategy strategy;
 
     public SalesMan(Strategy strategy) {
@@ -25,6 +28,12 @@ public class SalesMan {
         this.strategy = strategy;
     }
 
+    /**
+     * 由促销员展示促销活动
+     *
+     * @author Kang Yong
+     * @date 2022/12/18
+     */
     public void salesManShow() {
         strategy.show();
     }
