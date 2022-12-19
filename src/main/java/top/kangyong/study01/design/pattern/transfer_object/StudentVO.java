@@ -1,6 +1,8 @@
 package top.kangyong.study01.design.pattern.transfer_object;
 
 /**
+ * 传输对象
+ * <p>
  * 传输对象模式
  *
  * @author Kang Yong
