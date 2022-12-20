@@ -24,4 +24,53 @@ public class StudentBO {
         students.add(student1);
         students.add(student2);
     }
+
+    /**
+     * 删除一个学生
+     *
+     * @param student {@link StudentVO}
+     * @author Kang Yong
+     * @date 2022/12/19
+     */
+    public void deleteStudent(StudentVO student) {
+        students.remove(student.getRoolNo());
+        System.out.println("Student: roll no " + student.getRoolNo() + ", deleted from database");
+    }
+
+    /**
+     * 从数据库中检索学生名单
+     *
+     * @return {@link List< StudentVO>}
+     * @author Kang Yong
+     * @date 2022/12/19
+     */
+    public List<StudentVO> getAllStudents() {
+        return students;
+    }
+
+    /**
+     * 根据学号获取学生信息
+     *
+     * @param rollNo {@link int}
+     * @return {@link StudentVO}
+     * @author Kang Yong
+     * @date 2022/12/19
+     */
+    public StudentVO getStudent(int rollNo) {
+        return students.get(rollNo);
+    }
+
+    /**
+     * 更新学生信息
+     *
+     * @param student {@link StudentVO}
+     * @author Kang Yong
+     * @date 2022/12/19
+     */
+    public void updateStudent(StudentVO student) {
+        students.get(student.getRoolNo()).setName(student.getName());
+        System.out.println("Student: roll no " + student.getRoolNo() + ", updated in thr database");
+    }
+
+
 }
