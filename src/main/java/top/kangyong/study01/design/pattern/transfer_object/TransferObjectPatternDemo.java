@@ -16,5 +16,15 @@ public class TransferObjectPatternDemo {
         for (StudentVO student : studentBusinessObject.students) {
             System.out.println("student name: " + student.getName() + ", rollNo: " + student.getRoolNo());
         }
+
+        // 更新学生
+        StudentVO studentVO = studentBusinessObject.getAllStudents().get(0);
+        studentVO.setName("Michael");
+        studentBusinessObject.updateStudent(studentVO);
+
+        // 获取学生
+        studentBusinessObject.getStudent(0);
+        System.out.println("student name:" + studentVO.getName() + ", rollNo:" + studentVO.getRoolNo());
+
     }
 }
