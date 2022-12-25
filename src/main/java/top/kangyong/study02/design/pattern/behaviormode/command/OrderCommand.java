@@ -14,6 +14,7 @@ import java.util.Set;
  */
 public class OrderCommand implements Command {
 
+    // 持有接收者对象
     private SeniorChef receiver;
     private Order order;
 
@@ -31,6 +32,6 @@ public class OrderCommand implements Command {
             receiver.makeFood(foodName, foodDir.get(foodName));
         }
 
-        System.out.println(order.getDiningTable() + "桌的饭已完成");
+        System.out.println(order.getDiningTable() + "桌的饭准备完了！！！");
     }
 }
