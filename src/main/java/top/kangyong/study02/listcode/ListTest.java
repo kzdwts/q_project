@@ -525,6 +525,33 @@ public class ListTest {
         System.out.println(CollectionUtils.isEmpty(personList));
     }
 
+    /**
+     * 测试空列表 Collections.emptyList() add()方法
+     *
+     * @author Kang Yong
+     * @date 2022/12/28
+     */
+    @Test
+    public void testEmptyListAdd() {
+        List<Person> personList = new ArrayList<>();
+        System.out.println("personList.size(): " + personList.size());
+
+        for (Person person : personList) {
+            System.out.println("item: " + person);
+        }
+        System.out.println("===ing===");
+        System.out.println(CollectionUtils.isEmpty(personList));
+
+        // add
+        personList.add(new Person(1, "王丽丽"));
+        for (Person person : personList) {
+            System.out.println("item: " + person);
+        }
+        System.out.println("===over===");
+        System.out.println(CollectionUtils.isEmpty(personList));
+
+    }
+
     @Test
     public void testReAdd() {
         List<Person> personList = new ArrayList<>();
