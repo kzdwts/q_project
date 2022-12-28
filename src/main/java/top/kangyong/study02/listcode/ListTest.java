@@ -699,5 +699,37 @@ public class ListTest {
         return abcList;
     }
 
+    /**
+     * 测试list去重
+     *
+     * @author Kang Yong
+     * @date 2022/12/28
+     */
+    @Test
+    public void testDistinct() {
+        List<Integer> numList = new ArrayList<>();
+        numList.add(1);
+        numList.add(3);
+        numList.add(5);
+        numList.addAll(Arrays.asList(1, 5, 6, 8));
+
+        numList.forEach(System.out::println);
+
+        System.out.println("==========华丽的分割线=============");
+        Set<Integer> setNumList = new HashSet<>();
+        setNumList.add(11);
+        setNumList.add(13);
+        setNumList.add(15);
+
+        Set<Integer> tmpSetList = new HashSet<>();
+        tmpSetList.add(11);
+        tmpSetList.add(15);
+        tmpSetList.add(19);
+        setNumList.addAll(tmpSetList);
+
+        setNumList.forEach(System.out::println);
+
+    }
+
 
 }
