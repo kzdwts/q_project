@@ -119,5 +119,26 @@ public class StringDemoTest {
         System.out.println("content: " + content);
     }
 
+    /**
+     * 将num转换为指定长度的数字，不足len位，前边补0
+     *
+     * @param num {@link Long}
+     * @param len {@link Integer}
+     * @return {@link String}
+     * @author Kang Yong
+     * @date 2022/12/30
+     */
+    public static String getNumAndAddPrefixZero(Long num, Integer len) {
+        return String.format("%0" + len + "d", num);
+    }
+
+    @Test
+    public void testGetNumAndAddPrefixZero() {
+        System.out.println(getNumAndAddPrefixZero(18L, 3));
+        System.out.println(getNumAndAddPrefixZero(1800L, 3));
+        System.out.println(getNumAndAddPrefixZero(180L, 3));
+        System.out.println(getNumAndAddPrefixZero(8L, 3));
+    }
+
 
 }
