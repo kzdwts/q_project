@@ -731,5 +731,41 @@ public class ListTest {
 
     }
 
+    /**
+     * List转数组
+     *
+     * @author Kang Yong
+     * @date 2022/12/30
+     */
+    @Test
+    public void testListToArray() {
+        List<String> uuidList = new ArrayList<>(5);
+        for (int i = 5; i > 0; i--) {
+            uuidList.add(UUID.randomUUID().toString());
+        }
+
+        String[] uuidArr = uuidList.toArray(new String[uuidList.size()]);
+        for (int i = 0; i < uuidArr.length; i++) {
+            System.out.println(uuidArr[i]);
+        }
+    }
+
+    /**
+     * 数组转List
+     *
+     * @author Kang Yong
+     * @date 2022/12/30
+     */
+    @Test
+    public void testArrayToList() {
+        String[] uuidArray = new String[5];
+        for (int i = 0; i < 5; i++) {
+            uuidArray[i] = UUID.randomUUID().toString();
+        }
+
+        List<String> uuidList = Arrays.asList(uuidArray);
+        uuidList.forEach(System.out::println);
+    }
+
 
 }
