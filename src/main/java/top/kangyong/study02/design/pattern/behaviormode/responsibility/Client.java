@@ -8,7 +8,7 @@ package top.kangyong.study02.design.pattern.behaviormode.responsibility;
  * 降低了对象之间的耦合度
  * 增强了系统的可扩展性
  * 增强了给对象指派职责的灵活性
- * 责任链简化了对象之间的连接
+ * 责任链简化了对象之间的连接。避免更多的if-else
  * 责任分担
  * @author Kang Yong
  * @date 2022/12/30
