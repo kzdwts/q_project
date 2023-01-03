@@ -172,4 +172,35 @@ public class MapTest {
         String name = map.getOrDefault("123", "123456");
         System.out.println(name);
     }
+
+    /**
+     * map空key测试
+     *
+     * @author Kang Yong
+     * @date 2023/1/3
+     */
+    @Test
+    public void testNullKeyGet() {
+        Map<String, String> map = new HashMap<>();
+        map.put("wanglili", "王丽丽");
+        map.put("1", "胡莉莉");
+        map.put("2", "王月月");
+
+        Integer num1 = null;
+        Integer num2 = 1;
+        String num3Str = "wanglili";
+        String num4Str = null;
+
+        String name1 = map.getOrDefault(num1, ""); // null.ToString()会报错
+        String name2 = map.getOrDefault(num2, ""); // 不.ToString()获取不到值
+        String name3 = map.getOrDefault(num3Str, "");
+        String name4 = map.getOrDefault(num4Str, "");
+        String name5 = map.getOrDefault(null, "");
+
+        System.out.println("name1 = " + name1);
+        System.out.println("name2 = " + name2);
+        System.out.println("name3 = " + name3);
+        System.out.println("name4 = " + name4);
+        System.out.println("name5 = " + name5);
+    }
 }
