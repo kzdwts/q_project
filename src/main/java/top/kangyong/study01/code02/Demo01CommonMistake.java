@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * Created with IntelliJ IDEA.
  *
- * @Description: 常见是大错误集锦
+ * @Description: 常见十大错误集锦
  * @author: Kang Yong
  * @date: 2021/8/10 14:00
  * @version: v1.0
@@ -31,6 +31,8 @@ public class Demo01CommonMistake {
         List<String> nameArrayList = new ArrayList<>(Arrays.asList(nameArr));
         nameArrayList.add("陆智航");
         nameArrayList.forEach(System.out::println);
+
+        // 换一种方法 使用Lists
     }
 
     /**
