@@ -9,10 +9,7 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -197,11 +194,26 @@ public class DateCalcTest {
 
     @Test
     public void testBetweenDay() throws ParseException {
-        String dStr1 = "2022-12-11";
+        String dStr1 = "2022-03-09";
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date d1 = sdf.parse(dStr1);
         long day = DateUtil.betweenDay(new Date(), d1, true);
         System.out.println(day);
+    }
+
+    /**
+     * 计算两个时间相差多少天
+     *
+     * @author Kang Yong
+     * @date 2023/1/9
+     */
+    @Test
+    public void diffDay() {
+        LocalDate startDate = LocalDate.of(2022, 03, 9);
+        LocalDate endDate = LocalDate.now();
+
+        long day = endDate.toEpochDay() - startDate.toEpochDay();
+        System.out.println("day = " + day);
     }
 
 
