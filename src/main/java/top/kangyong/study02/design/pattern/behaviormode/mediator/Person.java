@@ -10,4 +10,13 @@ package top.kangyong.study02.design.pattern.behaviormode.mediator;
  * @since 1.0.0
  */
 public abstract class Person {
+
+    protected String name;
+
+    protected Mediator mediator;
+
+    public Person(String name, Mediator mediator) {
+        this.name = name;
+        this.mediator = mediator;
+    }
 }
