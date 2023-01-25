@@ -6,11 +6,12 @@ package top.kangyong.study02.design.pattern.behaviormode.mediator;
  * 中介者模式
  *
  * @author Kang Yong
- * @date 2023/1/24
+ * @date 2023/1/25
  * @since 1.0.0
  */
-public class Tenant extends Person {
-    public Tenant(String name, Mediator mediator) {
+public class HouseOwner extends Person {
+
+    public HouseOwner(String name, Mediator mediator) {
         super(name, mediator);
     }
 
@@ -33,7 +34,7 @@ public class Tenant extends Person {
      * @date 2023/1/25
      */
     public void getMessage(String message) {
-        System.out.println("租房者：" + name + " 获取到的信息是：" + message);
+        System.out.println("房主：" + name + " 获取到的信息是：" + message);
     }
 
 }
