@@ -16,7 +16,11 @@ public class MediatorStructure extends Mediator {
 
     @Override
     public void constact(String message, Person person) {
-
+        if (person == houseOwner) {
+            tenant.getMessage(message);
+        } else {
+            houseOwner.getMessage(message);
+        }
     }
 
     public HouseOwner getHouseOwner() {
