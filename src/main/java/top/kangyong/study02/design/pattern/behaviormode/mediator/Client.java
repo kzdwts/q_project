@@ -4,6 +4,14 @@ package top.kangyong.study02.design.pattern.behaviormode.mediator;
  * test
  * <p>
  * 中介者模式
+ * <p>
+ * 优点：
+ * 松散耦合
+ * 集中控制交互
+ * 一对多关联转变为一对一的关联
+ * <p>
+ * 缺点：
+ * 当同事类太多时，中介者的职责将很大，他会变的复杂而庞大，以至于系统难以维护
  *
  * @author Kang Yong
  * @date 2023/1/27
