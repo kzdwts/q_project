@@ -12,6 +12,10 @@ package top.kangyong.study02.design.pattern.behaviormode.mediator;
  * <p>
  * 缺点：
  * 当同事类太多时，中介者的职责将很大，他会变的复杂而庞大，以至于系统难以维护
+ * <p>
+ * 使用场景：
+ * 系统中对象直接存在复杂的引用关系，系统结构混乱且难以理解
+ * 当想创建一个运行于多个类之间的对象，又不想生成新的子类时
  *
  * @author Kang Yong
  * @date 2023/1/27
