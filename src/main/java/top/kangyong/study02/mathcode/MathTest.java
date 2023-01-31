@@ -119,4 +119,21 @@ public class MathTest {
         System.out.println(Math.negateExact(num2));
     }
 
+    /**
+     * 测试list.reduce
+     *
+     * @author Kang Yong
+     * @date 2023/1/31
+     */
+    @Test
+    public void testListReduce() {
+        List<BigDecimal> numList = new ArrayList<>();
+        numList.add(new BigDecimal(0.10));
+        numList.add(new BigDecimal(1.10));
+        numList.add(new BigDecimal(0.30));
+
+        BigDecimal result = numList.stream().reduce(BigDecimal.ZERO, BigDecimal::add);
+        System.out.println(result);
+    }
+
 }
