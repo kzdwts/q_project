@@ -3,8 +3,11 @@ package top.kangyong.study02.datecode;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoField;
+import java.time.temporal.TemporalUnit;
+import java.util.concurrent.TimeUnit;
 
 /**
  * java8全新的日期和时间API LocalTime
@@ -46,5 +49,17 @@ public class LocalTimeTest {
         System.out.println(minute2);
         System.out.println(second);
         System.out.println(second2);
+    }
+
+    /**
+     * 测试时间 +1s
+     *
+     * @author Kang Yong
+     * @date 2023/2/1
+     */
+    @Test
+    public void dateAddSecond() {
+        LocalDateTime localDateTime = LocalDateTime.now().plusSeconds(1);
+        System.out.println(localDateTime);
     }
 }
