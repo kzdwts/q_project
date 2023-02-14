@@ -133,4 +133,14 @@ public class JsonDemo01 {
         System.out.println(mobile);
     }
 
+    @Test
+    public void parseTest() {
+        String s = "{\"customerName\":\"客户姓名\",\"customerPhone\":\"客户手机号\",\"busProjectName\":\"项目名称\",\"belongChannel\":\"所属渠道\",\"agentName\":\"经纪人名称\",\"agentPhone\":\"经纪人手机号\",\"filingUserName\":\"报备人姓名\",\"filingUserPhone\":\"报备人手机号\",\"filingTime\":\"报备时间\",\"visitTime\":\"到访时间\",\"customerGender\":\"客户性别\",\"teamName\":\"团队名称\",\"channelName\":\"小组名称\",\"protectedEndTime\":\"保护期截止时间\",\"consultantName\":\"顾问名称\",\"consultantPhone\":\"顾问手机号\"}";
+        Map<String, String> map = JSON.parseObject(s, Map.class);
+
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            System.out.println((entry.getKey() + ": " + entry.getValue()));
+        }
+    }
+
 }
