@@ -143,4 +143,33 @@ public class JsonDemo01 {
         }
     }
 
+    /**
+     * 实体转map
+     * map转实体
+     *
+     * @author Kang Yong
+     * @date 2023/2/15
+     */
+    @Test
+    public void parseObject() {
+        Car car = new Car();
+        car.setType("MQB宝来");
+        car.setColor("白色");
+        car.setBrand("大众");
+        car.setWeight(2000.59f);
+        car.setPl("1.5L");
+        car.setDriveMode("#92燃油");
+
+        Map<String, Object> cartMap = JSON.parseObject(JSON.toJSONString(car), Map.class);
+        System.out.println("cartMap.size() = " + cartMap.size());
+        for (Map.Entry<String, Object> entry : cartMap.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+
+        System.out.println("===================");
+        String jsonStr = JSON.toJSONString(cartMap);
+        Car newCar = JSON.parseObject(jsonStr, Car.class);
+        System.out.println("newCar = " + newCar);
+    }
+
 }
