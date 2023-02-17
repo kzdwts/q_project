@@ -140,5 +140,12 @@ public class StringDemoTest {
         System.out.println(getNumAndAddPrefixZero(8L, 3));
     }
 
+    @Test
+    public void testSubstring2() {
+        String str = "https://test-office.youmatech.com/cache/files/785409921022251008_3905/output.docx/https%3A%252f%252ftest-jiaofu.yuanzhiyijiantong.com%252fresources%252fserver-visit%252f%E5%B8%A6%E7%9C%8B%E5%8D%95%E6%A8%A1%E6%9D%BF.docx?md5=-A06XSPrw1HEOzs6mVSINw&expires=1676620289&disposition=attachment&filename=https%3A%252f%252ftest-jiaofu.yuanzhiyijiantong.com%252fresources%252fserver-visit%252f%E5%B8%A6%E7%9C%8B%E5%8D%95%E6%A8%A1%E6%9D%BF.docx";
+        String ext = str.substring(str.lastIndexOf("."));
+        System.out.println("ext = " + ext);
+    }
+
 
 }
