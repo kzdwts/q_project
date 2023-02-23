@@ -147,5 +147,15 @@ public class StringDemoTest {
         System.out.println("ext = " + ext);
     }
 
+    @Test
+    public void testSubString3() {
+        String msg = "【智客云】祝你生日快乐";
+        String signName = msg.substring(1, msg.lastIndexOf("】"));
+        String content = msg.substring(msg.lastIndexOf("】") + 1);
+
+        System.out.println("signName = " + signName);
+        System.out.println("content = " + content);
+    }
+
 
 }
