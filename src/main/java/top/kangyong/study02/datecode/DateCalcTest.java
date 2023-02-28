@@ -216,5 +216,25 @@ public class DateCalcTest {
         System.out.println("day = " + day);
     }
 
+    /**
+     * 比较时间
+     *
+     * @author Kang Yong
+     * @date 2023/2/28
+     */
+    @Test
+    public void beforeOrAfterDate_compare() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date1 = new Date();
+
+        Date date2 = new Date(2024, 10, 9);
+
+        System.out.println("date1 = " + sdf.format(date1));
+        System.out.println("date2 = " + sdf.format(date2));
+
+        System.out.println("date1.before(date2) = " + date1.before(date2));
+
+    }
+
 
 }
