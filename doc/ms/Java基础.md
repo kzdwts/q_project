@@ -27,7 +27,9 @@ HashMap是一种高效的键值对存储结构，它基于哈希表实现，可�
 
 ### 1.3、`HashMap` 和 `HashTable` 区别
 
+HashMap和HashTable是两个常用的Java集合框架中的映射类型容器，他们的区别如下：
 
+* 1、
 
 ## 2、Java反射
 
