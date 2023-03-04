@@ -29,6 +29,8 @@ HashMap是一种高效的键值对存储结构，它基于哈希表实现，可�
 
 HashMap和HashTable是两个常用的Java集合框架中的映射类型容器，他们的区别如下：
 
+### 1.4、HashMap 与 LinkedHashMap排序问题
+
 * 1、
 
 ## 2、Java反射
@@ -47,7 +49,7 @@ HashMap和HashTable是两个常用的Java集合框架中的映射类型容器，
 
 ### 5.1、线程的几种状态、算法
 
-### 5.2、Java 线程池
+### 5.2、Java 线程池使用
 
 ### 5.3、ThreadLocal
 
@@ -64,5 +66,9 @@ HashMap和HashTable是两个常用的Java集合框架中的映射类型容器，
 
 
 ## 9、设计模式
+
+## 10、锁
+
+## 11、List求交集
 
 
