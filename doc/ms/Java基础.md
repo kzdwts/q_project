@@ -47,6 +47,10 @@ HashMap和HashTable是两个常用的Java集合框架中的映射类型容器，
 
 ### 5.1、线程的几种状态、算法
 
+### 5.2、Java 线程池
+
+### 5.3、ThreadLocal
+
 
 
 ## 6、`Java volatile` 原理
@@ -54,4 +58,11 @@ HashMap和HashTable是两个常用的Java集合框架中的映射类型容器，
 
 
 ## 7、JVM内存模型
+
+
+## 8、设计原则
+
+
+## 9、设计模式
+
 
