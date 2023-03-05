@@ -39,11 +39,19 @@ HashMap和HashTable是两个常用的Java集合框架中的映射类型容器，
 
 ### 1.4、HashMap 与 LinkedHashMap排序问题
 
-* 1、
+HashMap是无序的，LinkedHashMap是有序的，这里的有序是元素的插入顺序。
+
+如果需要进行排序，可以把每个键值对集合都放入到list集合中，然后用Collections.sort()方法进行排序
 
 ## 2、Java反射
 
+一句话概括：Java反射是指在运行时获取类的信息，并动态的操作类或对象的机制。
 
+Java反射指的是在运行时获取类的信息，并且可以动态地操作类或者对象。Java反射机制主要包括三个类：Class、Constructor和Method
+
+* 1、Class类：在Java程序运行时，每个类都会有一个对应的class对象，通过class类可以获取类的信息，例如类的名称、接口、属性和方法。
+* 2、Constructor类：Constructor类标识类的构造方法，可以通过反射机制创建类的对象。
+* 3、Method类：Method类标识类的方法，可以通过反射机制调用类的方法。
 
 ## 3、Java序列化
 
