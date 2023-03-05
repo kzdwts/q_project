@@ -3,6 +3,7 @@ package top.kangyong.study02.mapdemo;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 
 /**
@@ -34,6 +35,41 @@ public class MapTest2 {
         // 最大的容积
         int MAXIMUM_CAPACITY = 1 << 30;
         System.out.println("MAXIMUM_CAPACITY = " + MAXIMUM_CAPACITY);
+    }
+
+    /**
+     * 测试HashTable
+     *
+     * @author Kang Yong
+     * @date 2023/3/5
+     */
+    @Test
+    public void testHashTable() {
+        // HashTable
+        Hashtable hashtable = new Hashtable();
+        hashtable.put("name", "刘婷");
+//        hashtable.put(null, null);
+//        hashtable.put("age", null);
+//        hashtable.put(null, 180);
+        hashtable.put("", "yellow");
+        hashtable.put("", "orange");
+        for (Object o : hashtable.entrySet()) {
+            System.out.println("o : " + o);
+        }
+
+        System.out.println("=============华丽的分割线=============");
+
+        HashMap hashMap = new HashMap();
+        hashMap.put("name", "康永");
+        hashMap.put(null, null);
+        hashMap.put("age", null);
+        hashMap.put(null, 180);
+        hashMap.put("", "yellow");
+        hashMap.put("", "orange");
+        for (Object o : hashMap.entrySet()) {
+            System.out.println("o : " + o);
+        }
+
     }
 
 }
