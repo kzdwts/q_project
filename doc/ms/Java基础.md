@@ -29,6 +29,14 @@ HashMap是一种高效的键值对存储结构，它基于哈希表实现，可�
 
 HashMap和HashTable是两个常用的Java集合框架中的映射类型容器，他们的区别如下：
 
+* 1、线程安全性：HashTable是线程安全的，而HashMap不是。HashTable中的方法都是同步的（synchronized），即他们在多线程访问时会自动获取锁，因此HashTable可以在多线程中安全的使用。而HashMap是非线程安全的，如果在多线程环境中同时对HashMap进行修改操作，可能会导致数据的不一致性和线程安全问题。
+* 2、null值：HashTable不行允许键或者值为null，而HashMap允许。在HashTable中，如果试图将null做为键或者值放入其中，将会抛出NullPointerException异常；而在HashMap中，null可以作为键或值存储。
+* 3、效率：由于HashTable中的方法都是同步的，因此在多线程环境下会存在一定得性能开销。而HashMap不是同步的，因此在单线程环境中具有较高的效率。
+* 4、迭代器：HashTable的迭代器（Enumeration）不支持fail-fast机制，而HashMap的迭代器（Iterator支持）。
+* 5、存储顺序：HashMap不保证元素的存储顺序，而HashTable是按照元素插入的顺序进行存储。
+
+综上所述，HashTable在线程安全方面具有优势，但在效率和灵活性方面不如HashMap。因此，在单线程环境下，推荐使用HashMap，而在多线程环境下，可以选择适用HashTable或者ConcurrentHashMap等线程安全的集合框架。
+
 ### 1.4、HashMap 与 LinkedHashMap排序问题
 
 * 1、
