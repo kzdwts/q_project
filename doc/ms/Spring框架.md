@@ -48,6 +48,22 @@
 
 ## 2、Spring Bean的作用域
 
+Spring Bean的作用域指的是一个Bean实例在应用程序中的生命周期和可见范围。
+
+Spring Bean的生命周期包括Bean实例的创建、初始化、注入、使用、销毁等阶段。
+
+Spring框架支持以下五种作用域：
+
+* 1、`Singleton`：单例模式，全局只有一个Bean实例，由Spring容器负责管理。默认的作用域
+* 2、`Prototype`：原型模式，每次请求都会创建一个新的Bean实例，不由Spring容器进行管理
+* 3、`Request`：请求作用域，每次Http请求都会创建一个新的Bean实例，仅在当前Http请求内有效
+* 4、`Session`：会话作用域，每次Http请求都会创建一个新的Bean实例，仅在当前会话内有效
+* 5、`GlobalSession`：全局会话作用域
+
+选择合适的作用域，可以避免内存浪费，减少开销，提高系统性能。
+
+比如，Singleton 适用于无状态的Bean，Prototype 适用于需要被多个对象共享的状态Bean。
+
 ## 3、Spring循环依赖
 
 ## 4、拦截器和过滤器的区别
