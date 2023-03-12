@@ -58,4 +58,39 @@ public class LeetCodeStudy01 {
             map.put(target - nums[i], i);
         }
     }
+
+    /**
+     * q: 给定一个数组，给定一个数字。返回数组中可以相加得到指定数字的两个索引
+     * two sum from <link>https://mp.weixin.qq.com/s/5mwkgJB7GyLdKDgzijyvXw</link>
+     *
+     * @author Kang Yong
+     * @date 2023/3/13
+     */
+    @Test
+    public void twoSum3Test() {
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+
+        int[] result = this.twoSum3(nums, target);
+        for (int i = 0; i < result.length; i++) {
+            System.out.println(result[i]);
+        }
+    }
+
+    private int[] twoSum3(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+
+            map.put(nums[i], i);
+        }
+
+        throw new IllegalArgumentException("No two sum solution");
+    }
+
+
 }
