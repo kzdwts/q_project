@@ -157,5 +157,12 @@ public class StringDemoTest {
         System.out.println("content = " + content);
     }
 
+    @Test
+    public void testSubStringPhone() {
+        String phone = "15200435953";
+        String str = phone.substring(phone.length() - 6);
+        System.out.println("str = " + str);
+    }
+
 
 }
