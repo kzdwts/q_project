@@ -84,6 +84,14 @@ Spring 通过三级缓存来解决循环依赖问题。
 
 ## 5、Spring5对Redis的使用
 
+Spring 5对Redis的支持主要是一下几个方面：
+
+*  1、支持基于注解的Redis缓存。
+* 2、支持基于Redis的分布式锁。
+* 3、提供了基于Redis的响应式编程支持。
+* 4、提供了Spring Session Redis。
+* 5、提供了Redis消息监听器。
+
 ## 6、SpringMVC特性
 
 ### 6.1、IOC
