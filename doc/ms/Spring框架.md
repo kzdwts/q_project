@@ -87,10 +87,22 @@ Spring 通过三级缓存来解决循环依赖问题。
 Spring 5对Redis的支持主要是一下几个方面：
 
 *  1、支持基于注解的Redis缓存。
+
+  `Spring 5` 提供了基于注解的缓存支持，可以方便的将方法返回结果缓存到Redis中，减少对数据库的访问。使用该功能需要在Spring配置文件中开启 `@EnableCaching` 注解，然后在需要缓存的方法上添加 `@Cacheable` 注解即可。
+
 * 2、支持基于Redis的分布式锁。
+
+  `Spring 5` 通过 `RedisTemplate` 和 `LettureConnectionFactory` 提供了基于Redis的分布式锁实现。开发人员可以通过调用`RedisTemplate`中的execute方法或使用 `@RedisLock`注解来获取分布式锁。
+
 * 3、提供了基于Redis的响应式编程支持。
+
 * 4、提供了Spring Session Redis。
+
+  `Spring 5`提供了`Spring Session Redis`，用于实现分布式环境下的Session共享。`Spring Session Redis`使用`Redis`作为`Session`的存储介质，可以支持不同的`Session`存出结果（如Hash、String等），也可以使用`Spring`提供的默认结构。同时`Spring Session Redis`还提供了基于Redis的过期机制和集群支持。
+
 * 5、提供了Redis消息监听器。
+
+  `Spring 5`提供了`Redis`消息监听容器，可以很方便地监听`Redis`消息，实现消息的消费。开发人员可以使用`@RedisListener`注解或者手动创建`MessageListenerContainer`来实现`Redis`的监听消费。
 
 ## 6、SpringMVC特性
 
