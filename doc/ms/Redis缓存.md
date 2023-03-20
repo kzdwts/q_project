@@ -6,7 +6,48 @@
 
 ### 1.1、基本数据类型
 
+Redis有5中基础数据类型
+
+* 1、字符串 `String`
+
+  Redis中的字符串是二进制安全的，可以存储任何类型的数据，包括图片、序列化对象
+
+  ```bash
+  set name kangyong
+  get name
+  ```
+
+* 2、哈希`Hashes`
+
+  Redis哈希是一个键值对集合，适合存储对象，可以添加、获取、删除哈希中的元素
+
+   ```bash
+  hset homepage redis redis.com
+
+  hget homepage redis
+   ```
+
+* 3、列表`List`
+
+  Redis列表是一个有序的字符串列表，可以添加、获取、删除列表的元素，支持从列表的两端推入和弹出元素
+
+* 4、集合`Sets`
+
+  Redis集合是一个无序的字符串列表，可以添加、获取、删除集合中的元素
+
+* 5、有序集合`Sorted Set`
+
+  Redis有序集合是一个有序的字符串列表，每个元素都有一个分数，可以根据分数排序，支持添加、获取、删除有序集合中的元素
+
 ### 1.2、扩展数据类型
+
+* 1、`HyperLogLog`
+* 2、`Geo`
+* 3、`Pub\Sub`
+* 4、`Redis Module`
+* 5、`BloomFilter`布隆过滤器
+* 6、`RedisSearch`
+* 7、`Redis-ML`
 
 ## 2、Redis哪些操作是原子性的
 
