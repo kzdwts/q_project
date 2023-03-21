@@ -260,5 +260,21 @@ public class DateCalcTest {
 
     }
 
+    @Test
+    public void dayStartEnd() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String d1= "2023-03-21";
+
+        Date date1 = sdf.parse(d1);
+        System.out.println("date1 = " + date1);
+
+        DateTime dayStart = DateUtil.endOfDay(date1);
+        DateTime dayEnd = DateUtil.beginOfDay(date1);
+
+        System.out.println("dayStart = " + dayStart);
+        System.out.println("dayEnd = " + dayEnd);
+
+    }
+
 
 }
