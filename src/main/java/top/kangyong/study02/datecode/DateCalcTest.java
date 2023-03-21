@@ -139,6 +139,15 @@ public class DateCalcTest {
 
     @Test
     public void test02() {
+        Date date = new Date();
+        System.out.println("date = " + date);
+
+        Date date2 = Date.from(date.toInstant().plusSeconds(10));
+        System.out.println("date2 = " + date2);
+    }
+
+    @Test
+    public void test03() {
         LocalDateTime localDateTime = LocalDate.now().plusDays(-1).atStartOfDay();
         System.out.println(localDateTime);
 
@@ -147,7 +156,7 @@ public class DateCalcTest {
     }
 
     @Test
-    public void test03() {
+    public void test04() {
         Date date = new Date();
         System.out.println(new SimpleDateFormat("yyyy年MM月dd日 HH:mm").format(date));
         Instant instant = date.toInstant().plusSeconds(10 * 60);
