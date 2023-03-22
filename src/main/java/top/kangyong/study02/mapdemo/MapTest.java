@@ -157,6 +157,10 @@ public class MapTest {
 
         String wanglili = map1.getOrDefault(1, "wanglili");
         System.out.println(wanglili);
+
+        String name4 = map1.get(4);
+        System.out.println("name4 = " + name4);
+        System.out.println("Objects.isNull(name4) = " + Objects.isNull(name4));
     }
 
     /**
