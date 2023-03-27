@@ -98,7 +98,9 @@ SORT mylist DESC
 
 ## 5、Redis持久化
 
-RDB和AOF
+Redis提供了两种持久化方式：RDB（Redis Database Backup）和AOF（Append Only File）。
+
+RDB是一种快照方式的持久化方式，可以将Redis在某一时刻的数据生成一个快照文件，保存到硬盘上。
 
 ## 6、Redis缓存雪崩、缓存穿透、缓存击穿
 
