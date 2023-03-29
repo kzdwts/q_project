@@ -2,6 +2,8 @@ package top.kangyong.study02.keywordcode;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * volatile 关键字测试
@@ -23,16 +25,28 @@ public class CounterVolatileDemo {
     }
 
 
+    private int num = 0;
+
+    public void numIncrement() {
+        num++;
+    }
+    public int getNum() {
+        return num;
+    }
+
+
     public static void main(String[] args) {
         final CounterVolatileDemo counter = new CounterVolatileDemo();
 
         ExecutorService executorService = Executors.newFixedThreadPool(10);
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10000; i++) {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
                     counter.increment();
+
+                    counter.numIncrement();
                 }
             });
         }
@@ -43,5 +57,6 @@ public class CounterVolatileDemo {
         }
 
         System.out.println("counter.getCount() = " + counter.getCount());
+        System.out.println("counter.getNum() = " + counter.getNum());
     }
 }
