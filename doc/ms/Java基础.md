@@ -85,6 +85,18 @@ Java中的线程共有6中状态，分别是：
 
 ### 5.2、Java 线程池使用 线程池参数
 
+线程池的参数主要包括以下几个：
+
+* 1、`corePoolSize`：核心线程数，线程池中保持的线程数量，即使空闲也不会被回收。默认值为1.
+* 2、`maxinumPoolSize`：最大线程数，线程池中允许的最大线程数。默认为`Integer.MAX_VALUE`
+* 3、`keepAliveTime`：线程空闲的时间，当线程池中的线程数量超过`corePoolSize`时，空闲的线程能够保留的最长时间。默认60s。
+* 4、`unit`：keepAliveTime参数的时间单位，默认为`TimeUnit.SECONDS`。
+* 5、`workQueue`：工作队列，用于保存等待执行的任务。可以使用不同的队列实现，如：`SynchronousQueue、LinkedBlockingQueue、ArrayBlockingQueue`等。
+* 6、`threadFactory`：用于创建新线程的工厂。
+* 7、`handler`：当线程池中的线程数量以达到`maximumPoolSize`且队列已满时，新任务的处理方式。可以使用不同的拒绝策略实现，如`AbortPolicy、CallerRunsPolicy、DiscardPolicy、DiscardOldestPolicy`:等。
+
+通过这些参数，可以优化线程池的性能，提高应用程序的吞吐量和响应性能。
+
 ### 5.3、ThreadLocal
 
 ThreadLocal主要解决多线程情况下变量的访问冲突问题，可以将同一个变量在不同的线程中进行隔离，保证每个线程只能访问到自己的变量副本，从而避免了竞争和冲突。
