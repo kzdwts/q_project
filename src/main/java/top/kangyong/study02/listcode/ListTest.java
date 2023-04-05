@@ -767,5 +767,20 @@ public class ListTest {
         uuidList.forEach(System.out::println);
     }
 
+    /**
+     * list 求交集
+     *
+     * @author Kang Yong
+     * @date 2023/4/6
+     */
+    @Test
+    public void retailAllTest() {
+        List<Integer> list1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
+        List<Integer> list2 = new ArrayList<>(Arrays.asList(8, 9, 4, 5, 6, 7));
+
+        list1.retainAll(list2);
+        System.out.println("list1 = " + list1); // 输出list1 = [4, 5, 6]
+    }
+
 
 }

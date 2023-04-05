@@ -197,6 +197,32 @@ Java中的volatile关键字是一种轻量级的同步机制，主要用于保�
 
 ### 11.1、List求交集
 
+求两个List的交集，可以使用Java中的retainAll方法。
+
+示例代码如下：
+
+```java
+ /**
+     * list 求交集
+     *
+     * @author Kang Yong
+     * @date 2023/4/6
+     */
+    @Test
+    public void retailAllTest() {
+        List<Integer> list1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
+        List<Integer> list2 = new ArrayList<>(Arrays.asList(8, 9, 4, 5, 6, 7));
+
+        list1.retainAll(list2);
+        
+        System.out.println("list1 = " + list1); // 输出list1 = [4, 5, 6]
+    }
+```
+
+
+
+
+
 ## 12、JVM
 
 ### 12.1、JVM内存模型
