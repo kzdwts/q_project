@@ -136,4 +136,25 @@ public class MathTest {
         System.out.println(result);
     }
 
+    /**
+     * 测试Math.ceil() 向上取整
+     *
+     * @author Kang Yong
+     * @date 2023/4/6
+     */
+    @Test
+    public void testMathCeil() {
+        Integer a = 19;
+        Integer b = 3;
+
+        double ceil = Math.ceil((a * 1.0 / b));
+        long round = Math.round((a * 1.0 / b));
+        System.out.println("round = " + round);
+
+        System.out.println(ceil);
+
+        int index = (int) Math.ceil(Math.ceil((a * 1.0 / b)));
+        System.out.println("index = " + index);
+    }
+
 }
