@@ -34,3 +34,16 @@
   * `-v`：显示打包文件过程
   * `-f包名`：指定包的文件名
 
+
+### 1.2、日志检索命令
+
+```shell
+# 滚动查看日志
+tail -f catalina.out -n200
+
+# 查看 `.gz`日志
+gunzip -c organ-INFO.log.gz
+# 或
+zcat organ-INFO.log.gz | grep 'appUuid'
+```
+
