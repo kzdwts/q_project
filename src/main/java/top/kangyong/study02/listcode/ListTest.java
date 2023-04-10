@@ -782,5 +782,19 @@ public class ListTest {
         System.out.println("list1 = " + list1); // 输出list1 = [4, 5, 6]
     }
 
+    /**
+     * List<String>转为List<Integer>
+     *
+     * @author Kang Yong
+     * @date 2023/4/10
+     */
+    @Test
+    public void ListString2ListInteger() {
+        String idStr = "1,3,5,6,7,110,1234";
+        List<String> idStrList = Arrays.asList(idStr.split(","));
+        List<Integer> idList = idStrList.stream().mapToInt(Integer::parseInt).boxed().collect(Collectors.toList());
+        System.out.println(idList);
+    }
+
 
 }
