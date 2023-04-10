@@ -3,6 +3,8 @@ package top.kangyong.study02.stringdemo;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -62,6 +64,20 @@ public class StringDemoTest {
         System.out.println(names.length());
         System.out.println(names);
 
+    }
+
+    @Test
+    public void testStringBuilderSubstringLastDouhao() {
+        List<String> nameList =  Arrays.asList("丽丽,娇娇");
+        StringBuilder sb = new StringBuilder();
+        for (String s : nameList) {
+            sb.append(s).append(",");
+        }
+
+        String names = sb.toString();
+        System.out.println("names = " + names);
+        String name2 = names.substring(0, names.lastIndexOf(","));
+        System.out.println("name2 = " + name2);
     }
 
     @Test
