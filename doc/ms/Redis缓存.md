@@ -96,6 +96,8 @@ SORT mylist DESC
 
 ## 4、Redis怎么做消息队列
 
+利用消息失效机制
+
 ## 5、Redis持久化
 
 Redis提供了两种持久化方式：RDB（Redis Database Backup）和AOF（Append Only File）。
