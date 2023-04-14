@@ -270,9 +270,24 @@ public class DateCalcTest {
     }
 
     @Test
+    public void testDateSub() {
+        Date date1 = new Date();
+        long time1 = date1.getTime();
+        System.out.println("time1 = " + time1);
+
+        Date date2 = new Date(time1 + 1);
+        long time2 = date2.getTime();
+        System.out.println("time2 = " + time2);
+
+        boolean flag = date1.before(date2);
+        System.out.println("flag = " + flag);
+
+    }
+
+    @Test
     public void dayStartEnd() throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String d1= "2023-03-21";
+        String d1 = "2023-03-21";
 
         Date date1 = sdf.parse(d1);
         System.out.println("date1 = " + date1);
