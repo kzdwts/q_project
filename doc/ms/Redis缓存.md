@@ -96,7 +96,30 @@ SORT mylist DESC
 
 ## 4、Redis怎么做消息队列
 
-利用消息失效机制
+Redis可以通过list、set等数据结构实现简单的消息队列。一般情况下，我们可以使用list来实现消息队列。下面是使用Redis实现消息队列的示例代码：
+
+* 1、生产者向队列中添加消息
+
+  ```java
+  Jedis jedis = new Jedis("localhost", 6379);
+  jedis.lpush("messageQueue", "message1");
+  jedis.lpush("messageQueue", "message3");
+  jedis.lpush("messageQueue", "message2");
+  ```
+
+* 2、消费者从队列中获取消息
+
+  ```java
+  Jedis jedis = new Jedis("localhost", 6379);
+  while(true) {
+      // 从消息队列右侧阻塞获取消息
+      List<String> messages = jedis.brpop(0, "messageQueue");
+      String message = messages.get(1);
+      System.out.println("Received message: " + message);
+  }
+  ```
+
+在这个示例中，我们使用Redis的list数据结构实现了一个消息队列。生产者想队列左侧插入消息，二消费者从队列右侧获取消息，如果队列为空，则消费者阻塞等待直到有消息可用。这种实现方式简单、易用，但是在高并发场景下可能会存在性能瓶颈，可以考虑使用Red四的其他数据结构或者使用专门的消息队列中间件来解决这个问题。
 
 ## 5、Redis持久化
 
