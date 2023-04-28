@@ -24,10 +24,10 @@
 
 ### 2.2、硬件要求
 
-* 1、 SonarQube 服务器的小规模（个人或小团队）实例需要至少 2GB 的 RAM 才能高效运行，并需要 1GB 的可用 RAM 供操作系统使用。如果您要为大型团队或企业安装实例，请考虑以下其他建议。
-* 2、 您需要的磁盘空间量将取决于您使用 SonarQube 分析的代码量。
-* 3、 SonarQube 必须安装在具有出色读写性能的硬盘上。最重要的是，“数据”文件夹包含 Elasticsearch 索引，当服务器启动并运行时，大量的 I/O 将在这些索引上完成。因此，读写硬盘性能将对整体 SonarQube 服务器性能产生很大影响。
-* 4、 SonarQube 在服务器端不支持 32 位系统。然而，SonarQube 在扫描器端支持 32 位系统。
+* 1. SonarQube 服务器的小规模（个人或小团队）实例需要至少 2GB 的 RAM 才能高效运行，并需要 1GB 的可用 RAM 供操作系统使用。如果您要为大型团队或企业安装实例，请考虑以下其他建议。
+* 2. 您需要的磁盘空间量将取决于您使用 SonarQube 分析的代码量。
+* 3. SonarQube 必须安装在具有出色读写性能的硬盘上。最重要的是，“数据”文件夹包含 Elasticsearch 索引，当服务器启动并运行时，大量的 I/O 将在这些索引上完成。因此，读写硬盘性能将对整体 SonarQube 服务器性能产生很大影响。
+* 4. SonarQube 在服务器端不支持 32 位系统。然而，SonarQube 在扫描器端支持 32 位系统。
 
 ### 2.3、安装
 
@@ -114,13 +114,20 @@ chkconfig sonar off
 
 ## 四、使用
 
-下面将通过三种方式来使用SonarQube的代码扫描功能：
+下面将通过四种方式来使用SonarQube的代码扫描功能：
 
-* ①Maven方式执行代码检测
-* ②SonarScanner方式执行代码检测
-* ③集成Jenkins执行代码检测
+* 开发人员自查(选其一即可)
+  * ①Idea安装SonarLint插件
+  * ②Maven方式执行代码检测
+  * ③SonarScanner方式执行代码检测
+* 团队进行 Code Review
+  * ④集成Jenkins执行代码检测
 
-### 4.1、集成maven执行代码扫描
+### 4.1、Idea安装SonarLint插件
+
+`File` → `Settings` → `Plugins` → `Marketplace` → 搜索`SonarLint`
+
+### 4.2、集成maven执行代码扫描
 
 创建完项目后，我们选择maven方式构建，即可看到SonarQube给我们提供的maven扫描命令
 
@@ -131,7 +138,7 @@ mvn sonar:sonar \
 -Dsonar.login=令牌
 ```
 
-#### 4.1.1、使用方式
+#### 4.2.1、使用方式
 
 ①进入到要扫描的代码目录，执行上面的maven命令即可。
 
@@ -159,7 +166,7 @@ mvn sonar:sonar
 
 执行完毕后在SonarQube页面即可看到扫描结果。
 
-### 4.2、通过SonarScanner执行代码扫描
+### 4.3、通过SonarScanner执行代码扫描
 
 SonarQube提供了SonarScanner组件来帮助我们执行扫描，首先下载 [4.6版本](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/)
 
@@ -190,21 +197,21 @@ sonar.java.binaries=.
 
 然后再命令行执行`sonar-scanner`即可。
 
-### 4.3、集成Jenkins执行代码扫描
+### 4.4、集成Jenkins执行代码扫描
 
-#### 4.3.1、Jenkins安装 SonarQube Scanner插件
+#### 4.4.1、Jenkins安装 SonarQube Scanner插件
 
 `系统管理 > 插件管理`，搜索`SonarQube Scanner`插件并安装
 
 
 
-#### 4.3.2、Jenkins配置SonarQube
+#### 4.4.2、Jenkins配置SonarQube
 
 * ①开启Sonar Qube权限验证
 * ②获取SonarQube的令牌
 * ③配置Jenkins的SonarQube信息
 
-#### 4.3.3、配置Sonar-scanner
+#### 4.4.3、配置Sonar-scanner
 
 * 将Sonar-scanner添加到Jenkins数据卷中并配置全局配置
 
