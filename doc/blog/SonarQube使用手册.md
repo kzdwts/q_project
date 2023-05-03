@@ -33,7 +33,15 @@
 
 #### 2.3.1、创建SonarQube数据库
 
-由于`SonarQube`默认使用的内嵌数据库`H2`，这种不适应于生产环境，所以我们替换成`mysql`数据库，首先创建一个名为`sonar`的数据库。
+由于`SonarQube`默认使用的内嵌数据库`H2`，这种不适应于生产环境。所以我们替换成`mysql`数据库。
+
+首先创建一个名为`sonar`的数据库。
+
+```sql
+CREATE DATABASE `sonar` CHARACTER SET 'utf8mb4';
+```
+
+
 
 #### 2.3.2、解压SonarQube
 
@@ -48,9 +56,9 @@ unzip sonarqube-7.8.zip
 
 ```properties
 # 数据库连接信息
-sonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance
+sonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance&useSSL=false
 sonar.jdbc.username=root
-sonar.jdbc.password=root
+sonar.jdbc.password=123456
 sonar.sorceEncoding=UTF-8
 # SonarQube的web页面登录信息
 sonar.login=admin
@@ -73,7 +81,36 @@ passwd sonar
 chown -R sonar:sonar /usr/local/data/soft/sonarqube-7.8
 ```
 
-#### 2.3.6、登录启动用户，启动程序
+#### 2.3.6、配置elasticsearch相关参数
+
+直接启动sonar，可能elasticsearch会报错：
+
+```properties
+[1]: max file descriptors [4096] for elasticsearch process is too low, increase to at least [65535]
+[2]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
+```
+
+修改配置：
+
+①每个进程最大同时打开文件数太小，可通过下面2个命令查看当前数量
+
+```bash
+ulimit -Hn
+ulimit -Sn
+```
+
+![](images\1001-sonar-es-cfg.png)
+
+
+修改/etc/security/limits.conf文件，增加配置，用户退出后重新登录生效
+
+
+
+
+
+
+
+#### 2.3.7、登录启动用户，启动程序
 
 ```shell
 su - sonar
@@ -81,21 +118,21 @@ cd /usr/local/data/soft/sonarqube-7.8/bin/linux-x86-64
 sh sonar.sh start
 ```
 
-#### 2.3.7、登录
+#### 2.3.8、登录
 
 浏览器打开 `http://ip:9000`
 
 用户名/密码：`admin/admin`
 
-#### 2.3.8、安装中文语言包
+#### 2.3.9、安装中文语言包
 
-登录后, 打开 `Administration → Marketplace`, 搜索 `chinese pack`, 点击 `install`
+登录后, 打开 `Administration → Marketplace`, 搜索 `chinese pack`, 点击 `install
 
 ***会提示重启系统, 选择 `Restart`***
 
 ***至此 SonarQube服务安装完成***
 
-#### 2.3.9、常用命令
+#### 2.3.10、常用命令
 
 ```shell
 service sonar start
@@ -126,6 +163,8 @@ chkconfig sonar off
 ### 4.1、Idea安装SonarLint插件
 
 `File` → `Settings` → `Plugins` → `Marketplace` → 搜索`SonarLint`
+
+![](images\1002-sonar-idea-sonarlint.png)
 
 ### 4.2、集成maven执行代码扫描
 
