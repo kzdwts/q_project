@@ -6,11 +6,26 @@
 
 ## 一、简介
 
+### 1.1、概述
+
 [SonarQube](https://docs.sonarqube.org/latest/) 是一种自动代码审查工具，用于检测代码中的错误、漏洞和代码异味。
 
 支持包括` java, C#, C/C++, PL/SQL, Cobol, JavaScrip, Groovy` 等等二十几种编程语言的代码质量管理与检测。
 
+### 1.2、实例组件
 
+一个 SonarQube 实例包含三个组件：
+
+![](images\1003-sonar-instance.png)
+
+1. SonarQube 服务器运行以下进程：
+   - 服务于 SonarQube 用户界面的 Web 服务器。
+   - 基于 Elasticsearch 的搜索服务器。
+   - 负责处理代码分析报告并将其保存在 SonarQube 数据库中的计算引擎。
+2. 数据库存储以下内容：
+   - 代码扫描期间生成的代码质量和安全性指标和问题。
+   - SonarQube 实例配置。
+3. 在您的构建或持续集成服务器上运行的一台或多台扫描仪，用于分析项目。
 
 ## 二、安装
 
@@ -31,7 +46,26 @@
 
 ### 2.3、安装
 
-#### 2.3.1、创建SonarQube数据库
+#### 2.3.1、解压SonarQube&汉化
+
+* 解压
+
+```shell
+# 解压
+unzip sonarqube-7.8.zip
+```
+
+* 汉化 安装中文语言包
+
+  ~~登录后, 打开 `Administration → Marketplace`, 搜索 `chinese pack`, 点击 `install~~
+
+  由于低版本`SonarQube`自带的插件商店没有对应的汉化版本，这里我们下载汉化插件 [sonar-l10n-zh-plugin-1.28.jar](https://github.com/xuhuisheng/sonar-l10n-zh/releases)
+
+  ![sonar-l10n-zh-plugin-1.28.jar](images\1004-sonar-zh-plugin.png)
+
+  下载完成之后，我们将这个jar包放入`SonarQube`的安装目录下的`extensions/plugins`文件夹中即可。
+
+#### 2.3.2、创建SonarQube数据库
 
 由于`SonarQube`默认使用的内嵌数据库`H2`，这种不适应于生产环境。所以我们替换成`mysql`数据库。
 
@@ -41,18 +75,9 @@
 CREATE DATABASE `sonar` CHARACTER SET 'utf8mb4';
 ```
 
-
-
-#### 2.3.2、解压SonarQube
-
-```shell
-# 解压
-unzip sonarqube-7.8.zip
-```
-
 #### 2.3.3、修改数据库连接
 
-在`SonarQube`的配置文件`conf\sonar.properties`中添加如下配置：
+在`SonarQube`的配置文件`conf/sonar.properties`中添加如下配置：
 
 ```properties
 # 数据库连接信息
@@ -78,14 +103,14 @@ passwd sonar
 #### 2.3.5、赋予启动用户执行权限
 
 ```shell
-chown -R sonar:sonar /usr/local/data/soft/sonarqube-7.8
+chown -R sonar:sonar /usr/local/data/soft/sonarqube-7.8/
 ```
 
 #### 2.3.6、配置elasticsearch相关参数
 
-直接启动sonar，可能elasticsearch会报错：
+直接启动sonar，可能内部组件elasticsearch会报错：
 
-```properties
+```verilog
 [1]: max file descriptors [4096] for elasticsearch process is too low, increase to at least [65535]
 [2]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
 ```
@@ -101,12 +126,52 @@ ulimit -Sn
 
 ![](images\1001-sonar-es-cfg.png)
 
+修改`/etc/security/limits.conf`文件，增加配置，用户退出后重新登录生效
 
-修改/etc/security/limits.conf文件，增加配置，用户退出后重新登录生效
+```properties
+// TODO
+```
+
+
+
+②最大线程个数太低，可通过命令查看
+
+```bash
+ulimit -Hu
+ulimit -Su
+```
 
 
 
 
+
+修改配置文件/etc/security/limits.conf（和问题1是一个文件），增加配置
+
+```properties
+// TODO
+```
+
+修改后的文件：
+
+
+
+③max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
+
+修改`/etc/sysctl.conf`文件，增加配置
+
+```properties
+vm.max_map_count=262144
+```
+
+执行命令`sysctl -p`生效
+
+④`Exception in thread "main" java.nio.file.AccessDeniedException: /usr/local/elasticsearch/elasticsearch-6.2.2-1/config/jvm.options`
+
+启动elasticsearch的用户没有该文件夹的权限，执行命令：
+
+```bash
+chown -R sonar:sonar /usr/local/data/soft/sonarqube-7.8/
+```
 
 
 
@@ -124,23 +189,24 @@ sh sonar.sh start
 
 用户名/密码：`admin/admin`
 
-#### 2.3.9、安装中文语言包
 
-登录后, 打开 `Administration → Marketplace`, 搜索 `chinese pack`, 点击 `install
-
-***会提示重启系统, 选择 `Restart`***
 
 ***至此 SonarQube服务安装完成***
 
-#### 2.3.10、常用命令
+#### 2.3.9、常用命令
 
 ```shell
-service sonar start
-service sonar stop
-service sonar restart
+# 启动
+sh sonar.sh start
+# 关闭
+sh sonar.sh stop
 
-chkconfig sonar on
-chkconfig sonar off
+# service sonar start
+# service sonar stop
+# service sonar restart
+
+# chkconfig sonar on
+# chkconfig sonar off
 ```
 
 
@@ -151,7 +217,7 @@ chkconfig sonar off
 
 ## 四、使用
 
-下面将通过四种方式来使用SonarQube的代码扫描功能：
+下面将通过四种方式来使用`SonarQube`的代码扫描功能：
 
 * 开发人员自查(选其一即可)
   * ①Idea安装SonarLint插件
@@ -170,10 +236,10 @@ chkconfig sonar off
 
 创建完项目后，我们选择maven方式构建，即可看到SonarQube给我们提供的maven扫描命令
 
-```shell
+```bash
 mvn sonar:sonar \
 -Dsonar.projectKey=项目名 \
--Dsonar.host.url=http://localhost:9000 \
+-Dsonar.host.url=http://ip:9000 \
 -Dsonar.login=令牌
 ```
 
@@ -190,9 +256,9 @@ mvn sonar:sonar \
 	<activeByDefault>true</activeByDefault>
   </activation>
   <properties>
-	<sonar.host.url>http://127.0.0.1:9000</sonar.host.url>
+	<sonar.host.url>http://ip:9000</sonar.host.url>
 	<sonar.login>admin</sonar.login>
-    <sonar.password>admin123456</sonar.password>
+    <sonar.password>密码</sonar.password>
   </properties>
 </profile>
 ```
@@ -203,7 +269,9 @@ mvn sonar:sonar \
 mvn sonar:sonar
 ```
 
-执行完毕后在SonarQube页面即可看到扫描结果。
+执行完毕后在SonarQube页面即可看到扫描结果：
+
+![](images\1005-sonar-bad-taste.png)
 
 ### 4.3、通过SonarScanner执行代码扫描
 
@@ -215,7 +283,7 @@ SonarQube提供了SonarScanner组件来帮助我们执行扫描，首先下载 [
 
 ```properties
 # Default SonarQube Server
-sonar.host.url=http:/localhost:9000
+sonar.host.url=http://ip:9000
 # Default source code encoding 
 sonar.sourceEncoding=UTF-8
 # 令牌
@@ -234,7 +302,7 @@ sonar.sourceEncoding=UTF-8
 sonar.java.binaries=.
 ```
 
-然后再命令行执行`sonar-scanner`即可。
+然后在命令行执行`sonar-scanner`即可。
 
 ### 4.4、集成Jenkins执行代码扫描
 
@@ -242,7 +310,7 @@ sonar.java.binaries=.
 
 `系统管理 > 插件管理`，搜索`SonarQube Scanner`插件并安装
 
-
+![](images\1006-sonar-sonarqube-scanner.png)
 
 #### 4.4.2、Jenkins配置SonarQube
 
@@ -257,11 +325,8 @@ sonar.java.binaries=.
 新建任务，并配置任务的Sonar-scanner
 
 ```properties
-~/sonar-scanner/bin/sonar-scanner -Dsonar.sources=./ -Dsonar.projectname=demo -Dsonar.projectKey=java -Dsonar.java.binaries=target/
- 
- 
-#主要下面这个 带
-sonar.projectname=${JOB_NAME}
+#主要下面这个
+sonar.projectName=${JOB_NAME}
 sonar.projectKey=${JOB_NAME}
 sources=./
 sonar.java.binaries=target/
