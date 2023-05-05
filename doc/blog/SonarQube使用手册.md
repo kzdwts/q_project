@@ -212,6 +212,14 @@ sh sonar.sh stop
 
 ## 三、创建项目
 
+这里简述创建项目的过程
+
+![](images\1019-sonar-create-project-step1.png)
+
+![](images\1020-sonar-create-project-step2.png)
+
+![](images\1021-sonar-create-project-step3.png)
+
 
 
 ## 四、使用
@@ -315,6 +323,8 @@ sonar.java.binaries=.
 
 * ①开启Sonar Qube权限验证
 
+  ![](images\1010-sonar-cfg-auth-true.png)
+
 * ②获取SonarQube的令牌
 
   在SonarQube web页面： `我的账号` → `安全`
@@ -323,17 +333,46 @@ sonar.java.binaries=.
 
 * ③配置Jenkins的SonarQube信息
 
+  jenkins web页面：`系统管理` → `系统配置` → `SonarQube servers`
+
+  ![](images\1011-sonar-jenkins-cfg-step1.png)
+
+  ![](images\1013-sonar-jenkins-cfg-step2.png)
+
+  ![](images\1012-sonar-jenkins-cfg-step3.png)
+
 #### 4.4.3、配置Sonar-scanner
 
-* 将Sonar-scanner添加到Jenkins数据卷中并配置全局配置
+* ①下载 [Sonar Scanner 4.6版本](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/) 放到服务器并解压
 
-新建任务，并配置任务的Sonar-scanner
+  这一步极其重要，jenkins部署项目时会调用其进行代码扫描
 
-```properties
-#主要下面这个
-sonar.projectName=${JOB_NAME}
-sonar.projectKey=${JOB_NAME}
-sources=./
-sonar.java.binaries=target/
-```
+* ②将Sonar-scanner添加到Jenkins数据卷中并配置全局配置
 
+  jenkins web页面：`系统管理` → `全局工具配置` → `SonarQube Scanner`
+
+  ![](images\1014-sonar-jenkins-sonarscanner-cfg.png)
+
+* ③新建任务，并配置任务的Sonar-scanner
+
+  `构建`
+
+  ```properties
+  sonar.projectName=${JOB_NAME}
+  sonar.projectKey=${JOB_NAME}
+  sonar.language=java
+  sources=./
+  sonar.java.binaries=target/
+  ```
+
+  ![](images\1015-sonar-jenkins-build-cfg.png)
+
+### 4.5、查看扫描结果
+
+从jenkins点击链接跳转，或者直接访问SonarQube页面
+
+![](images\1016-sonar-jenkins-result1.png)
+
+![](images\1017-sonar-jenkins-result2.png)
+
+![](images\1018-sonar-jenkins-result3.png)
