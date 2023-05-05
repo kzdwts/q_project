@@ -124,15 +124,14 @@ ulimit -Hn
 ulimit -Sn
 ```
 
-![](images\1001-sonar-es-cfg.png)
+![](images\1001-sonar-es-cfg-hnsn.png)
 
 修改`/etc/security/limits.conf`文件，增加配置，用户退出后重新登录生效
 
 ```properties
-// TODO
+*	soft    nofile  65536
+*	hard    nofile  65536
 ```
-
-
 
 ②最大线程个数太低，可通过命令查看
 
@@ -141,19 +140,19 @@ ulimit -Hu
 ulimit -Su
 ```
 
-
-
-
+![](images\1007-sonar-es-cfg-husu.png)
 
 修改配置文件/etc/security/limits.conf（和问题1是一个文件），增加配置
 
 ```properties
-// TODO
+*	soft	nproc	4096
+*	hard	nproc	4096
+
 ```
 
 修改后的文件：
 
-
+![](images\1008-sonar-es-cfg1.png)
 
 ③max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
 
@@ -165,7 +164,7 @@ vm.max_map_count=262144
 
 执行命令`sysctl -p`生效
 
-④`Exception in thread "main" java.nio.file.AccessDeniedException: /usr/local/elasticsearch/elasticsearch-6.2.2-1/config/jvm.options`
+④`Exception in thread "main" java.nio.file.AccessDeniedException: /usr/local/data/soft/sonarqube-7.8/elasticsearch/config/es/elasticsearch.yml`
 
 启动elasticsearch的用户没有该文件夹的权限，执行命令：
 
@@ -279,7 +278,7 @@ SonarQube提供了SonarScanner组件来帮助我们执行扫描，首先下载 [
 
 下载之后是个压缩包，解压即可，为了方便使用，我们可以将解压后的目录下的bin目录加入到环境变量中，这样可以直接使用`sonar-scanner`命令了
 
-打开SonarScanner的配置文件`conf\sonar-scanner.properties`，做如下修改：
+打开SonarScanner的配置文件`conf/sonar-scanner.properties`，做如下修改：
 
 ```properties
 # Default SonarQube Server
@@ -315,7 +314,13 @@ sonar.java.binaries=.
 #### 4.4.2、Jenkins配置SonarQube
 
 * ①开启Sonar Qube权限验证
+
 * ②获取SonarQube的令牌
+
+  在SonarQube web页面： `我的账号` → `安全`
+
+  ![](images\1009-sonar-web-gen-authtoken.png)
+
 * ③配置Jenkins的SonarQube信息
 
 #### 4.4.3、配置Sonar-scanner
