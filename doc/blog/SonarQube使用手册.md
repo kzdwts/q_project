@@ -48,6 +48,8 @@
 
 #### 2.3.1、解压SonarQube&汉化
 
+上传文件到`/usr/local/wts/`目录下
+
 * 解压
 
 ```shell
