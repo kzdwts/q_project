@@ -46,13 +46,16 @@
 
 ### 2.3、安装
 
+案例安装在`CentOS7`系统
+
 #### 2.3.1、解压SonarQube&汉化
 
-上传文件到`/usr/local/wts/`目录下
+下载   [社区版 7.8 sonarqube-7.8.zip]([SonarSource Downloads-CDN](https://binaries.sonarsource.com/?prefix=Distribution/sonarqube/)) 并上传文件到`/usr/local/wts/`目录下
 
 * 解压
 
 ```shell
+cd /usr/local/wts
 # 解压
 unzip sonarqube-7.8.zip
 ```
@@ -79,7 +82,7 @@ CREATE DATABASE `sonar` CHARACTER SET 'utf8mb4';
 
 #### 2.3.3、修改数据库连接
 
-在`SonarQube`的配置文件`conf/sonar.properties`中添加如下配置：
+在`SonarQube`的配置文件`/usr/local/wts/sonarqube-7.8/conf/sonar.properties`中添加如下配置：
 
 ```properties
 # 数据库连接信息
@@ -105,21 +108,18 @@ passwd sonar
 #### 2.3.5、赋予启动用户执行权限
 
 ```shell
-chown -R sonar:sonar /usr/local/data/soft/sonarqube-7.8/
+chown -R sonar:sonar /usr/local/wts/sonarqube-7.8/
 ```
 
-#### 2.3.6、配置elasticsearch相关参数
+#### 2.3.6、相关报错解决
 
 直接启动sonar，可能内部组件elasticsearch会报错：
 
-```verilog
-[1]: max file descriptors [4096] for elasticsearch process is too low, increase to at least [65535]
-[2]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
-```
+需要修改配置：
 
-修改配置：
+①`[1]: max file descriptors [4096] for elasticsearch process is too low, increase to at least [65535]`
 
-①每个进程最大同时打开文件数太小，可通过下面2个命令查看当前数量
+每个进程最大同时打开文件数太小，可通过下面2个命令查看当前数量
 
 ```bash
 ulimit -Hn
@@ -135,7 +135,9 @@ ulimit -Sn
 *	hard    nofile  65536
 ```
 
-②最大线程个数太低，可通过命令查看
+②`[2]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]`
+
+最大线程个数太低，可通过命令查看
 
 ```bash
 ulimit -Hu
@@ -149,7 +151,6 @@ ulimit -Su
 ```properties
 *	soft	nproc	4096
 *	hard	nproc	4096
-
 ```
 
 修改后的文件：
@@ -158,7 +159,7 @@ ulimit -Su
 
 ③max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
 
-修改`/etc/sysctl.conf`文件，增加配置
+最大虚拟内存。修改`/etc/sysctl.conf`文件，增加配置
 
 ```properties
 vm.max_map_count=262144
@@ -166,12 +167,12 @@ vm.max_map_count=262144
 
 执行命令`sysctl -p`生效
 
-④`Exception in thread "main" java.nio.file.AccessDeniedException: /usr/local/data/soft/sonarqube-7.8/elasticsearch/config/es/elasticsearch.yml`
+④`Exception in thread "main" java.nio.file.AccessDeniedException: /usr/local/wts/sonarqube-7.8/elasticsearch/config/es/elasticsearch.yml`
 
 启动elasticsearch的用户没有该文件夹的权限，执行命令：
 
 ```bash
-chown -R sonar:sonar /usr/local/data/soft/sonarqube-7.8/
+chown -R sonar:sonar /usr/local/wts/sonarqube-7.8/
 ```
 
 
@@ -180,7 +181,7 @@ chown -R sonar:sonar /usr/local/data/soft/sonarqube-7.8/
 
 ```shell
 su - sonar
-cd /usr/local/data/soft/sonarqube-7.8/bin/linux-x86-64
+cd /usr/local/wts/sonarqube-7.8/bin/linux-x86-64
 sh sonar.sh start
 ```
 
