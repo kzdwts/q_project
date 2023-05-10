@@ -10,7 +10,22 @@ package top.kangyong.study02.design.pattern.behaviormode.visitor;
  */
 public interface Person {
 
+    /**
+     * 功能: 喂食宠物猫
+     *
+     * @param cat {@link Cat}
+     * @author Kang Yong
+     * @date 2023/5/10
+     */
     void feed(Cat cat);
 
+    /**
+     * 功能: 喂食宠物狗
+     *
+     * @param dog {@link Dog}
+     * @author Kang Yong
+     * @date 2023/5/10
+     */
     void feed(Dog dog);
+
 }

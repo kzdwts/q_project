@@ -10,5 +10,12 @@ package top.kangyong.study02.design.pattern.behaviormode.visitor;
  */
 public interface Animal {
 
+    /**
+     * 功能: 接受访问者访问的功能
+     *
+     * @param person {@link Person}
+     * @author Kang Yong
+     * @date 2023/5/10
+     */
     void accept(Person person);
 }
