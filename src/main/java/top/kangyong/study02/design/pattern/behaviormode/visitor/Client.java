@@ -11,6 +11,9 @@ package top.kangyong.study02.design.pattern.behaviormode.visitor;
  * 对象结构变化很困难
  * 违反了依赖倒置原则
  *
+ * 使用场景：
+ * 对象结构相对稳定，但其操作算法经常变化的程序
+ *
  * @author Kang Yong
  * @date 2023/5/11
  * @since 1.0.0
