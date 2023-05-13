@@ -13,6 +13,7 @@ package top.kangyong.study02.design.pattern.behaviormode.visitor;
  *
  * 使用场景：
  * 对象结构相对稳定，但其操作算法经常变化的程序
+ * 对象结构中的对象需要提供多种不同且不相关的操作，二千要避免这些操作的变化影响对象的结构
  *
  * @author Kang Yong
  * @date 2023/5/11
