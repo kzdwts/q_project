@@ -16,4 +16,11 @@ public class IntDemo {
         System.out.println(Integer.MAX_VALUE);
         System.out.println(Integer.MIN_VALUE);
     }
+
+    @Test
+    public void demo02() {
+        Long timestamp = System.currentTimeMillis() / 1000;
+        System.out.println("timestamp = " + timestamp);
+    }
+
 }
