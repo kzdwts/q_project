@@ -297,7 +297,22 @@ public class DateCalcTest {
 
         System.out.println("dayStart = " + dayStart);
         System.out.println("dayEnd = " + dayEnd);
+    }
 
+    /**
+     * 测试时间转为毫秒 | 秒
+     *
+     * @author Kang Yong
+     * @date 2023/5/20
+     */
+    @Test
+    public void date2Long() {
+        Date date = new Date();
+        long time = date.getTime();
+        System.out.println("time = " + time);
+
+        long second = time / 1000;
+        System.out.println("second = " + second);
     }
 
 
