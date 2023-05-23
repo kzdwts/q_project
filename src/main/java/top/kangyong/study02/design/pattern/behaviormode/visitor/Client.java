@@ -3,6 +3,9 @@ package top.kangyong.study02.design.pattern.behaviormode.visitor;
 /**
  * 行为型模式-访问者模式
  *
+ * 定义：
+ * 封装一些作用于某种数据结构中的各元素的操作，它可以在不改变这个数据结构的前提下定义作用于这些元素的新的操作。
+ *
  * 优点：
  * 扩展性好
  * 复用性好
