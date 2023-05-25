@@ -180,5 +180,14 @@ public class StringDemoTest {
         System.out.println("str = " + str);
     }
 
+    @Test
+    public void testSubString4() {
+        String phone = "152****5953\n客户到访";
+        System.out.println("phone = " + phone);
+
+        String str = phone.substring(0, 11);
+        System.out.println("str = " + str);
+    }
+
 
 }
