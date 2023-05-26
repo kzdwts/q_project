@@ -187,6 +187,7 @@ public class StringDemoTest {
 
         String str = phone.substring(0, 11);
         System.out.println("str = " + str);
+        System.out.println("str.length() = " + str.length());
     }
 
 
