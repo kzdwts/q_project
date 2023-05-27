@@ -2,6 +2,8 @@ package top.kangyong.study02.design.pattern.behaviormode.memento.white_box;
 
 import lombok.Data;
 
+import javax.management.relation.Role;
+
 /**
  * 游戏角色类（属于发起人角色）
  * <p>
@@ -43,6 +45,34 @@ public class GameRole {
         this.vit = 0;
         this.atk = 0;
         this.def = 0;
+    }
+
+    /**
+     * 保存角色状态
+     *
+     * @return
+     */
+    public RoleStateMemento saveState() {
+        return new RoleStateMemento(vit, atk, def);
+    }
+
+    /**
+     * 恢复角色状态
+     */
+    public void recoverState(RoleStateMemento roleStateMemento) {
+        // 将备忘录对象中存储的状态赋值给当前对象的成员
+        this.vit = roleStateMemento.getVit();
+        this.atk = roleStateMemento.getAtk();
+        this.def = roleStateMemento.getDef();
+    }
+
+    /**
+     * 展示状态功能
+     */
+    public void stateDisplay() {
+        System.out.println("角色生命力： " + vit);
+        System.out.println("角色攻击力： " + atk);
+        System.out.println("角色防御力： " + def);
     }
 
 }
