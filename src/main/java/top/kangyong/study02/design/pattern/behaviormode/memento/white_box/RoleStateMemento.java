@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 备忘录类
+ * 备忘录角色类（存储历史状态）
  * <p>
  * 行为型模式-备忘录模式（白盒）
  *
