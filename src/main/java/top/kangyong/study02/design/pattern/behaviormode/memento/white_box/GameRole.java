@@ -2,8 +2,6 @@ package top.kangyong.study02.design.pattern.behaviormode.memento.white_box;
 
 import lombok.Data;
 
-import javax.management.relation.Role;
-
 /**
  * 游戏角色类（属于发起人角色）
  * <p>
