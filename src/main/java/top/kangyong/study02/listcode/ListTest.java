@@ -796,5 +796,19 @@ public class ListTest {
         System.out.println(idList);
     }
 
+    /**
+     * List copy test
+     *
+     * @author Kang Yong
+     * @date 2023/6/1
+     */
+    @Test
+    public void listCopyTest1() {
+
+        List<Person> pList = new ArrayList<>();
+        pList.add(new Person(1, "林青霞"));
+
+    }
+
 
 }
