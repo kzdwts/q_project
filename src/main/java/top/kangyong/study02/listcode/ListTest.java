@@ -1,8 +1,8 @@
 package top.kangyong.study02.listcode;
 
-import cn.hutool.core.collection.ListUtil;
 import com.alibaba.fastjson.JSON;
-import org.apache.commons.lang3.ObjectUtils;
+import ma.glasnost.orika.MapperFactory;
+import ma.glasnost.orika.impl.DefaultMapperFactory;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.springframework.util.CollectionUtils;
@@ -10,7 +10,6 @@ import top.kangyong.study02.model.Person;
 
 import java.math.BigDecimal;
 import java.util.*;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -848,6 +847,32 @@ public class ListTest {
 
         System.out.println("pList = " + pList);
         System.out.println("list2 = " + list2);
+
+    }
+
+    /**
+     * List copy test 深拷贝
+     *
+     * @author Kang Yong
+     * @date 2023/6/2
+     */
+    @Test
+    public void listCopyTest3() {
+        // 初始化数据
+        List<Person> pList = new ArrayList<>();
+        pList.add(new Person(1, "林青霞"));
+        pList.add(new Person(2, "赵敏"));
+        System.out.println("pList = " + pList);
+
+        // 使用orika复制工具: 集合复制使用mapAsList，对象复制使用map
+        MapperFactory mf = new DefaultMapperFactory.Builder().build();
+        List<Person> personList = mf.getMapperFacade().mapAsList(pList, Person.class);
+        System.out.println("personList = " + personList);
+
+        // 更新一下试试
+        pList.get(0).setName("张无忌");
+        System.out.println("pList = " + pList);
+        System.out.println("personList = " + personList);
 
     }
 

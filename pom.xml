@@ -103,6 +103,13 @@
             <version>1.2.31</version>
         </dependency>
 
+        <!--list深度copy工具类-->
+        <dependency>
+            <groupId>ma.glasnost.orika</groupId>
+            <artifactId>orika-core</artifactId>
+            <version>1.5.4</version>
+        </dependency>
+
     </dependencies>
 
     <build>
