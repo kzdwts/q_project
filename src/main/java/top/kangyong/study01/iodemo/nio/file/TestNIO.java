@@ -20,7 +20,7 @@ public class TestNIO {
     @Test
     public void test01() throws IOException {
         // 创建输出流
-        FileOutputStream fos = new FileOutputStream("wanglili.txt");
+        FileOutputStream fos = new FileOutputStream("tmp01.txt");
         // 获取通道
         FileChannel channel = fos.getChannel();
         // 缓冲区

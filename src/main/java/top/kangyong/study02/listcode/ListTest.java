@@ -1,5 +1,6 @@
 package top.kangyong.study02.listcode;
 
+import cn.hutool.core.collection.ListUtil;
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -9,6 +10,7 @@ import top.kangyong.study02.model.Person;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -797,7 +799,7 @@ public class ListTest {
     }
 
     /**
-     * List copy test
+     * List copy test 浅拷贝
      *
      * @author Kang Yong
      * @date 2023/6/1
@@ -807,6 +809,45 @@ public class ListTest {
 
         List<Person> pList = new ArrayList<>();
         pList.add(new Person(1, "林青霞"));
+        pList.add(new Person(2, "赵敏"));
+        System.out.println("pList = " + pList);
+
+        List<Person> list2 = new ArrayList<>();
+        // 不做这一步赋值会报错 `java.lang.IndexOutOfBoundsException: Source does not fit in dest`
+        for (Person person : pList) {
+            list2.add(null);
+        }
+
+        Collections.copy(list2, pList);
+        System.out.println("list2 = " + list2);
+        System.out.println("=======华丽的分割线======");
+
+//        Collections.copy是浅拷贝，list1的10个元素，和list2的10个元素，是一样的，修改其中一边的，另一边跟着改（因为是同一个引用）
+        pList.get(0).setAge(18);
+        System.out.println("pList = " + pList);
+        System.out.println("list2 = " + list2);
+
+//        浅拷贝的话，list2是用new语句创建出来的新的对象，因此list1和list2两个对象不相等，
+        System.out.println("list2 == pList: " + (list2 == pList));
+    }
+
+    /**
+     * List copy test 浅拷贝
+     *
+     * @author Kang Yong
+     * @date 2023/6/2
+     */
+    @Test
+    public void listCopyTest2() {
+        List<Person> pList = new ArrayList<>();
+        pList.add(new Person(1, "林青霞"));
+        pList.add(new Person(2, "赵敏"));
+        System.out.println("pList = " + pList);
+
+        List<Person> list2 = new ArrayList<>(pList);
+
+        System.out.println("pList = " + pList);
+        System.out.println("list2 = " + list2);
 
     }
 
