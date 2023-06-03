@@ -876,5 +876,25 @@ public class ListTest {
 
     }
 
+    /**
+     * List copy test use json
+     *
+     * @author Kang Yong
+     * @date 2023/6/2
+     */
+    @Test
+    public void listCopyTest4() {
+        // 初始化数据
+        List<Person> pList = new ArrayList<>();
+        pList.add(new Person(1, "林青霞"));
+        pList.add(new Person(2, "赵敏"));
+        System.out.println("pList = " + pList);
+
+        String jsonStr = JSON.toJSONString(pList);
+        List<Person> personList = JSON.parseArray(jsonStr, Person.class);
+
+        System.out.println("personList = " + personList);
+    }
+
 
 }
