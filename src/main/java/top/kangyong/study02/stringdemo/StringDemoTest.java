@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -68,7 +69,7 @@ public class StringDemoTest {
 
     @Test
     public void testStringBuilderSubstringLastDouhao() {
-        List<String> nameList =  Arrays.asList("丽丽,娇娇");
+        List<String> nameList = Arrays.asList("丽丽,娇娇");
         StringBuilder sb = new StringBuilder();
         for (String s : nameList) {
             sb.append(s).append(",");
@@ -188,6 +189,22 @@ public class StringDemoTest {
         String str = phone.substring(0, 11);
         System.out.println("str = " + str);
         System.out.println("str.length() = " + str.length());
+    }
+
+    @Test
+    public void testSubstringIdentity() {
+        String idNo = "340100199910113006";
+
+        if (StringUtils.isNotBlank(idNo)) {
+            String prefix = idNo.substring(0, 4);
+            String suffix = idNo.substring(idNo.length() - 3);
+
+            System.out.println("prefix = " + prefix);
+            System.out.println("suffix = " + suffix);
+            idNo = prefix + "****" + suffix;
+        }
+
+        System.out.println("idNoStr = " + idNo);
     }
 
 
