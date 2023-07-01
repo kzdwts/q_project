@@ -896,5 +896,21 @@ public class ListTest {
         System.out.println("personList = " + personList);
     }
 
+    @Test
+    public void findFirstTest() {
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 18, "王丽丽"));
+        personList.add(new Person(2, 1, 19, "储小姣"));
+        personList.add(new Person(5, 0, 19, "钱梦婷"));
+        personList.add(new Person(4, 1, 18, "徐慧文"));
+        personList.add(new Person(3, 0, 20, "张丹妮"));
+        personList.add(new Person(6, 0, 20, "陆之昂"));
+
+        Person person18 = personList.stream().filter(b -> b.getAge().equals(18)).findFirst().orElse(null);
+        Person person21 = personList.stream().filter(b -> b.getAge().equals(21)).findFirst().orElse(null);
+
+        System.out.println("person18 = " + person18);
+        System.out.println("person21 = " + person21);
+    }
 
 }
