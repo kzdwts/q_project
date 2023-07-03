@@ -207,5 +207,21 @@ public class StringDemoTest {
         System.out.println("idNoStr = " + idNo);
     }
 
+    @Test
+    public void testSubstringIdentity2() {
+        String idNo = "3401";
+
+        if (idNo.length() >= 4) {
+            String prefix = idNo.substring(0, 4);
+            String suffix = idNo.substring(idNo.length() - 3);
+
+            System.out.println("prefix = " + prefix);
+            System.out.println("suffix = " + suffix);
+            idNo = prefix + "****" + suffix;
+        }
+
+        System.out.println("idNoStr = " + idNo);
+    }
+
 
 }
