@@ -913,4 +913,14 @@ public class ListTest {
         System.out.println("person21 = " + person21);
     }
 
+    @Test
+    public void newEmptyListTest() {
+        List<Person> personList = new ArrayList();
+
+        List<Person> pList = personList.stream().filter(b -> b.getAge() == 18).collect(Collectors.toList());
+        System.out.println("pList.size() = " + pList.size());
+
+        System.out.println("CollectionUtils.isEmpty(pList) = " + CollectionUtils.isEmpty(pList));
+    }
+
 }
