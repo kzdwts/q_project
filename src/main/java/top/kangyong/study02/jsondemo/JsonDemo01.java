@@ -172,4 +172,10 @@ public class JsonDemo01 {
         System.out.println("newCar = " + newCar);
     }
 
+    @Test
+    public void nllObjectToJson() {
+        Car car = null;
+        System.out.println("JSON.toJSONString(car) = " + JSON.toJSONString(car));
+    }
+
 }
