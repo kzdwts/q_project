@@ -86,7 +86,10 @@ public class ListTest {
 
         // distinct放在后边是对过滤后的nationality进行去重
         List<String> resultList2 = personList.stream().map(Person::getNationality).distinct().collect(Collectors.toList());
-        resultList2.forEach(System.out::println);
+//        resultList2.forEach(System.out::println);
+
+        List<Person> resultList3 = personList.stream().distinct().collect(Collectors.toList());
+        resultList3.forEach(System.out::println);
     }
 
     /**
@@ -921,6 +924,27 @@ public class ListTest {
         System.out.println("pList.size() = " + pList.size());
 
         System.out.println("CollectionUtils.isEmpty(pList) = " + CollectionUtils.isEmpty(pList));
+    }
+
+    /**
+     * List转Map，多个字段拼接为key
+     */
+    @Test
+    public void multColumeJoin2Key() {
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 18, "王丽丽"));
+        personList.add(new Person(2, 1, 19, "储小姣"));
+        personList.add(new Person(5, 0, 19, "钱梦婷"));
+        personList.add(new Person(4, 1, 18, "徐慧文"));
+        personList.add(new Person(3, 0, 20, "张丹妮"));
+        personList.add(new Person(6, 0, 20, "陆之昂"));
+
+
+        Map<String, Person> collect = personList.stream().collect(Collectors.toMap(bean -> {
+            return String.join("-", bean.getId().toString(), bean.getGender().toString(), bean.getAge().toString());
+        }, Function.identity()));
+        Set<String> keys = collect.keySet();
+        System.out.println(keys);
     }
 
 }

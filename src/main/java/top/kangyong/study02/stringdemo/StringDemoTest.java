@@ -224,4 +224,20 @@ public class StringDemoTest {
     }
 
 
+    /**
+     * Integer.parse()
+     */
+    @Test
+    public void string2Integer() {
+        String num1 = "01";
+        String num2 = "23";
+
+        int n1 = Integer.parseInt(num1);
+        int n2 = Integer.parseInt(num2);
+
+        System.out.println(n1);
+        System.out.println(n2);
+    }
+
+
 }
