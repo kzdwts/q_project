@@ -246,6 +246,22 @@ public class DateCalcTest {
     }
 
     /**
+     * 测试before
+     * @throws ParseException
+     */
+    @Test
+    public void testDateBefore() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date1 = new Date();
+        Date date2 = new Date();
+        String date3Str = "2023-03-20 11:00:00";
+        Date date3 = sdf.parse(date3Str);
+
+        System.out.println("date1.before(date2) = " + date1.before(date2));
+        System.out.println("date1.before(date3) = " + date1.before(date3));
+    }
+
+    /**
      * 比较时间
      *
      * @author Kang Yong
@@ -258,6 +274,8 @@ public class DateCalcTest {
         Date date2 = new Date();
         String date3Str = "2023-03-20 11:00:00";
         Date date3 = sdf.parse(date3Str);
+        String date4Str = "2023-11-20 11:00:00";
+        Date date4 = sdf.parse(date4Str);
 
         System.out.println("date1 = " + sdf.format(date1));
         System.out.println("date2 = " + sdf.format(date2));
@@ -266,6 +284,7 @@ public class DateCalcTest {
         System.out.println("date1.before(date2) = " + date1.before(date2));
         System.out.println("date1.compareTo(date2) = " + date1.compareTo(date2));
         System.out.println("date1.compareTo(date3) = " + date1.compareTo(date3));
+        System.out.println("date1.compareTo(date4) = " + date1.compareTo(date4));
 
     }
 
