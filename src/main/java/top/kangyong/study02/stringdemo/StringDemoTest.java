@@ -192,6 +192,15 @@ public class StringDemoTest {
     }
 
     @Test
+    public void testSubString5() {
+        String month = "2023-10";
+        System.out.println("month = " + month);
+
+        String year = month.substring(0, 4);
+        System.out.println("year = " + year);
+    }
+
+    @Test
     public void testSubstringIdentity() {
         String idNo = "340100199910113006";
 
