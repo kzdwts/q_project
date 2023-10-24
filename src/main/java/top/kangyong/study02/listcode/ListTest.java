@@ -477,6 +477,30 @@ public class ListTest {
         System.out.println(personList);
     }
 
+    @Test
+    public void testListRemove2() {
+        List<Long> tIdList = new ArrayList<>();
+        tIdList.add(111L);
+        tIdList.add(222L);
+        tIdList.add(333L);
+        tIdList.add(444L);
+        System.out.println("tIdList = " + tIdList);
+
+        boolean rb = tIdList.remove(222L);
+        System.out.println("rb = " + rb);
+        System.out.println("tIdList = " + tIdList);
+
+        boolean rb2 = tIdList.remove(888L);
+        System.out.println("rb2 = " + rb2);
+
+        boolean rb3 = tIdList.remove(111L);
+        tIdList.remove(333L);
+        tIdList.remove(444L);
+
+        System.out.println("tIdList = " + tIdList);
+        System.out.println("CollectionUtils.isEmpty(tIdList) = " + CollectionUtils.isEmpty(tIdList));
+    }
+
     /**
      * 测试多次addAll
      *
@@ -946,5 +970,7 @@ public class ListTest {
         Set<String> keys = collect.keySet();
         System.out.println(keys);
     }
+
+
 
 }
