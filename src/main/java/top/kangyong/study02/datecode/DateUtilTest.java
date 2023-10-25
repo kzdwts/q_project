@@ -2,7 +2,6 @@ package top.kangyong.study02.datecode;
 
 import cn.hutool.core.date.DateField;
 import cn.hutool.core.date.DateTime;
-import cn.hutool.core.math.MathUtil;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
@@ -72,6 +71,15 @@ public class DateUtilTest {
         System.out.println(d1);
         System.out.println(d2);
 
+    }
+
+    @Test
+    public void generateMonths() {
+        int year = LocalDate.now().getYear();
+        System.out.println("year = " + year);
+
+        List<String> months = DateUtil.generateMonths(year);
+        months.forEach(System.out::println);
     }
 
 }

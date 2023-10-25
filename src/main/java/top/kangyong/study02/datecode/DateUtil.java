@@ -1,11 +1,9 @@
 package top.kangyong.study02.datecode;
 
-import sun.util.resources.LocaleData;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.YearMonth;
 import java.time.ZoneId;
-import java.time.temporal.TemporalAccessor;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -138,6 +136,28 @@ public class DateUtil {
         LocalDateTime localDateTime = beginDate.plusMonths(month);
         Date date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
         return date;
+    }
+
+    /**
+     * 返回年的所有月份，如果是当前年，数据计算到到当前月份
+     *
+     * @param year
+     * @return
+     */
+    public static List<String> generateMonths(int year) {
+        List<String> monthList = new ArrayList<>();
+        YearMonth currentYearMonth = YearMonth.now();
+        YearMonth inputYearMonth = YearMonth.of(year, 1);
+        YearMonth lastMonthOfInputYear = YearMonth.of(year, 12);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
+
+        while (!inputYearMonth.isAfter(currentYearMonth) && !inputYearMonth.isAfter(lastMonthOfInputYear)) {
+            monthList.add(inputYearMonth.format(formatter));
+            inputYearMonth = inputYearMonth.plusMonths(1);
+        }
+
+        return monthList;
     }
 
 }
