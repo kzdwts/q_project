@@ -67,4 +67,19 @@ public class LocalDateTest {
         System.out.println(s1);
         System.out.println(s2);
     }
+
+    @Test
+    public void getLastMonth() {
+        String currentMonth = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM"));
+        System.out.println("currentMonth = " + currentMonth);
+
+        String lastMonth = LocalDate.now().plusMonths(-1).format(DateTimeFormatter.ofPattern("yyyy-MM"));
+        System.out.println("lastMonth = " + lastMonth);
+
+        String aMonth = LocalDate.parse("2023-01-01", DateTimeFormatter.ofPattern("yyyy-MM-dd")).format(DateTimeFormatter.ofPattern("yyyy-MM"));
+        System.out.println("aMonth = " + aMonth);
+
+        String bMonth = LocalDate.parse("2023-01-01", DateTimeFormatter.ofPattern("yyyy-MM-dd")).plusMonths(-1).format(DateTimeFormatter.ofPattern("yyyy-MM"));
+        System.out.println("bMonth = " + bMonth);
+    }
 }
