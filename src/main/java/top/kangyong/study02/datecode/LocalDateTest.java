@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 
 /**
  * java8全新的日期和时间API LocalDate
@@ -88,5 +89,17 @@ public class LocalDateTest {
         Month month = LocalDate.now().getMonth();
         int value = month.getValue();
         System.out.println("value = " + value);
+    }
+
+    /**
+     * 计算两个时间相差的月份
+     */
+    @Test
+    public void testMonthBetween() {
+        LocalDate date2 = LocalDate.of(2022, 1, 1);
+        LocalDate date1 = LocalDate.of(2022, 6, 1);
+
+        long monthsBetween = ChronoUnit.MONTHS.between(date1, date2);
+        System.out.println("两个时间相差的月份： " + monthsBetween);
     }
 }
