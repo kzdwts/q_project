@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class NumCombination {
 
     public static void main(String[] args) {
-        int currentMonth = 12;  // 10月
+        int currentMonth = 1;  // 10月
         List<List<Integer>> combinations = generateMonthCombinations(currentMonth);
 
         // 打印生成的组合

@@ -23,4 +23,12 @@ public class IntDemo {
         System.out.println("timestamp = " + timestamp);
     }
 
+    @Test
+    public void demo03() {
+        int year = 2024;
+        int y2 = 2024;
+
+        System.out.println("(year == y2) = " + (year == y2));
+    }
+
 }

@@ -82,4 +82,11 @@ public class LocalDateTest {
         String bMonth = LocalDate.parse("2023-01-01", DateTimeFormatter.ofPattern("yyyy-MM-dd")).plusMonths(-1).format(DateTimeFormatter.ofPattern("yyyy-MM"));
         System.out.println("bMonth = " + bMonth);
     }
+
+    @Test
+    public void getCurrentMonth() {
+        Month month = LocalDate.now().getMonth();
+        int value = month.getValue();
+        System.out.println("value = " + value);
+    }
 }
