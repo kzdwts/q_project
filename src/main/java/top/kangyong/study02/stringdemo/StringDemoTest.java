@@ -248,5 +248,19 @@ public class StringDemoTest {
         System.out.println(n2);
     }
 
+    /**
+     * 逗号分隔的字符串，获取最后一个
+     *
+     * @author Kang Yong
+     * @date 2023/10/30
+     */
+    @Test
+    public void testSplitLast() {
+        String str = "111,22222";
+        String[] elements = str.split(",");
+        String tempStr = elements[elements.length - 1];
+        System.out.println("tempStr = " + tempStr);
+    }
+
 
 }
