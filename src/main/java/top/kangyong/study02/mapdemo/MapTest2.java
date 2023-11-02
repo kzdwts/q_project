@@ -72,4 +72,26 @@ public class MapTest2 {
 
     }
 
+    /**
+     * 测试key为null
+     *
+     * @author Kang Yong
+     * @date 2023/11/2
+     */
+    @Test
+    public void testKeyIsNull() {
+
+        Map<String, Object> map = new HashMap<>();
+        map.put(null, "王丽丽");
+        map.put("zhangxingning", "张兴宁");
+
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            System.out.println("k:" + entry.getKey() + "v:" + entry.getValue());
+        }
+
+        Object v = map.getOrDefault(null, "未知");
+        System.out.println("v = " + v);
+
+    }
+
 }
