@@ -96,10 +96,13 @@ public class LocalDateTest {
      */
     @Test
     public void testMonthBetween() {
-        LocalDate date2 = LocalDate.of(2022, 1, 1);
-        LocalDate date1 = LocalDate.of(2022, 6, 1);
+        LocalDate date2 = LocalDate.of(2022, 8, 1);
+        LocalDate date1 = LocalDate.of(2022, 11, 1);
 
         long monthsBetween = ChronoUnit.MONTHS.between(date1, date2);
         System.out.println("两个时间相差的月份： " + monthsBetween);
+
+        long monthsBetween2 = ChronoUnit.MONTHS.between(date2, date1);
+        System.out.println("两个时间相差的月份： " + monthsBetween2);
     }
 }

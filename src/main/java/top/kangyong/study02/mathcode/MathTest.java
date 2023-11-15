@@ -70,8 +70,8 @@ public class MathTest {
 
     @Test
     public void integerEquals() {
-        Integer a = 1203671;
-        Integer b = 1203670;
+        Integer a = 1203670;
+        Integer b = 1203671;
 
         System.out.println(a.equals(b));
         System.out.println(a == b);
