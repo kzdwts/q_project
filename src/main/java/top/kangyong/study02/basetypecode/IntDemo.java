@@ -1,6 +1,9 @@
 package top.kangyong.study02.basetypecode;
 
+import cn.hutool.core.util.NumberUtil;
 import org.junit.Test;
+
+import java.math.BigDecimal;
 
 /**
  * test
@@ -29,6 +32,14 @@ public class IntDemo {
         int y2 = 2024;
 
         System.out.println("(year == y2) = " + (year == y2));
+    }
+
+    @Test
+    public void test04() {
+        BigDecimal b1 = new BigDecimal(20);
+        BigDecimal b2 = new BigDecimal(200);
+        BigDecimal result = NumberUtil.div(b1, b2, 2);
+        System.out.println("result = " + result);
     }
 
 }
