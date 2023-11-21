@@ -1,5 +1,6 @@
 package top.kangyong.study02.listcode;
 
+import cn.hutool.core.collection.CollUtil;
 import com.alibaba.fastjson.JSON;
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
@@ -969,6 +970,25 @@ public class ListTest {
         }, Function.identity()));
         Set<String> keys = collect.keySet();
         System.out.println(keys);
+    }
+
+    // 创建一个包含 10 万条数据的示例原始 List
+    private static List<Object> createOriginalList() {
+        List<Object> originalList = new ArrayList<>();
+        for (int i = 1; i <= 10008; i++) {
+            originalList.add(i);
+        }
+        return originalList;
+    }
+
+    @Test
+    public void testCollUtilSplitList() {
+        List<Object> originalList = createOriginalList(); // 你的原始 List
+        originalList.forEach(System.out::println);
+
+        // 分组
+        List<List<Object>> lists = CollUtil.split(originalList, 100);
+        lists.forEach(System.out::println);
     }
 
 
