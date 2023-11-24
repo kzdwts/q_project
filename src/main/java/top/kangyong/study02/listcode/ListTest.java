@@ -991,6 +991,33 @@ public class ListTest {
         lists.forEach(System.out::println);
     }
 
+    /**
+     * 测试 List.stream().sorted()倒序
+     * @author Kang Yong
+     * @date 2023/11/24
+     *
+     *
+     */
+    @Test
+    public void testListSorted() {
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 18, "王丽丽", new BigDecimal(30)));
+        personList.add(new Person(2, 1, 19, "储小姣", new BigDecimal(20)));
+        personList.add(new Person(5, 0, 19, "钱梦婷", new BigDecimal(70.89)));
+        personList.add(new Person(4, 1, 18, "徐慧文", new BigDecimal(66.32)));
+        personList.add(new Person(3, 0, 20, "张丹妮", new BigDecimal(22.10)));
+        personList.add(new Person(6, 0, 20, "陆之昂", new BigDecimal(99.67)));
+
+        personList.forEach(System.out::println);
+
+        System.out.println("==================");
+
+        List<Person> list = personList.stream()
+                .sorted(Comparator.comparing(Person::getMoney).reversed())
+                .collect(Collectors.toList());
+        list.forEach(System.out::println);
+    }
+
 
 
 }
