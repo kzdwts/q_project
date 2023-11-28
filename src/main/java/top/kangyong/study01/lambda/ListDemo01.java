@@ -2,10 +2,7 @@ package top.kangyong.study01.lambda;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -40,6 +37,64 @@ public class ListDemo01 {
         System.out.println("=============华丽的分割线============");
         list2.forEach(System.out::println);
     }
+
+    /**
+     * 判断是否存在交集
+     * disjoint
+     * <p>
+     * 如果存在交集，isDisjoint将为false，否则为true
+     */
+    @Test
+    public void testDisjoint() {
+        List<String> list1 = new ArrayList<>();
+        list1.add("A");
+        list1.add("B");
+        list1.add("C");
+
+        List<String> list2 = new ArrayList<>();
+        list2.add("H");
+        list2.add("E");
+        list2.add("F");
+        list2.add("G");
+
+        // 判断是否存在交集
+        boolean disjointFlag = Collections.disjoint(list1, list2);
+        System.out.println("disjointFlag = " + disjointFlag);
+
+        list1.forEach(System.out::println);
+        System.out.println("=============华丽的分割线============");
+        list2.forEach(System.out::println);
+    }
+
+
+    /**
+     * 判断是否存在交集 Integer测试
+     * disjoint
+     * <p>
+     * 如果存在交集，isDisjoint将为false，否则为true
+     */
+    @Test
+    public void testDisjointInteger() {
+        List<Integer> list1 = new ArrayList<>();
+        list1.add(1);
+        list1.add(2);
+        list1.add(3);
+
+        List<Integer> list2 = new ArrayList<>();
+        list2.add(9);
+        list2.add(4);
+        list2.add(5);
+        list2.add(6);
+
+        // 判断是否存在交集：如果存在交集，isDisjoint将为false，否则为true
+        boolean disjointFlag = Collections.disjoint(list1, list2);
+        System.out.println("disjointFlag = " + disjointFlag);
+
+        list1.forEach(System.out::println);
+        System.out.println("=============华丽的分割线============");
+        list2.forEach(System.out::println);
+    }
+
 
     /**
      * 求并集

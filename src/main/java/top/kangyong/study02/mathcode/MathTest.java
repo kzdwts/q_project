@@ -68,6 +68,26 @@ public class MathTest {
         // a == b → 结果是0
     }
 
+
+    /**
+     * Long 比较大小
+     *
+     * @author Kang Yong
+     * @date 2022/5/12
+     */
+    @Test
+    public void longCompareToTest01() {
+        Long a = 78901L;
+        Long b = 78901L;
+        System.out.println(a.compareTo(b));
+        System.out.println(b.compareTo(a));
+        // 结论：a.compareTo(b)
+        // a > b → 结果是 1
+        // a < b → 结果是 -1
+        // a == b → 结果是0
+    }
+
+
     @Test
     public void integerEquals() {
         Integer a = 1203670;
