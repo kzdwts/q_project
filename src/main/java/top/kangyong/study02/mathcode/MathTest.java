@@ -1,5 +1,6 @@
 package top.kangyong.study02.mathcode;
 
+import cn.hutool.core.util.NumberUtil;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -175,6 +176,18 @@ public class MathTest {
 
         int index = (int) Math.ceil(Math.ceil((a * 1.0 / b)));
         System.out.println("index = " + index);
+    }
+
+    /**
+     * 测试除法
+     */
+    @Test
+    public void testDiv() {
+        Integer a = 1;
+        Integer b = 1;
+
+        BigDecimal div = NumberUtil.div(a, b);
+        System.out.println(div);
     }
 
 

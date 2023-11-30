@@ -27,8 +27,9 @@ public class ListDemo01 {
         List<String> list2 = new ArrayList<>();
         list2.add("A");
         list2.add("E");
-        list2.add("F");
-        list2.add("B");
+//        list2.add("F");
+//        list2.add("B");
+//        List<String> list2 = Collections.emptyList();
 
         // 交集
         list1.retainAll(list2);
@@ -153,6 +154,47 @@ public class ListDemo01 {
         map.put(1, 555);
         byte b = 1;
         System.out.println("从键获取值：" + map.get(b));
+    }
+
+    /**
+     * List<Long> contains 测试
+     *
+     * @author Kang Yong
+     * @date 2023/11/30
+     */
+    @Test
+    public void testLongContains() {
+        List<Long> list = new ArrayList<>();
+        list.add(1L);
+        list.add(3L);
+        list.add(2L);
+        list.add(1720277314876395520L);
+
+        Long num1 = 1L;
+        Long num2 = 1720277314876395520L;
+
+        System.out.println("list.contains(1L) = " + list.contains(1L));
+        System.out.println("list.contains(1L) = " + list.contains(num1));
+        System.out.println("list.contains(1720277314876395520L) = " + list.contains(1720277314876395520L));
+        System.out.println("list.contains(num2) = " + list.contains(num2));
+    }
+
+    /**
+     * List<String> contains 测试
+     *
+     * @author Kang Yong
+     * @date 2023/11/30
+     */
+    @Test
+    public void testStringContains() {
+        List<String> list = new ArrayList<>();
+        list.add("1L");
+        list.add("3L");
+        list.add("2L");
+        list.add("1720277314876395520L");
+
+        System.out.println("list.contains(1L) = " + list.contains("1L"));
+        System.out.println("list.contains(1720277314876395520L) = " + list.contains("1720277314876395520L"));
     }
 
 }

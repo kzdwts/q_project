@@ -67,6 +67,20 @@ public class StringDemoTest {
 
     }
 
+    /**
+     * 测试substring
+     *
+     * @author Kang Yong
+     * @date 2023/10/30
+     */
+    @Test
+    public void testSubstring3() {
+        String str = "2024-01";
+        String temp = str.substring(5);
+        System.out.println("temp = " + temp);
+        System.out.println("Integer.parseInt(temp) = " + Integer.parseInt(temp));
+    }
+
     @Test
     public void testStringBuilderSubstringLastDouhao() {
         List<String> nameList = Arrays.asList("丽丽,娇娇");
@@ -261,6 +275,15 @@ public class StringDemoTest {
         String tempStr = elements[elements.length - 1];
         System.out.println("tempStr = " + tempStr);
     }
+
+    @Test
+    public void testConcat() {
+        String temp = "00031";
+        String aa = "a-".concat(temp);
+        System.out.println("aa = " + aa);
+    }
+
+
 
 
 }
