@@ -1,5 +1,6 @@
 package top.kangyong.study01.json;
 
+import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 import top.kangyong.study01.test01.Pxinyan;
 import top.kangyong.study01.test01.SchoolArea;
@@ -142,17 +143,20 @@ public class JsonDemo02 {
     @Test
     public void testGetSeconds2() {
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_YEAR,1);
-        calendar.set(Calendar.HOUR_OF_DAY,0);
-        calendar.set(Calendar.SECOND,0);
-        calendar.set(Calendar.MINUTE,0);
-        calendar.set(Calendar.MILLISECOND,0);
-        Long timeOut = (calendar.getTimeInMillis()-System.currentTimeMillis())/1000 ;//当前时间到次日0点差多少秒
+        calendar.add(Calendar.DAY_OF_YEAR, 1);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        Long timeOut = (calendar.getTimeInMillis() - System.currentTimeMillis()) / 1000;//当前时间到次日0点差多少秒
         System.out.println(timeOut);
     }
 
-
-
+    @Test
+    public void testPrintNull() {
+        Integer num = null;
+        System.out.println("JSON.toJSONString(num) = " + JSON.toJSONString(num));
+    }
 
 
 }
