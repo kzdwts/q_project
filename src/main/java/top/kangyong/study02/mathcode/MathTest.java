@@ -183,7 +183,7 @@ public class MathTest {
      */
     @Test
     public void testDiv() {
-        Integer a = 1;
+        Integer a = 0;
         Integer b = 1;
 
         BigDecimal div = NumberUtil.div(a, b);
