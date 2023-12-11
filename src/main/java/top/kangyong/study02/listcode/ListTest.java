@@ -993,10 +993,9 @@ public class ListTest {
 
     /**
      * 测试 List.stream().sorted()倒序
+     *
      * @author Kang Yong
      * @date 2023/11/24
-     *
-     *
      */
     @Test
     public void testListSorted() {
@@ -1018,6 +1017,48 @@ public class ListTest {
         list.forEach(System.out::println);
     }
 
+    /**
+     * Map借助ArrayList排序
+     *
+     * @author Kang Yong
+     * @date 2023/12/11
+     */
+    @Test
+    public void testListSort() {
+        HashMap<Long, String> map = new HashMap<>();
+        map.put(1L, "one");
+        map.put(4L, "four");
+        map.put(2L, "two");
+        map.put(3L, "three");
+
+        List<Long> sortedKeys = new ArrayList<>(map.keySet());
+        Collections.sort(sortedKeys);
+
+        for (Long key : sortedKeys) {
+            System.out.println("Key: " + key + ", Value: " + map.get(key));
+        }
+    }
+
+    @Test
+    public void testListSortAndConvert() {
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 18, "王丽丽", new BigDecimal(30)));
+        personList.add(new Person(2, 1, 19, "储小姣", new BigDecimal(20)));
+        personList.add(new Person(5, 0, 19, "钱梦婷", new BigDecimal(70.89)));
+        personList.add(new Person(4, 1, 18, "徐慧文", new BigDecimal(66.32)));
+        personList.add(new Person(3, 0, 20, "张丹妮", new BigDecimal(22.10)));
+        personList.add(new Person(6, 0, 20, "陆之昂", new BigDecimal(99.67)));
+
+        personList.forEach(System.out::println);
+
+        System.out.println("==================");
+
+        List<String> list = personList.stream()
+                .sorted(Comparator.comparing(Person::getAge).reversed())
+                .map(Person::getName)
+                .collect(Collectors.toList());
+        list.forEach(System.out::println);
+    }
 
 
 }
