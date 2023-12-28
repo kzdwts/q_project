@@ -4,6 +4,7 @@ import cn.hutool.core.util.NumberUtil;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -188,6 +189,22 @@ public class MathTest {
 
         BigDecimal div = NumberUtil.div(a, b);
         System.out.println(div);
+    }
+
+    @Test
+    public void testBigDecimalSetScale() {
+        BigDecimal b1 = new BigDecimal(0.00);
+        String b1Str = b1.setScale(2, RoundingMode.HALF_UP) + "%";
+        System.out.println("b1Str = " + b1Str);
+
+
+        BigDecimal b2 = new BigDecimal(1.2345);
+        String b2Str = b2.setScale(2, RoundingMode.HALF_UP) + "%";
+        System.out.println("b2Str = " + b2Str);
+
+        BigDecimal b3 = new BigDecimal(100);
+        String b3Str = b3.setScale(2, RoundingMode.HALF_UP) + "%";
+        System.out.println("b3Str = " + b3Str);
     }
 
 
