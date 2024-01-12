@@ -1060,5 +1060,33 @@ public class ListTest {
         list.forEach(System.out::println);
     }
 
+    /**
+     * 测试List.add()
+     *
+     * @author Kang Yong
+     * @date 2024/1/9
+     */
+    @Test
+    public void testListAddNull() {
+        List<Object> options = new ArrayList<>();
+        options.add(null);
+        List<Long> idList = this.getStaticLongList();
+        if (!CollectionUtils.isEmpty(idList)) {
+            options.addAll(idList);
+        }
+
+        for (Object o : options) {
+            System.out.println("o = " + o);
+        }
+
+    }
+
+    private List<Long> getStaticLongList() {
+        List<Long> list = new ArrayList<>();
+        list.add(1L);
+        list.add(2L);
+        return list;
+    }
+
 
 }
