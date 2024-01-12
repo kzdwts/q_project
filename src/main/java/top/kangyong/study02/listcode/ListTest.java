@@ -466,6 +466,28 @@ public class ListTest {
     }
 
     @Test
+    public void testListGroupByColumons() {
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 18, "王丽丽"));
+        personList.add(new Person(2, 1, 19, "储小姣"));
+        personList.add(new Person(5, 0, 19, "钱梦婷"));
+        personList.add(new Person(4, 1, 18, "徐慧文"));
+        personList.add(new Person(3, 0, 20, "张丹妮"));
+        personList.add(new Person(6, 0, 20, "陆之昂"));
+        personList.add(new Person(6, 0, 20, "陆之昂"));
+        personList.add(new Person(6, 1, 20, "陆之昂"));
+        personList.add(new Person(6, 1, 20, null));
+
+        Map<String, List<Person>> listMap = personList.stream().collect(Collectors.groupingBy(p -> p.getGender() + "-" + p.getName()));
+        Set<String> keySet = listMap.keySet();
+        for (String s : keySet) {
+            System.out.println("s = " + s);
+        }
+
+        System.out.println(personList);
+    }
+
+    @Test
     public void testListRemove() {
         List<Person> personList = new ArrayList<>(6);
         personList.add(new Person(1, 0, 18, "王丽丽"));
