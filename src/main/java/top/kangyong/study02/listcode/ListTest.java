@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.springframework.util.CollectionUtils;
 import top.kangyong.study02.model.Person;
+import top.kangyong.study02.model.UserDTO;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -1108,6 +1109,33 @@ public class ListTest {
         list.add(1L);
         list.add(2L);
         return list;
+    }
+
+    /**
+     * 测试list转map
+     *
+     * @author Kang Yong
+     * @date 2024/2/1
+     */
+    @Test
+    public void testDuplicateKey() {
+        List<Person> personList = new ArrayList<>();
+        personList.add(new Person(1, 0, 18, "王丽丽", new BigDecimal(30)));
+        personList.add(new Person(2, 1, 19, "储小姣", new BigDecimal(20)));
+        personList.add(new Person(5, 0, 19, "钱梦婷", new BigDecimal(70.89)));
+        personList.add(new Person(4, 1, 18, "徐慧文", new BigDecimal(66.32)));
+        personList.add(new Person(3, 0, 20, "张丹妮", new BigDecimal(22.10)));
+        personList.add(new Person(3, 0, 20, "刘亦菲", new BigDecimal(22.10)));
+        personList.add(new Person(6, 0, 20, "陆之昂", new BigDecimal(99.67)));
+
+        Map<Integer, UserDTO> dtoMap = personList.stream().distinct().collect(Collectors.toMap(Person::getId, item -> {
+            return new UserDTO(new Long(item.getId()), item.getName());
+        }));
+
+        for (Map.Entry<Integer, UserDTO> entry : dtoMap.entrySet()) {
+            System.out.println((entry.getKey() + ":" + entry.getValue()));
+        }
+
     }
 
 

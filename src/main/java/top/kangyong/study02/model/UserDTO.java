@@ -1,6 +1,9 @@
 package top.kangyong.study02.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -12,6 +15,7 @@ import java.io.Serializable;
  * @since 1.0.0
  */
 @Data
+@ToString
 public class UserDTO implements Serializable {
 
     private Long userId;
@@ -20,4 +24,11 @@ public class UserDTO implements Serializable {
 
     private VehicleDTO vehicleDTO;
 
+    public UserDTO() {
+    }
+
+    public UserDTO(Long userId, String userName) {
+        this.userId = userId;
+        this.userName = userName;
+    }
 }
