@@ -189,6 +189,13 @@ public class MathTest {
 
         BigDecimal div = NumberUtil.div(a, b);
         System.out.println(div);
+
+//        BigDecimal div1 = NumberUtil.div(b, a);
+//        System.out.println("div1 = " + div1);
+
+//        Integer c = 0;
+//        BigDecimal div2 = NumberUtil.div(a, c);
+//        System.out.println("div2 = " + div2);
     }
 
     @Test
