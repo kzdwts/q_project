@@ -190,12 +190,25 @@ public class MathTest {
         BigDecimal div = NumberUtil.div(a, b);
         System.out.println(div);
 
-//        BigDecimal div1 = NumberUtil.div(b, a);
-//        System.out.println("div1 = " + div1);
+        BigDecimal div1 = NumberUtil.div(b, a);
+        System.out.println("div1 = " + div1);
 
 //        Integer c = 0;
 //        BigDecimal div2 = NumberUtil.div(a, c);
 //        System.out.println("div2 = " + div2);
+    }
+
+    /**
+     * 测试BigDecimal ==
+     */
+    @Test
+    public void testBigDecimalCalc() {
+        BigDecimal b1 = new BigDecimal(0.00);
+        if (b1.compareTo(BigDecimal.ZERO) == 0) {
+            System.out.println("等于");
+        }
+        System.out.println("(b1.compareTo(BigDecimal.ZERO) == 0) = " + (b1.compareTo(BigDecimal.ZERO) == 0));
+        System.out.println("Over");
     }
 
     @Test
