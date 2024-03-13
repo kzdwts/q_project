@@ -105,4 +105,12 @@ public class LocalDateTest {
         long monthsBetween2 = ChronoUnit.MONTHS.between(date2, date1);
         System.out.println("两个时间相差的月份： " + monthsBetween2);
     }
+
+    @Test
+    public void testGetFrontDate() {
+        Integer n = 3;
+        String formatDate = LocalDate.now().minusDays(n).format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        System.out.println("formatDate = " + formatDate);
+    }
+
 }
