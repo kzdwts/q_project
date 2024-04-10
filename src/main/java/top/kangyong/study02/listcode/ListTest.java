@@ -1138,5 +1138,32 @@ public class ListTest {
 
     }
 
+    @Test
+    public void testOption() {
+        List<Person> personList = new ArrayList<>();
+        personList.add(new Person(1, 0, 18, "王丽丽", new BigDecimal(30)));
+        personList.add(new Person(2, 1, 19, "储小姣", new BigDecimal(20)));
+        personList.add(new Person(5, 0, 19, "钱梦婷", new BigDecimal(70.89)));
+        personList.add(new Person(4, 1, 18, "徐慧文", new BigDecimal(66.32)));
+        personList.add(new Person(3, 0, 20, "张丹妮", new BigDecimal(22.10)));
+        personList.add(new Person(3, 0, 20, "刘亦菲", new BigDecimal(22.10)));
+        personList.add(new Person(6, 0, 20, "陆之昂", new BigDecimal(99.67)));
+
+        // 找出age岁的第一个，获取名字
+        int age = 17;
+//        String name = personList.stream()
+//                .filter(i -> i.getAge() == age)
+//                .findFirst()
+//                .get() // 这种写法会报错：java.util.NoSuchElementException: No value present
+//                .getName();
+
+        String name = personList.stream()
+                .filter(i -> i.getAge() == age)
+                .findFirst()
+                .orElse(new Person())
+                .getName();
+        System.out.println("name = " + name);
+    }
+
 
 }
