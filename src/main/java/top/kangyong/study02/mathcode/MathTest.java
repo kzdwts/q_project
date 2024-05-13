@@ -1,14 +1,18 @@
 package top.kangyong.study02.mathcode;
 
 import cn.hutool.core.util.NumberUtil;
+import cn.hutool.db.ds.simple.SimpleDataSource;
+import com.alibaba.fastjson.JSON;
 import org.junit.Test;
+import top.kangyong.study01.design.pattern.mediator.User;
+import top.kangyong.study02.model.UserDTO;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -225,6 +229,26 @@ public class MathTest {
         BigDecimal b3 = new BigDecimal(100);
         String b3Str = b3.setScale(2, RoundingMode.HALF_UP) + "%";
         System.out.println("b3Str = " + b3Str);
+    }
+
+    @Test
+    public void testmultiply() throws ParseException {
+        String str = new BigDecimal(0.1).multiply(new BigDecimal(60)).toString();
+        System.out.println(str);
+
+        Timestamp timestamp = new Timestamp(new Date().getTime());
+        System.out.println("timestamp = " + timestamp);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date1 = sdf.parse("2024-05-11 20:02:19");
+        Date date2 = sdf.parse("2023-11-27 18:22:03");
+        List<UseTimeDto> dateList = new ArrayList<>();
+        dateList.add(new UseTimeDto("屋大维", date1));
+        dateList.add(new UseTimeDto("张舒", date2));
+        System.out.println("JSON.toJSONString(dateList) = " + JSON.toJSONString(dateList));
+
+        Date dateResult = dateList.stream().map(UseTimeDto::getBir).distinct().min(Date::compareTo).orElse(null);
+        System.out.println(sdf.format(dateResult));
     }
 
 
