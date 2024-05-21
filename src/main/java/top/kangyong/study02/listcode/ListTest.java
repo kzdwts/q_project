@@ -11,6 +11,8 @@ import top.kangyong.study02.model.Person;
 import top.kangyong.study02.model.UserDTO;
 
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -1163,6 +1165,40 @@ public class ListTest {
                 .orElse(new Person())
                 .getName();
         System.out.println("name = " + name);
+    }
+
+    @Test
+    public void testStreamSum() {
+        List<String> list = new ArrayList<>();
+        list.add("10.11");
+        list.add("11.11");
+        list.add("12.11");
+        list.add("18.00");
+
+        BigDecimal total = list.stream().map(BigDecimal::new).reduce(BigDecimal.ZERO, BigDecimal::add);
+        System.out.println("total = " + total);
+    }
+
+    @Test
+    public void testGetMinDate() {
+        List<String> dataList = new ArrayList<>();
+        dataList.add("2024-05-21");
+        dataList.add("2024-04-21");
+        dataList.add("2023-05-21");
+
+        List<Date> collect = dataList.stream().map(i-> {
+            try {
+                return new SimpleDateFormat("yyyy-MM-dd").parse(i);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+        }).collect(Collectors.toList());
+        Date min = Collections.min(collect);
+        System.out.println("min = " + min);
+
+        Date max = Collections.max(collect);
+        System.out.println("max = " + max);
+
     }
 
 
