@@ -21,7 +21,7 @@ mkdir -p /mydata/minio/data
 ### 2.3、启动镜像
 
 ```shell
-docker run -p 9090:9090 \
+docker run -p 9090:9090 -p 9000:9000 \
 --name minio \
 -d --restart=always \
  -e "MINIO_ACCESS_KEY=AccessKeyUserAdmin" \
