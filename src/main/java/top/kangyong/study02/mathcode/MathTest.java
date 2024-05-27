@@ -215,6 +215,23 @@ public class MathTest {
         System.out.println("Over");
     }
 
+    /**
+     * 测试BigDecimal toEngineeringString
+     */
+    @Test
+    public void testBigDecimalToEngineeringString() {
+        String taxRate = "0.11";
+        BigDecimal rate = NumberUtil.div(new BigDecimal(taxRate), 100);
+        String engineeringString = rate.toEngineeringString();
+        System.out.println("engineeringString = " + engineeringString);
+
+        String str = rate.toString();
+        System.out.println("str = " + str);
+
+        String str2 = rate.setScale(4, RoundingMode.HALF_UP).toString();
+        System.out.println("str2 = " + str2);
+    }
+
     @Test
     public void testBigDecimalSetScale() {
         BigDecimal b1 = new BigDecimal(0.00);
