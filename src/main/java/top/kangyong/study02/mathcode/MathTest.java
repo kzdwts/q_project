@@ -233,6 +233,18 @@ public class MathTest {
     }
 
     @Test
+    public void testBigDecimalToString() {
+        String taxRate = "0.11";
+        String taxRatePercent = NumberUtil.mul(new BigDecimal(taxRate), 100).toString();
+        System.out.println("taxRatePercent = " + taxRatePercent);
+        System.out.println("JSON.toJSONString(taxRatePercent) = " + JSON.toJSONString(taxRatePercent));
+
+        String percent2 = NumberUtil.mul(new BigDecimal(taxRate), 100).setScale(0, RoundingMode.HALF_UP).toString();
+        System.out.println("percent2 = " + percent2);
+        System.out.println("JSON.toJSONString(percent2) = " + JSON.toJSONString(percent2));
+    }
+
+    @Test
     public void testBigDecimalSetScale() {
         BigDecimal b1 = new BigDecimal(0.00);
         String b1Str = b1.setScale(2, RoundingMode.HALF_UP) + "%";
