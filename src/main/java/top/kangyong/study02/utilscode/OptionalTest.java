@@ -3,9 +3,9 @@ package top.kangyong.study02.utilscode;
 import org.junit.Test;
 import top.kangyong.study02.model.Person;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * 工具类测试
@@ -76,6 +76,36 @@ public class OptionalTest {
                 .build();
         Integer age = Optional.ofNullable(person.getAge()).orElse(22);
         System.out.println(age);
+    }
+
+    /**
+     * 测试Optional.ofNullable针对Map.get空会不会报错
+     *
+     * @author Kang Yong
+     * @date 2024/5/30
+     */
+    @Test
+    public void testMapGet() {
+        List<Person> personList = new ArrayList<>();
+        personList.add(new Person(1, "张三丰"));
+        personList.add(new Person(2, "张无忌"));
+        personList.add(new Person(3, "赵敏"));
+
+        Map<Integer, Person> personMap = personList.stream().collect(Collectors.toMap(Person::getId, Function.identity()));
+
+        String personName = Optional.ofNullable(personMap.get(3)).map(Person::getName).orElse(null);
+        // personName = 赵敏
+        System.out.println("personName = " + personName);
+
+        String personName2 = Optional.ofNullable(personMap.get(4)).map(Person::getName).orElse(null);
+        // personName2 = null
+        System.out.println("personName2 = " + personName2);
+
+        String personName3 = personMap.getOrDefault(5, new Person()).getName();
+        // personName3 = null
+        System.out.println("personName3 = " + personName3);
+
+
     }
 
 }

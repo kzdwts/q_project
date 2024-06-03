@@ -245,6 +245,20 @@ public class MathTest {
     }
 
     @Test
+    public void testBigDecimalSubstringToString() {
+        String taxRate = "0.11%";
+        String substring = taxRate.substring(0, taxRate.length() - 1);
+        System.out.println("substring = " + substring);
+        String taxRatePercent = NumberUtil.mul(new BigDecimal(substring), 100).toString();
+        System.out.println("taxRatePercent = " + taxRatePercent);
+        System.out.println("JSON.toJSONString(taxRatePercent) = " + JSON.toJSONString(taxRatePercent));
+
+        String percent2 = NumberUtil.mul(new BigDecimal(substring), 100).setScale(0, RoundingMode.HALF_UP).toString();
+        System.out.println("percent2 = " + percent2);
+        System.out.println("JSON.toJSONString(percent2) = " + JSON.toJSONString(percent2));
+    }
+
+    @Test
     public void testBigDecimalSetScale() {
         BigDecimal b1 = new BigDecimal(0.00);
         String b1Str = b1.setScale(2, RoundingMode.HALF_UP) + "%";
