@@ -334,5 +334,17 @@ public class DateCalcTest {
         System.out.println("second = " + second);
     }
 
+    @Test
+    public void testDateUtilFormat() throws ParseException {
+        String dateStr = new SimpleDateFormat("HH:mm").format(new Date());
+        System.out.println("format = " + dateStr);
+
+        Date date = new SimpleDateFormat("HH:mm").parse(dateStr);
+        System.out.println("date = " + date);
+
+        String date2 = DateUtil.format(date, "HH:mm");
+        System.out.println("date2 = " + date2);
+    }
+
 
 }

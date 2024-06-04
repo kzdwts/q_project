@@ -1167,6 +1167,12 @@ public class ListTest {
         System.out.println("name = " + name);
     }
 
+    /**
+     * String 转为金额求和
+     *
+     * @author Kang Yong
+     * @date 2024/6/4
+     */
     @Test
     public void testStreamSum() {
         List<String> list = new ArrayList<>();
@@ -1179,6 +1185,26 @@ public class ListTest {
         System.out.println("total = " + total);
     }
 
+    /**
+     * 使用list stream功能求和
+     *
+     * @author Kang Yong
+     * @date 2024/6/4
+     */
+    @Test
+    public void testSumAge() {
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 1, "王丽丽"));
+        personList.add(new Person(2, 1, 2, "储小姣"));
+        personList.add(new Person(5, 0, 3, "钱梦婷"));
+        personList.add(new Person(4, 1, 4, "徐慧文"));
+        personList.add(new Person(3, 0, null, "张丹妮"));
+        personList.add(new Person(6, 0, 6, "陆之昂"));
+
+        int sum = personList.stream().filter(i -> Objects.nonNull(i.getAge())).mapToInt(Person::getAge).sum();
+        System.out.println("sum = " + sum);
+    }
+
     @Test
     public void testGetMinDate() {
         List<String> dataList = new ArrayList<>();
@@ -1186,7 +1212,7 @@ public class ListTest {
         dataList.add("2024-04-21");
         dataList.add("2023-05-21");
 
-        List<Date> collect = dataList.stream().map(i-> {
+        List<Date> collect = dataList.stream().map(i -> {
             try {
                 return new SimpleDateFormat("yyyy-MM-dd").parse(i);
             } catch (ParseException e) {

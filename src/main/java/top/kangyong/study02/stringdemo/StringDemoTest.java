@@ -189,6 +189,17 @@ public class StringDemoTest {
     }
 
     @Test
+    public void testSubStringLength() {
+
+        String msg = "【智客云】祝你生日快乐1";
+        if (msg.length() > 20) {
+            msg = msg.substring(0, 20);
+        }
+        System.out.println("msg = " + msg);
+
+    }
+
+    @Test
     public void testSubStringPhone() {
         String phone = "15200435953";
         String str = phone.substring(phone.length() - 6);
