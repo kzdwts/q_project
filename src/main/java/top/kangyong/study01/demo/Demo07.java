@@ -97,8 +97,16 @@ public class Demo07 {
         System.out.println(str);
     }
 
+    /**
+     * 测试 Collectors.joining
+     * <p>
+     * 测试集合的字段join，逗号隔开
+     *
+     * @author Kang Yong
+     * @date 2024/6/5
+     */
     @Test
-    public void test07() {
+    public void testCollectorsJoining() {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4);
 //        numbers.forEach(System.out::println);
         String commaSeparatedNumbers = numbers.stream().map(i -> i.toString()).collect(Collectors.joining(", "));
@@ -126,7 +134,6 @@ public class Demo07 {
         System.out.println("num1 & num2 " + (num1.equals(num2)));
         System.out.println("num1 & no1 " + (num1.equals(no1)));
     }
-
 
 
 }
