@@ -347,4 +347,11 @@ public class DateCalcTest {
     }
 
 
+    @Test
+    public void testDateOfMonth() {
+        int day = DateUtil.dayOfMonth(new Date());
+        System.out.println("day = " + day);
+    }
+
+
 }

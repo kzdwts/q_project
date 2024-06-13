@@ -2,6 +2,7 @@ package top.kangyong.study02.jsondemo;
 
 import com.alibaba.fastjson.JSON;
 import org.junit.Test;
+import org.springframework.beans.BeanUtils;
 import org.springframework.util.DigestUtils;
 import top.kangyong.study02.model.Car;
 import top.kangyong.study02.model.UserDTO;
@@ -101,4 +102,26 @@ public class JsonDemo02 {
         // p+QWedewpb7zAPwPdnf5oQ==
 
     }
+
+    @Test
+    public void testJsonToBase64MD5_2() throws NoSuchAlgorithmException {
+        Car car = new Car();
+        car.setBrand("雅迪");
+        car.setColor("小黄鸭");
+        car.setType("两个轮");
+        car.setWeight(100F);
+        car.setPl("1.50L");
+        car.setDriveMode("纯电+人力");
+
+        Car car2 = new Car();
+        BeanUtils.copyProperties(car, car2);
+        car2.setBrand(null);
+
+        System.out.println("JSON.toJSONString(car) = " + JSON.toJSONString(car));
+        System.out.println("JSON.toJSONString(car2) = " + JSON.toJSONString(car2));
+
+
+    }
+
+
 }
