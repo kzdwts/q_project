@@ -197,4 +197,18 @@ public class ListDemo01 {
         System.out.println("list.contains(1720277314876395520L) = " + list.contains("1720277314876395520L"));
     }
 
+    /**
+     * List<String> contains 测试
+     *
+     * @author Kang Yong
+     * @date 2023/11/30
+     */
+    @Test
+    public void testListEmptyContains() {
+        List<String> list = Collections.emptyList();
+
+        System.out.println("list.contains(1L) = " + list.contains("1L"));
+        System.out.println("list.contains(1720277314876395520L) = " + list.contains("1720277314876395520L"));
+    }
+
 }
