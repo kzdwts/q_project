@@ -1,14 +1,17 @@
 package top.kangyong.study02.datecode;
 
 import org.junit.Test;
-import org.springframework.format.annotation.DateTimeFormat;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 
 /**
  * java8全新的日期和时间API LocalDate
@@ -111,6 +114,25 @@ public class LocalDateTest {
         Integer n = 3;
         String formatDate = LocalDate.now().minusDays(n).format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         System.out.println("formatDate = " + formatDate);
+    }
+
+    /**
+     * 测试LocalDate.plusYears
+     *
+     * @author Kang Yong
+     * @date 2024/6/19
+     */
+    @Test
+    public void testPlusYear() throws ParseException {
+        String date18Str = "2022-06-18";
+        String date19Str = "2022-06-19";
+        Date date18 = new SimpleDateFormat("yyyy-MM-dd").parse(date18Str);
+        Date date19 = new SimpleDateFormat("yyyy-MM-dd").parse(date19Str);
+        LocalDate localDate18 = date18.toInstant().atZone(ZoneId.systemDefault()).toLocalDate().plusYears(2);
+        LocalDate localDate19 = date19.toInstant().atZone(ZoneId.systemDefault()).toLocalDate().plusYears(2);
+
+        System.out.println("localDate18 = " + localDate18);
+        System.out.println("localDate19 = " + localDate19);
     }
 
 }
