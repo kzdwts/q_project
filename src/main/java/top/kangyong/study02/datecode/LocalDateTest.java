@@ -135,4 +135,23 @@ public class LocalDateTest {
         System.out.println("localDate19 = " + localDate19);
     }
 
+    /**
+     * LocalDate比较，是以日期进行比较，不精确到时分秒
+     * @author Kang Yong
+     * @date 2024/6/24
+     *
+     *
+     */
+    @Test
+    public void testIsBefore() {
+        String deliverDate = "2024-06-20";
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//        LocalDate deliverD = LocalDate.parse(deliverDate, dtf);
+        LocalDate deliverD = LocalDate.parse(deliverDate);
+
+        System.out.println("deliverD.isBefore(LocalDate.now()) = " + deliverD.isBefore(LocalDate.now()));
+        System.out.println("deliverD.isBefore(LocalDate.now()) = " + deliverD.isBefore(LocalDate.now()));
+        System.out.println("deliverD.isBefore(LocalDate.now()) = " + deliverD.isBefore(LocalDate.now()));
+    }
+
 }
