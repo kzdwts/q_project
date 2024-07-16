@@ -32,7 +32,7 @@ public class LocalDateTest {
         System.out.println(localDate);
 
         // 构造指定的年月日
-        LocalDate localDate1 = LocalDate.of(2019, 9, 10);
+        LocalDate localDate1 = LocalDate.of(1995, 5, 17);
         System.out.println(localDate1);
     }
 
