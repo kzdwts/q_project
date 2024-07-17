@@ -25,21 +25,25 @@
 
 ***2、SpringBoot常用注解***
 
-* @SpringBootApplication：启动类的注解，标识该类为SpringBoot应用的入口
-* @RestController：标识该类为restful风格的控制器，相当于@Controller和@ResponseBody组合注解
-* @GetMapping：映射get请求的url
-* @PostMapping：映射post请求的url
-* @PutMapping：映射put请求的url
-* @DeleteMapping：映射delete请求的url
-* @Value：获取配置文件的属性值
-* @ComponentScan：扫描组件，可以设置扫描的包路径
-* @Configuration：标识一个类是配置类，可以定义bean
-* @EnableAutoConfiguration：自动配置，SpringBoot根据类路径上的jar包自动装配Spring Bean
-* @SpringBootConfiguration：标识为配置类
+* `@SpringBootApplication`：启动类的注解，标识该类为SpringBoot应用的入口
+* `@RestController`：标识该类为restful风格的控制器，相当于@Controller和@ResponseBody组合注解
+* `@GetMapping`：映射get请求的url
+* `@PostMapping`：映射post请求的url
+* `@PutMapping`：映射put请求的url
+* `@DeleteMapping`：映射delete请求的url
+* `@Value`：获取配置文件的属性值
+* `@ComponentScan`：扫描组件，可以设置扫描的包路径
+* `@Configuration`：标识一个类是配置类，可以定义bean
+* `@EnableAutoConfiguration`：自动配置，SpringBoot根据类路径上的jar包自动装配Spring Bean
+* `@SpringBootConfiguration`：标识为配置类
 
 ***3、SpringCloud常用注解***
 
-* `@SpringCloudApplication`：@SpringBootApplication@EnableDiscoveryClient@EnableCircuitBreaker组合注解
+* `@SpringCloudApplication`：组合注解
+  * `@SpringBootApplication`
+  * `@EnableDiscoveryClient`
+  * `@EnableCircuitBreaker`
+
 * `@EnableDiscoveryClient`：启用服务发现功能
 * `@EnableCircuitBreaker`：启用断路器功能
 * `@FeignClient`：声明一个`Feign`客户端
@@ -74,7 +78,7 @@ Spring 通过三级缓存来解决循环依赖问题。
 
 第三级缓存：singletonFactories，提前曝光的Bean对象工厂的缓存池，存储用于创建单例对象的ObjectFactory对象。
 
-但`Spring`在创建`Bean`的过程中发现循环依赖时，会在第一级缓存中查找当前的Bean对象是否已经存在。如果存在，则直接返回；如果不存在，则会先尝试从第二级缓存中获取早期的Bean对象，如果还没有则会使用第三级缓存中的`ObjectFactory`对象创建一个新的Bean对象，并将其存入到第二级缓存中，等待后续的处理。
+当`Spring`在创建`Bean`的过程中发现循环依赖时，会在第一级缓存中查找当前的Bean对象是否已经存在。如果存在，则直接返回；如果不存在，则会先尝试从第二级缓存中获取早期的Bean对象，如果还没有则会使用第三级缓存中的`ObjectFactory`对象创建一个新的Bean对象，并将其存入到第二级缓存中，等待后续的处理。
 
 在Bean对象创建完成后，`Spring`会将其存储到第一级缓存中，同时会将第二级缓存和第三级缓存中与之相关的数据清除，以便后续的依赖注入。
 
@@ -118,7 +122,7 @@ Spring 5对Redis的支持主要是一下几个方面：
 * 2、依赖注入：Spring容器通过注入方式来实现对象之间的依赖关系，包括构造函数注入，setter方式注入，字段注入等。
 * 3、生命周期管理：Spring容器负责对象的生命周期管理，包括对象的创建、初始化、使用和销毁。
 * 4、配置管理：Spring容器通过配置文件或注解的方式来管理应用程序中的各个组件，包括对象的创建、依赖注入、属性配置等。
-* 5、AOP支持：Spring容器提供了APO（Aspect Oriented Programming，面向切面编程）的支持，使得我们可以更方便地实现横向业务逻辑的处理，如事务管理、安全控制等。
+* 5、AOP支持：Spring容器提供了AOP（Aspect Oriented Programming，面向切面编程）的支持，使得我们可以更方便地实现横向业务逻辑的处理，如事务管理、安全控制等。
 
 通过以上特性，Spring IOC能够实现应用程序的高度解耦，使得应用程序更易于开发和维护。
 

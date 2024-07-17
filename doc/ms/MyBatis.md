@@ -27,6 +27,13 @@ MyBatis提供到的#号占位符和$号占位符，都是实现动态SQL的一�
 
   MyBatis的二级缓存是Mapper级别的缓存，可以被多个SqlSession对象共享。当多个SqlSession对象对同一个Mapper执行相同的查询时，MyBatis会先从二级缓存中查找，如果缓存中有，则直接返回缓存中的数据；如果没有，则会去数据库中查询，并将查询结果放到缓存中。二级缓存是需要手动开启的，在Mapper.xml文件中添加`<cache />`节点来开启二级缓存。
 
+  * `cache`标签:`<cache flushInterval="300000" size="512" />`
+    * `flushInterval` 缓存刷新间隔
+    * `size` 缓存存放多少个元素
+    * `readOnly` 是否只读；**true 只读**
+    * `type` 指定自定义缓存的全类名（实现Cache接口）
+    * `blocking` 
+
 * 三级缓存
 
   MyBatis不存在三级缓存，二级已经可以满足大部分的需求。
