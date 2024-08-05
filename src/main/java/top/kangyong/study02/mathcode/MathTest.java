@@ -294,5 +294,24 @@ public class MathTest {
         System.out.println(sdf.format(dateResult));
     }
 
+    /**
+     * sub是减法
+     * div是除法
+     * @author Kang Yong
+     * @date 2024/8/1
+     *
+     *
+     */
+    @Test
+    public void testSub() {
+        Integer a = 1;
+        BigDecimal b = new BigDecimal(13);
+        BigDecimal div = NumberUtil.div(b, 100);
+        System.out.println("div = " + div);
+
+        BigDecimal sub = NumberUtil.sub(1, div);
+        System.out.println("sub = " + sub);
+    }
+
 
 }

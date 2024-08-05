@@ -6,6 +6,7 @@ import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import top.kangyong.study02.model.Person;
 import top.kangyong.study02.model.UserDTO;
@@ -1273,6 +1274,14 @@ public class ListTest {
         Date max = Collections.max(collect);
         System.out.println("max = " + max);
 
+    }
+
+    @Test
+    public void testEmptyMap() {
+        Map<Long, Integer> map = Collections.emptyMap();
+
+        Integer i = map.getOrDefault(1L, 0);
+        System.out.println("i = " + i);
     }
 
 
