@@ -46,4 +46,18 @@ public class CheckDemo {
 //            System.out.println("name success");
 //        }
     }
+
+
+    @Test
+    public void showMonthCombine() {
+        for (int length = 1; length <= 12; length++) {
+            for (int start = 1; start <= 13 - length; start++) {
+                for (int i = start; i < start + length; i++) {
+                    System.out.print(i + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
 }
