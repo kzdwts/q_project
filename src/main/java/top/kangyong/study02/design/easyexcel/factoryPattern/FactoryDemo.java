@@ -10,7 +10,7 @@ package top.kangyong.study02.design.easyexcel.factoryPattern;
 public class FactoryDemo {
 
     public static void main(String[] args) {
-        ExcelReader reader = ReaderFactory.createReader(ExcelFileType.XLSX);
+        ExcelReader reader = ReaderFactory.createReader(ExcelFileType.XLS);
         reader.read();
     }
 

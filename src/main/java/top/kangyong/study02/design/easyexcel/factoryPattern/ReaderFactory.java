@@ -9,8 +9,8 @@ package top.kangyong.study02.design.easyexcel.factoryPattern;
  */
 public class ReaderFactory {
 
-    public static ExcelReader createReader(String fileType) {
-        if (fileType.equals(ExcelFileType.XLSX)) {
+    public static ExcelReader createReader(ExcelFileType fileType) {
+        if (fileType == ExcelFileType.XLSX) {
             return new ExcelXlsxReader();
         } else if (fileType.equals(ExcelFileType.XLS)) {
             return new ExcelXlsReader();
