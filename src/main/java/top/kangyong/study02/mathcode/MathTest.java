@@ -314,4 +314,26 @@ public class MathTest {
     }
 
 
+    public static  List<Integer> convertBit(int sum) {
+        List<Integer> nums = new ArrayList<>();
+        int powerOfTwo = 1;
+
+        while (sum > 0) {
+            if ((sum & 1) == 1) {
+                nums.add(powerOfTwo);
+            }
+            sum >>= 1;
+            powerOfTwo <<= 1;
+        }
+
+        return nums;
+    }
+
+    @Test
+    public void testBit() {
+        List<Integer> nums = convertBit(3);
+        System.out.println(nums);
+    }
+
+
 }
