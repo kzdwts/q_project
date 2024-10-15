@@ -1,5 +1,6 @@
 package top.kangyong.study02.utilscode;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import top.kangyong.study02.model.Person;
 
@@ -105,6 +106,20 @@ public class OptionalTest {
         // personName3 = null
         System.out.println("personName3 = " + personName3);
 
+
+    }
+
+    @Test
+    public void testEmptyToString() {
+        Person p1 = new Person(1, "张三丰");
+        // 如果是null就返回空，否则转为String类型
+        String name = Optional.of(p1).map(Person::getName).orElse("");
+        System.out.println("name = " + name);
+
+        String age = Optional.of(p1).map(Person::getAge).map(String::valueOf).orElse("");
+        System.out.println("age = " + age);
+
+        System.out.println("StringUtils.isBlank(age) = " + StringUtils.isBlank(age));
 
     }
 
