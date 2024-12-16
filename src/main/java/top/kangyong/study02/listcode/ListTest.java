@@ -6,7 +6,6 @@ import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import top.kangyong.study02.model.Person;
 import top.kangyong.study02.model.UserDTO;
@@ -1162,6 +1161,14 @@ public class ListTest {
         return list;
     }
 
+    @Test
+    public void testEmpty() {
+        List<Person> pList = Collections.emptyList();
+
+        Map<Integer, Person> personMap = pList.stream().collect(Collectors.toMap(Person::getId, Function.identity()));
+        System.out.println("personMap.size() = " + personMap.size());
+    }
+
     /**
      * 测试list转map
      *
@@ -1282,6 +1289,22 @@ public class ListTest {
 
         Integer i = map.getOrDefault(1L, 0);
         System.out.println("i = " + i);
+    }
+
+    @Test
+    public void testSplit() {
+        List<String> dataList = new ArrayList<>();
+        dataList.add("1,2,3");
+        dataList.add("4,5,6");
+        dataList.add("7,8,9");
+        dataList.add("10,1,2");
+        dataList.add("1,2,3");
+        dataList.add("5,6,3");
+        String userIdStr = dataList.stream().filter(StringUtils::isNotBlank).collect(Collectors.joining(","));
+        System.out.println("userIdStr = " + userIdStr);
+
+        List<Long> list = Arrays.stream(userIdStr.split(",")).map(Long::parseLong).distinct().collect(Collectors.toList());
+        list.forEach(System.out::println);
     }
 
 
