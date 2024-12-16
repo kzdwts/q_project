@@ -233,6 +233,34 @@ public class MathTest {
     }
 
     @Test
+    public void testBigDecimal2Point() {
+        BigDecimal b1 = new BigDecimal("0.98");
+        System.out.println("b1 = " + b1);
+        BigDecimal t1 = b1.setScale(2, RoundingMode.DOWN);
+        System.out.println("t1 = " + t1);
+
+        BigDecimal b2 = new BigDecimal("0.9803");
+        System.out.println("b2 = " + b2);
+        BigDecimal t2 = b2.setScale(2, RoundingMode.DOWN);
+        System.out.println("t2 = " + t2);
+
+        BigDecimal b3 = new BigDecimal("0.9899");
+        System.out.println("b3 = " + b3);
+        BigDecimal t3 = b3.setScale(2, RoundingMode.DOWN);
+        System.out.println("t3 = " + t3);
+
+        BigDecimal b4 = new BigDecimal("100");
+        System.out.println("b4 = " + b4);
+        BigDecimal t4 = b4.setScale(2, RoundingMode.DOWN);
+        System.out.println("t4 = " + t4);
+
+        BigDecimal b5 = new BigDecimal("98.1");
+        System.out.println("b5 = " + b5);
+        BigDecimal t5 = b5.setScale(2, RoundingMode.DOWN);
+        System.out.println("t5 = " + t5);
+    }
+
+    @Test
     public void testBigDecimalToString() {
         String taxRate = "0.11";
         String taxRatePercent = NumberUtil.mul(new BigDecimal(taxRate), 100).toString();
@@ -297,10 +325,9 @@ public class MathTest {
     /**
      * sub是减法
      * div是除法
+     *
      * @author Kang Yong
      * @date 2024/8/1
-     *
-     *
      */
     @Test
     public void testSub() {
@@ -314,7 +341,7 @@ public class MathTest {
     }
 
 
-    public static  List<Integer> convertBit(int sum) {
+    public static List<Integer> convertBit(int sum) {
         List<Integer> nums = new ArrayList<>();
         int powerOfTwo = 1;
 
