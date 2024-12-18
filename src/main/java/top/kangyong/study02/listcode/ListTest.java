@@ -1307,5 +1307,25 @@ public class ListTest {
         list.forEach(System.out::println);
     }
 
+    @Test
+    public void testGetMaxIdEntity() {
+        List<Person> personList = new ArrayList<>(6);
+        personList.add(new Person(1, 0, 1, "王丽丽"));
+        personList.add(new Person(2, 1, 2, "储小姣"));
+        personList.add(new Person(4, 1, 4, "徐慧文"));
+        personList.add(new Person(5, 0, 3, "钱梦婷"));
+        personList.add(new Person(3, 0, null, "张丹妮"));
+        personList.add(new Person(6, 0, 6, "陆之昂"));
+
+        Map<Integer, List<Person>> personMap = personList.stream().collect(Collectors.groupingBy(Person::getGender));
+        // 获取每组ID最大的
+        for (Map.Entry<Integer, List<Person>> entry : personMap.entrySet()) {
+            List<Person> tempList = entry.getValue();
+            Person maxIdPerson = Collections.max(tempList, Comparator.comparingInt(Person::getId));
+            System.out.println("maxIdPerson = " + maxIdPerson);
+        }
+
+    }
+
 
 }
