@@ -362,5 +362,17 @@ public class MathTest {
         System.out.println(nums);
     }
 
+    @Test
+    public void testInt() {
+        int a = 1;
+        Integer b = 1;
+        System.out.println(a == b);
+
+        int c = 5200;
+        Integer d = 8901;
+        System.out.println(c >= d);
+        System.out.println(c < d);
+    }
+
 
 }
