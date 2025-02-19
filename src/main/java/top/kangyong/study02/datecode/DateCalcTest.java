@@ -353,5 +353,26 @@ public class DateCalcTest {
         System.out.println("day = " + day);
     }
 
+    @Test
+    public void testGetCalcData() {
+        // 获取当前时间
+        DateTime now = DateUtil.date();
+
+        // ① 当前时间往前推12个月的月初开始时间
+        DateTime startOfLastYear = DateUtil.beginOfMonth(DateUtil.offsetMonth(now, -11));
+        System.out.println("12个月前月初: " + DateUtil.formatDateTime(startOfLastYear));
+
+        // ② 当前月份最后一天的结束时间
+        DateTime endOfThisMonth = DateUtil.endOfMonth(now);
+        System.out.println("本月末尾: " + DateUtil.formatDateTime(endOfThisMonth));
+
+        // ③ 过去12个月的月份列表（正序）
+        List<String> lastTwelveMonths = new ArrayList<>();
+        for (int i = 11; i >= 0; i--) {  // 从最近的月份开始，向过去12个月遍历
+            DateTime monthStart = DateUtil.beginOfMonth(DateUtil.offsetMonth(now, -i));
+            lastTwelveMonths.add(DateUtil.format(monthStart, "yyyy-MM"));
+        }
+        System.out.println("过去12个月（正序）: " + lastTwelveMonths);
+    }
 
 }
