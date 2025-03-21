@@ -48,7 +48,7 @@
 * `@EnableCircuitBreaker`：启用断路器功能
 * `@FeignClient`：声明一个`Feign`客户端
 * `@EnableFeignClients`：扫描并启用feign客户端
-* `@LoadBalance`：开启负责均衡
+* `@LoadBalance`：开启负载均衡
 
 ## 2、Spring Bean的作用域
 
