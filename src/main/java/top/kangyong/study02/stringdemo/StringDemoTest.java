@@ -294,6 +294,14 @@ public class StringDemoTest {
         System.out.println("aa = " + aa);
     }
 
+    @Test
+    public void testSplit2() {
+        String fileName = "面积补差协议.docx";
+        // 获取名称
+        String name = fileName.substring(0, fileName.lastIndexOf("."));
+        System.out.println("name = " + name);
+    }
+
 
 
 
