@@ -1,6 +1,6 @@
 [TOC]
 
-# SpringBoot
+# 一、SpringBoot
 
 * Spring
 * SpringMVC
@@ -8,9 +8,9 @@
 * SpringCloud
 
 
-## 1、SpringMVC常用注解 & SpringCloud常用注解
+## 1.1、SpringMVC常用注解 & SpringCloud常用注解
 
-***1、SpringMVC常用注解***
+***1.1.1、SpringMVC常用注解***
 
 * `@Controller`：该类标识为SpringMVC的控制器
 * `@Service`：该类标识为服务层
@@ -23,21 +23,19 @@
 * `@SessionAttribute`：绑定Session中的属性到Model对象
 * `@Component`：将对象注册到容器
 
-***2、SpringBoot常用注解***
+![image-20250506151614457](https://gitee.com/kzdwts/typora-picgo/raw/master/typora/202505061516600.png)
+
+![image-20250506151638999](https://gitee.com/kzdwts/typora-picgo/raw/master/typora/202505061516054.png)
+
+***1.1.2、SpringBoot常用注解***
 
 * `@SpringBootApplication`：启动类的注解，标识该类为SpringBoot应用的入口
-* `@RestController`：标识该类为restful风格的控制器，相当于@Controller和@ResponseBody组合注解
-* `@GetMapping`：映射get请求的url
-* `@PostMapping`：映射post请求的url
-* `@PutMapping`：映射put请求的url
-* `@DeleteMapping`：映射delete请求的url
-* `@Value`：获取配置文件的属性值
-* `@ComponentScan`：扫描组件，可以设置扫描的包路径
-* `@Configuration`：标识一个类是配置类，可以定义bean
-* `@EnableAutoConfiguration`：自动配置，SpringBoot根据类路径上的jar包自动装配Spring Bean
-* `@SpringBootConfiguration`：标识为配置类
+  * `@EnableAutoConfiguration`：自动配置，SpringBoot根据类路径上的jar包自动装配Spring Bean
+  * `@SpringBootConfiguration`：标识为配置类
+  * `@ComponentScan`: Spring组件扫描
 
-***3、SpringCloud常用注解***
+
+***1.1.3、SpringCloud常用注解***
 
 * `@SpringCloudApplication`：组合注解
   * `@SpringBootApplication`
@@ -50,7 +48,7 @@
 * `@EnableFeignClients`：扫描并启用feign客户端
 * `@LoadBalance`：开启负载均衡
 
-## 2、Spring Bean的作用域
+## 1.2、Spring Bean的作用域
 
 `Spring Bean`的作用域指的是一个Bean实例在应用程序中的生命周期和可见范围。
 
@@ -68,7 +66,7 @@
 
 比如，`Singleton `适用于无状态的Bean，`Prototype` 适用于需要被多个对象共享的状态Bean。
 
-## 3、Spring循环依赖
+## 1.3、Spring循环依赖
 
 Spring 通过三级缓存来解决循环依赖问题。
 
@@ -84,7 +82,7 @@ Spring 通过三级缓存来解决循环依赖问题。
 
 通过这种方式，`Spring`可以在创建`Bean`对象的过程中解决循环依赖的问题，同时还能保证单例对象的唯一性。
 
-## 4、拦截器和过滤器的区别
+## 1.4、拦截器和过滤器的区别
 
 区别：
 
@@ -132,7 +130,7 @@ Spring 通过三级缓存来解决循环依赖问题。
 
 
 
-## 5、Spring5对Redis的使用
+## 1.5、Spring5对Redis的使用
 
 Spring 5对Redis的支持主要是一下几个方面：
 
@@ -154,9 +152,9 @@ Spring 5对Redis的支持主要是一下几个方面：
 
   `Spring 5`提供了`Redis`消息监听容器，可以很方便地监听`Redis`消息，实现消息的消费。开发人员可以使用`@RedisListener`注解或者手动创建`MessageListenerContainer`来实现`Redis`的监听消费。
 
-## 6、SpringMVC特性
+## 1.6、SpringMVC特性
 
-### 6.1、IOC
+### 1.6.1、IOC
 
 `pring IOC（Inversion of Control，控制反转）`是Spring框架的和性特点之一，他是一种软件设计思想，也是一种设计模式，其目的是降低应用程序的耦合度，提高应用程序可重用性、可维护性和可测试性。
 
@@ -172,7 +170,7 @@ Spring 5对Redis的支持主要是一下几个方面：
 
 通过以上特性，Spring IOC能够实现应用程序的高度解耦，使得应用程序更易于开发和维护。
 
-### 6.2、AOP原理
+### 1.6.2、AOP原理
 
 Spring AOP（面向切面编程）的原理主要基于动态代理机制，以下是其核心原理的简要介绍：
 
@@ -192,8 +190,8 @@ Spring AOP（面向切面编程）的原理主要基于动态代理机制，以�
 
 ​	
 
-## 7、Spring事务
-### 7.1、Spring事务传播行为
+## 1.7、Spring事务
+### 1.7.1、Spring事务传播行为
 
 [Spring事务传播行为](https://mp.weixin.qq.com/s/IglQITCkmx7Lpz60QOW7HA)
 
@@ -213,7 +211,7 @@ Spring 事务传播行为是指在多个事务方法互相调用时，如何处�
 
 * 需要注意的是：事务传播行为只在多个事务方法之间相互调用时才会生效，如果只有一个事务方法，则没有事务传播的意义。
 
-### 7.2、Spring事务原理
+### 1.7.2、Spring事务原理
 
 Spring事务传播行为的实现原理涉及到`Spring AOP`和`Spring` 事务管理器两部分内容。
 
@@ -222,3 +220,44 @@ Spring事务传播行为的实现原理涉及到`Spring AOP`和`Spring` 事务�
 其次，`Spring`事务管理器通过拦截器的方式将代理类的方法封装成一个事务，管理该事务的生命周期和一些细节，比如事务的隔离级别和回滚规则。当方法被调用时，`Spring`事务管理器会判断当前是否有已经开启的事务，并根据方法标记的事务传播行为和已有事务的情况来决定是否开启新事务、加入已有事务或者以非事务方式执行。在事务执行结束时，根据事务执行的结果，决定是否提交事务或者回滚事务。
 
 总体来说，`Spring`事务传播行为的实现原理是通过`AOP`生成代理类，在代理类中对目标方法进行增强，并在代理类中调用事务管理器来管理事务的生命周期和执行过程。
+
+### 1.7.3、Spring中事务失效的场景有哪些？
+
+1. 异常捕获处理。自己手动写try-catch处理了异常，没有抛出。解决：手动抛出。
+2. 抛出检查异常。配置rollbackFor属性为Exception
+3. 非public方法导致的事务失效。改为public
+4. 自调用。
+
+
+
+
+
+## 1.8、Spring中用到的设计模式
+
+
+
+![image-20250506153548697](https://gitee.com/kzdwts/typora-picgo/raw/master/typora/202505061535723.png)
+
+![image-20250506153633156](https://gitee.com/kzdwts/typora-picgo/raw/master/typora/202505061536182.png)
+
+![image-20250506153744942](https://gitee.com/kzdwts/typora-picgo/raw/master/typora/202505061537969.png)
+
+![image-20250506153848687](https://gitee.com/kzdwts/typora-picgo/raw/master/typora/202505061538714.png)
+
+![image-20250506153902861](https://gitee.com/kzdwts/typora-picgo/raw/master/typora/202505061539889.png)
+
+![image-20250506153930694](https://gitee.com/kzdwts/typora-picgo/raw/master/typora/202505061539718.png)
+
+![image-20250506153948790](https://gitee.com/kzdwts/typora-picgo/raw/master/typora/202505061539815.png)
+
+![image-20250506154008093](https://gitee.com/kzdwts/typora-picgo/raw/master/typora/202505061540118.png)
+
+![image-20250506154025100](https://gitee.com/kzdwts/typora-picgo/raw/master/typora/202505061540129.png)
+
+![image-20250506154041025](https://gitee.com/kzdwts/typora-picgo/raw/master/typora/202505061540053.png)
+
+
+
+# 二、SpringCloud
+
+## 2.1、SpringBoot和SpringCloud区别？
