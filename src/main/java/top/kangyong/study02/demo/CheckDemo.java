@@ -40,6 +40,7 @@ public class CheckDemo {
         System.out.println("Objects.equals(p1.getName(), p2.getName()) = " + Objects.equals(p1.getName(), p2.getName()));
         System.out.println("Objects.equals(p1.getNationality(), p2.getNationality()) = " + Objects.equals(p1.getNationality(), p2.getNationality()));
 
+        System.out.println("Objects.equals(p1.getId(), p2.getId()) = " + Objects.equals(p1.getId(), p2.getId()));
 
 //  校验失败 java.lang.NullPointerException
 //        if (p1.getName().equals(p2.getName())) {
