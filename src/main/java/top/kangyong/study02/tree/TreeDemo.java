@@ -131,4 +131,14 @@ public class TreeDemo {
                 .map(predicate -> nodes.stream().filter(predicate).collect(Collectors.toList()))
                 .orElse(Collections.emptyList());
     }
+
+    @Test
+    public void testSoutNull() {
+        NodeDTO nodeDTO = new NodeDTO();
+        nodeDTO.setId(2L);
+
+        String desc = "id=%s,name=%s";
+        String format = String.format(desc, nodeDTO.getId(), nodeDTO.getName());
+        System.out.println("format = " + format);
+    }
 }

@@ -28,4 +28,6 @@ public class NodeDTO implements Serializable {
         this.name = name;
     }
 
+    public NodeDTO() {
+    }
 }
