@@ -68,12 +68,34 @@ public class JsonDemo02 {
         areaList.add(new SchoolArea("王丽丽大学", 28));
         areaList.add(new SchoolArea("储小姣大学", 22));
         areaList.add(new SchoolArea("李子木大学", 21));
+        areaList.add(new SchoolArea("李木木大学", 21));
+        areaList.add(new SchoolArea("李子木大学", 21));
 
         Integer sumAge = areaList.stream().mapToInt(SchoolArea::getAge).sum();
         Integer sumRenci = areaList.stream().mapToInt(SchoolArea::getRenci).sum();
         System.out.println("年龄：" + sumAge);
         System.out.println("人数：" + sumRenci);
 
+        List<SchoolArea> dataList = areaList.stream().distinct().collect(Collectors.toList());
+        System.out.println("JSON.toJSONString(dataList) = " + JSON.toJSONString(dataList));
+    }
+
+    @Test
+    public void testDistinct() {
+        List<SchoolArea> areaList = new ArrayList<>();
+        areaList.add(new SchoolArea("王丽丽大学", 28, 1000));
+        areaList.add(new SchoolArea("储小姣大学", 22, 1999));
+        areaList.add(new SchoolArea("李子木大学", 21, 1022));
+        areaList.add(new SchoolArea("王丽丽大学", 28));
+        areaList.add(new SchoolArea("储小姣大学", 22));
+        areaList.add(new SchoolArea("李子木大学", 21));
+        areaList.add(new SchoolArea("李木木大学", 21));
+        areaList.add(new SchoolArea("李子木大学", 21));
+
+        System.out.println("areaList.size() = " + areaList.size());
+        List<String> nameList = areaList.stream().map(SchoolArea::getName).distinct().collect(Collectors.toList());
+        System.out.println("JSON.toJSONString(nameList) = " + JSON.toJSONString(nameList));
+        System.out.println("nameList.size() = " + nameList.size());
     }
 
     @Test
