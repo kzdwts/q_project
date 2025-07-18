@@ -21,11 +21,19 @@ public class NodeDTO implements Serializable {
     private Long id;
     private String name;
 
+    private Integer sex;
+
     private List<NodeDTO> children;
 
     public NodeDTO(Long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public NodeDTO(Long id, String name, Integer sex) {
+        this.id = id;
+        this.name = name;
+        this.sex = sex;
     }
 
     public NodeDTO() {

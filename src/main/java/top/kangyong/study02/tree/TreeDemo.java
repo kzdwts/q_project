@@ -141,4 +141,43 @@ public class TreeDemo {
         String format = String.format(desc, nodeDTO.getId(), nodeDTO.getName());
         System.out.println("format = " + format);
     }
+
+
+    @Test
+    public void exportTree() {
+        List<NodeDTO> nodeList = new ArrayList<>();
+        // 武当派
+        NodeDTO n0 = new NodeDTO(1L, "张三丰", 1);
+
+        NodeDTO n11 = new NodeDTO(11L, "张翠三", 1);
+        NodeDTO n12 = new NodeDTO(12L, "俞岱岩", 1);
+        NodeDTO n13 = new NodeDTO(13L, "宋远桥", 1);
+        NodeDTO n14 = new NodeDTO(14L, "殷梨亭", 1);
+        NodeDTO n15 = new NodeDTO(15L, "莫七侠", 1);
+
+        NodeDTO n21 = new NodeDTO(21L, "张无忌", 1);
+        NodeDTO n22 = new NodeDTO(22L, "宋青书", 1);
+        NodeDTO n23 = new NodeDTO(23L, "宋废书", 1);
+
+        NodeDTO n31 = new NodeDTO(31L, "张风", 0);
+        NodeDTO n32 = new NodeDTO(32L, "张周", 0);
+
+        n21.setChildren(Arrays.asList(n31, n32));
+        n11.setChildren(Collections.singletonList(n21));
+        n13.setChildren(Arrays.asList(n22, n23));
+        n0.setChildren(Arrays.asList(n11, n12, n13, n14, n15));
+
+        // 华山派
+        NodeDTO h0 = new NodeDTO(200L, "岳不群", 1);
+
+        NodeDTO h11 = new NodeDTO(211L, "岳灵珊", 0);
+        NodeDTO h12 = new NodeDTO(212L, "令狐冲", 1);
+
+        h0.setChildren(Arrays.asList(h11, h12));
+
+        nodeList.add(n0);
+        nodeList.add(h0);
+
+        System.out.println("JSON.toJSONString(nodeList) = " + JSON.toJSONString(nodeList));
+    }
 }
