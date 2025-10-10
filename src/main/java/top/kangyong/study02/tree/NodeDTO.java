@@ -23,6 +23,8 @@ public class NodeDTO implements Serializable {
 
     private Integer sex;
 
+    private Integer level;
+
     private List<NodeDTO> children;
 
     public NodeDTO(Long id, String name) {

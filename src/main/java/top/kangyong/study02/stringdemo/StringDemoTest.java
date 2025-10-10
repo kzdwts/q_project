@@ -302,7 +302,61 @@ public class StringDemoTest {
         System.out.println("name = " + name);
     }
 
+    /**
+     * 处理位号字段，当位号包含英文逗号且长度超过40时进行截取
+     * 截取规则：
+     * 1. 如果不包含逗号，不处理
+     * 2. 如果字符长度超过40：
+     * - 寻找第40位，如果是非逗号，向前寻找最近的一个逗号
+     * - 截取逗号前边的数据为"新位号"
+     * - 截取逗号后边的数据为另一条新数据的"位号"
+     * - 如果正好第40位是逗号，同样按上述方式处理
+     * - 重新计算分割后的位号数量并更新amount字段
+     */
+    @Test
+    public void testSplit3() {
+        String str1 = "A1,B2,C3,D4,E5,F6,G7,H8,I9,J10,K11,L12,M13,N14";
+        String str2 = "A1,B2,C3,D4,E5,F6,G7,H8,I9,J10,K11,L12M13N14,O15";
 
+        int splitIndex1 = findSplitIndex(str1);
+        int splitIndex2 = findSplitIndex(str2);
+
+        String r1 = str1.substring(0, splitIndex1 - 1);
+        String r1r = str1.substring(splitIndex1);
+        System.out.println("r1  = " + r1);
+        System.out.println("r1r = " + r1r);
+
+        String r2 = str2.substring(0, splitIndex2 - 1);
+        String r2r = str2.substring(splitIndex2);
+        System.out.println("r2  = " + r2);
+        System.out.println("r2r = " + r2r);
+
+    }
+
+    /**
+     * 查找字符串的分割索引位置
+     * 如果字符串长度超过40，则在第40个字符附近查找最近的逗号作为分割点
+     * 如果没有找到逗号，则直接在第40个位置分割
+     *
+     * @param str 待处理的字符串
+     * @return 分割索引位置
+     */
+    private int findSplitIndex(String str) {
+        // 如果字符串长度不超过40，返回字符串长度
+        if (str.length() <= 40) {
+            return str.length();
+        }
+
+        // 从第40个字符位置开始向前查找逗号
+        for (int i = 39; i >= 0; i--) {
+            if (str.charAt(i) == ',') {
+                return i + 1; // 返回逗号后一位的位置
+            }
+        }
+
+        // 如果没找到逗号，就在第40位分割
+        return 40;
+    }
 
 
 }

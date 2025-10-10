@@ -1327,5 +1327,24 @@ public class ListTest {
 
     }
 
+    @Test
+    public void testList() {
+        List<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+        list.add("5");
+
+        int i = 1;
+        for (String s : list) {
+            System.out.println("i = " + i);
+            if (CollUtil.newArrayList("1", "3", "5").contains(s)) {
+                list.add(s + "append");
+            }
+        }
+
+    }
+
 
 }
